@@ -1,11 +1,11 @@
 {
   "root": true,
   "api": {
-    "projectId": "ieasd5lg",
+    "projectId": "a3bbcuee",
     "dataset": "production"
   },
   "project": {
-    "name": "HULL",
+    "name": "Almighty foods",
     "basePath": "/studio"
   },
   "plugins": [
@@ -23,9 +23,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
