@@ -72,13 +72,16 @@ const Header = ({ data = {}, isTransparent }) => {
               <div className="logo">
                 <Link href="/" scroll={false}>
                   <a className="logo--link" aria-label="Go Home">
-                    <Icon name="Logo" id="header" viewBox="0 0 215 150" />
+                    <Icon
+                      name="AmfLogo"
+                      id="header"
+                      viewBox="0 0 207.377 60.07"
+                    />
                   </a>
                 </Link>
               </div>
 
               <nav className="main-navigation" role="navigation">
-                {/* Mobile Header Menu */}
                 <div id="mobile-nav" className="main-navigation--mobile">
                   <FocusTrap active={isMobileNavOpen}>
                     <div>
@@ -148,31 +151,6 @@ const Header = ({ data = {}, isTransparent }) => {
 
                   <CartToggle />
                 </div>
-
-                {/* Desktop Header Menu */}
-                <div className="main-navigation--desktop">
-                  <div className="menu-left">
-                    {menuDesktopLeft?.items && (
-                      <Menu
-                        items={menuDesktopLeft.items}
-                        onClick={() => toggleMegaNav(false)}
-                        useMegaNav
-                      />
-                    )}
-                  </div>
-
-                  <div className="menu-right">
-                    {menuDesktopRight?.items && (
-                      <Menu
-                        items={menuDesktopRight.items}
-                        onClick={() => toggleMegaNav(false)}
-                        useMegaNav
-                      />
-                    )}
-
-                    <CartToggle />
-                  </div>
-                </div>
               </nav>
             </div>
 
@@ -215,17 +193,6 @@ const CartToggle = () => {
         {cartCount}
       </span>
     </button>
-  )
-}
-
-const HeaderBackdrop = ({ isActive, onClick }) => {
-  return (
-    <div
-      className={cx('header--backdrop', {
-        'is-active': isActive,
-      })}
-      onClick={onClick}
-    />
   )
 }
 

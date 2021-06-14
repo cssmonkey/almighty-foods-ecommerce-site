@@ -4,6 +4,8 @@ import crypto from 'crypto'
 const getRawBody = require('raw-body')
 const jsondiffpatch = require('jsondiffpatch')
 
+console.log(process.env)
+
 const sanity = sanityClient({
   dataset: process.env.SANITY_PROJECT_DATASET,
   projectId: process.env.SANITY_PROJECT_ID,
