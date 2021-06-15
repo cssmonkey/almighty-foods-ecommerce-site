@@ -53,8 +53,6 @@ const Layout = ({ site = {}, page = {}, schema, children }) => {
     }
   }, [windowHeight])
 
-  console.log(site.footer)
-
   return (
     <>
       <Head>

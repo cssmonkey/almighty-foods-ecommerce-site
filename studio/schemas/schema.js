@@ -17,7 +17,6 @@ import headerSettings from './documents/settings-header'
 import footerSettings from './documents/settings-footer'
 import cartSettings from './documents/settings-cart'
 import seoSettings from './documents/settings-seo'
-import menu from './documents/menu'
 import redirect from './documents/redirect'
 
 // Module types
@@ -83,7 +82,6 @@ export default createSchema({
     footerSettings,
     cartSettings,
     seoSettings,
-    menu,
     redirect,
 
     /* --------------- */

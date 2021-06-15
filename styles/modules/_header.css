@@ -31,6 +31,10 @@ a[href='#content'].skip-link {
     .is-white & {
       @apply text-white delay-75;
     }
+
+    .menu-active & {
+      @apply text-white delay-75 bg-darkBrown;
+    }
   }
 
   &--content {
@@ -45,14 +49,6 @@ a[href='#content'].skip-link {
       @apply border-transparent;
       transition-duration: 0.2s;
       transition-delay: 0s;
-      /* &:not(.is-hidden) {
-        transition-delay: 0s;
-      } */
-    }
-
-    &.is-hidden {
-      @apply opacity-0;
-      transition-delay: 0s;
     }
   }
 
@@ -62,7 +58,12 @@ a[href='#content'].skip-link {
 }
 
 .logo {
-  @apply flex flex-col relative z-10;
+  @apply flex flex-col relative z-10 opacity-100;
+  transition: opacity 0.2s ease-in;
+
+  .is-white & {
+    @apply opacity-0;
+  }
 
   &--link {
     @apply block p-2;
@@ -85,6 +86,9 @@ a[href='#content'].skip-link {
   }
   &.is-open {
     @apply text-pageText;
+  }
+  .menu-active & {
+    @apply text-white;
   }
 }
 
@@ -126,7 +130,7 @@ a[href='#content'].skip-link {
 
     &::before,
     &::after {
-      @apply block absolute w-full h-0 border-t opacity-0;
+      @apply block absolute w-full h-0 border-t-4 border-b rounded-2xl opacity-0;
       content: '';
       top: calc(50% - 0.5px);
       transition: opacity 0s 0.2s, transform 0.2s ease-out;
@@ -152,11 +156,20 @@ a[href='#content'].skip-link {
 }
 
 .cart-toggle {
-  @apply clean-btn flex items-center relative bg-transparent -mr-2 p-2 font-semibold uppercase;
+  @apply clean-btn flex items-center relative bg-transparent -mr-2 p-2 font-semibold uppercase opacity-100;
   font: inherit;
-
+  transition: opacity 0.2s ease-in;
+  svg {
+    width: 29.605px;
+    height: 36.673px;
+  }
+  .is-white & {
+    @apply opacity-0;
+  }
   &--count {
-    @apply w-6 h-6 ml-2 rounded-full bg-pageText text-pageBG opacity-30 text-xs leading-loose;
+    @apply w-6 h-6 rounded-full text-pageBG opacity-30 text-xs leading-loose bg-highlight absolute;
+    right: calc(-0.75rem + 100%);
+    transform: translateY(20%);
 
     &.is-active {
       @apply opacity-100;
@@ -165,102 +178,62 @@ a[href='#content'].skip-link {
 }
 
 .main-navigation {
-  &--desktop {
-    @apply hidden sm:flex justify-between items-center absolute inset-0;
+  @apply flex justify-end items-center absolute inset-0 z-0;
 
-    .menu-left,
-    .menu-right {
-      @apply flex items-center;
+  .menu {
+    @apply fixed top-0 left-0 w-full h-screen z-50 flex flex-col text-white bg-darkBrown;
+    will-change: transform;
+
+    @media (min-width: 421px) {
+      @apply border-r;
     }
 
-    ul {
-      @apply flex;
+    &--backdrop {
+      @apply fixed inset-0 z-40 bg-black bg-opacity-40 pointer-events-none opacity-0;
+      transition: opacity 0.15s linear;
 
-      li {
-        @apply mx-2;
+      &.is-active {
+        @apply pointer-events-auto opacity-100;
+        backdrop-filter: blur(6px);
       }
+    }
 
-      button {
-        @apply clean-btn bg-transparent;
-        font: inherit;
+    &--inner {
+      @apply flex-1 flex flex-col overflow-y-scroll px-4 pb-4 opacity-0;
+      padding-top: calc(var(--headerHeight, 10rem) + 1.5rem);
+
+      .menu-active & {
+        @apply opacity-100;
+      }
+    }
+
+    button {
+      @apply clean-btn bg-transparent;
+      font: inherit;
+    }
+
+    a,
+    button {
+      @apply block p-0;
+    }
+
+    &--primary {
+      @apply text-center mt-8 mb-12;
+      ul {
+        @apply flex flex-col;
       }
 
       a,
       button {
-        @apply block p-2 text-sm leading-normal font-semibold uppercase;
+        @apply text-4xl leading-normal;
       }
     }
-  }
+    &--social {
+      @apply flex justify-center;
 
-  &--mobile {
-    @apply flex justify-end items-center absolute inset-0;
-
-    .menu-mobile {
-      @apply fixed top-0 left-0 w-full h-screen z-50 flex flex-col bg-pageBG text-pageText;
-      height: calc(var(--vh, 1vh) * 100);
-      max-width: 420px;
-      will-change: transform;
-
-      @media (min-width: 421px) {
-        @apply border-r;
-      }
-
-      &--backdrop {
-        @apply fixed inset-0 z-40 bg-black bg-opacity-40 pointer-events-none opacity-0;
-        transition: opacity 0.15s linear;
-
-        &.is-active {
-          @apply pointer-events-auto opacity-100;
-          backdrop-filter: blur(6px);
-        }
-      }
-
-      &--inner {
-        @apply flex-1 flex flex-col overflow-y-scroll px-4 pb-4;
-        padding-top: calc(var(--headerHeight, 10rem) + 1.5rem);
-      }
-
-      button {
-        @apply clean-btn bg-transparent;
-        font: inherit;
-      }
-
-      a,
-      button {
-        @apply block p-0;
-      }
-
-      &--primary {
-        ul {
-          @apply flex flex-col;
-        }
-
-        a,
-        button {
-          @apply text-4xl leading-normal;
-        }
-      }
-
-      &--secondary {
-        @apply pt-8;
-
-        ul {
-          @apply flex flex-col;
-        }
-
-        a,
-        button {
-          @apply text-xl leading-normal;
-        }
-      }
-
-      &--featured {
-        @apply flex;
+      svg {
+        @apply w-8 h-8;
       }
     }
-  }
-
-  .cart-toggle {
-    @apply mx-2 p-2 text-sm leading-normal font-semibold uppercase;
   }
 }

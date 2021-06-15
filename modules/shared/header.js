@@ -8,48 +8,31 @@ import cx from 'classnames'
 
 import { isBrowser } from '@lib/helpers'
 
-import PromoBar from './promo-bar'
 import Menu from '@blocks/navigation/menu'
-import MegaNavigation from '@blocks/navigation/mega-nav'
 import Icon from '@components/icon'
 
 // Context helpers
-import {
-  useSiteContext,
-  useToggleMegaNav,
-  useToggleCart,
-  useCartCount,
-} from '@lib/context'
+import { useToggleCart, useCartCount } from '@lib/context'
 
 const Header = ({ data = {}, isTransparent }) => {
   // expand our header data
-  const {
-    promo,
-    menuDesktopLeft,
-    menuDesktopRight,
-    menuMobilePrimary,
-    menuMobileSecondary,
-  } = data
+  const { navItems, socialMedia } = data
 
   // setup states
-  const [isMobileNavOpen, setMobileNavOpen] = useState(false)
+  const [isNavOpen, setNavOpen] = useState(false)
   const observerRef = useRef()
   const observerIsVisible = useIntersection(observerRef)
   const headerRef = useRef()
   const headerRect = useRect(headerRef)
 
   // setup menu toggle event
-  const toggleMobileNav = (state) => {
-    setMobileNavOpen(state)
+  const toggleNav = (state) => {
+    setNavOpen(state)
 
     if (isBrowser) {
       document.body.classList.toggle('overflow-hidden', state)
     }
   }
-
-  // context helpers
-  const { meganav } = useSiteContext()
-  const toggleMegaNav = useToggleMegaNav()
 
   return (
     <>
@@ -57,13 +40,12 @@ const Header = ({ data = {}, isTransparent }) => {
         Skip to Content
       </a>
 
-      <PromoBar data={promo} />
-
       <header
         className={cx('header', {
           'is-overlay': isTransparent,
-          'is-white': isTransparent && !meganav.isOpen && observerIsVisible,
+          'is-white': isTransparent && observerIsVisible,
           'has-bg': !observerIsVisible,
+          'menu-active': isNavOpen,
         })}
       >
         <div ref={headerRef} className="header--outer">
@@ -81,95 +63,89 @@ const Header = ({ data = {}, isTransparent }) => {
                 </Link>
               </div>
 
-              <nav className="main-navigation" role="navigation">
-                <div id="mobile-nav" className="main-navigation--mobile">
-                  <FocusTrap active={isMobileNavOpen}>
-                    <div>
-                      <button
-                        onClick={() => toggleMobileNav(!isMobileNavOpen)}
-                        className={cx('menu-toggle', {
-                          'is-open': isMobileNavOpen,
-                        })}
-                        aria-expanded={isMobileNavOpen ? 'true' : 'false'}
-                        aria-controls="mobile-nav"
-                        aria-label="Toggle Menu"
-                      >
-                        <span className="hamburger">
-                          <span className="hamburger--icon"></span>
-                        </span>
-                      </button>
-                      <m.div
-                        initial="hide"
-                        animate={isMobileNavOpen ? 'show' : 'hide'}
-                        variants={{
-                          show: {
-                            x: '0%',
-                          },
-                          hide: {
-                            x: '-100%',
-                          },
-                        }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="menu-mobile"
-                      >
-                        <div
-                          className="menu-mobile--inner"
-                          style={
-                            headerRect?.height
-                              ? { '--headerHeight': `${headerRect.height}px` }
-                              : null
-                          }
-                        >
-                          <div className="menu-mobile--primary">
-                            {menuMobilePrimary?.items && (
-                              <Menu
-                                items={menuMobilePrimary.items}
-                                onClick={() => toggleMobileNav(false)}
-                              />
-                            )}
-                          </div>
-
-                          <div className="menu-mobile--secondary">
-                            {menuMobileSecondary?.items && (
-                              <Menu
-                                items={menuMobileSecondary.items}
-                                onClick={() => toggleMobileNav(false)}
-                              />
-                            )}
-                          </div>
-                        </div>
-                      </m.div>
-
+              <nav className="main-navigation" role="navigation" id="mainNav">
+                <FocusTrap active={isNavOpen}>
+                  <div>
+                    <button
+                      onClick={() => toggleNav(!isNavOpen)}
+                      className={cx('menu-toggle', {
+                        'is-open': isNavOpen,
+                      })}
+                      aria-expanded={isNavOpen ? 'true' : 'false'}
+                      aria-controls="mainNav-nav"
+                      aria-label="Toggle Menu"
+                    >
+                      <span className="hamburger">
+                        <span className="hamburger--icon"></span>
+                      </span>
+                    </button>
+                    <m.div
+                      initial="hide"
+                      animate={isNavOpen ? 'show' : 'hide'}
+                      variants={{
+                        show: {
+                          y: '0%',
+                        },
+                        hide: {
+                          y: '-100%',
+                        },
+                      }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="menu"
+                    >
                       <div
-                        className={cx('menu-mobile--backdrop', {
-                          'is-active': isMobileNavOpen,
-                        })}
-                        onClick={() => toggleMobileNav(false)}
-                      />
-                    </div>
-                  </FocusTrap>
+                        className="menu--inner"
+                        style={
+                          headerRect?.height
+                            ? { '--headerHeight': `${headerRect.height}px` }
+                            : null
+                        }
+                      >
+                        <div className="menu--primary">
+                          {navItems && (
+                            <Menu
+                              items={navItems}
+                              onClick={() => toggleNav(false)}
+                            />
+                          )}
+                        </div>
 
-                  <CartToggle />
-                </div>
+                        {socialMedia && (
+                          <ul className="menu--social">
+                            {socialMedia.map((link, key) => {
+                              return (
+                                <li key={key}>
+                                  <a
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    <Icon name={link.icon} />
+                                    <span className="sr-only">{link.name}</span>
+                                  </a>
+                                </li>
+                              )
+                            })}
+                          </ul>
+                        )}
+                      </div>
+                    </m.div>
+
+                    <div
+                      className={cx('menu--backdrop', {
+                        'is-active': isNavOpen,
+                      })}
+                      onClick={() => toggleNav(false)}
+                    />
+                  </div>
+                </FocusTrap>
+
+                <CartToggle />
               </nav>
             </div>
 
-            <div
-              className={cx('header--border', {
-                'is-hidden': meganav.isOpen,
-              })}
-            />
+            <div className="header--border" />
           </div>
-
-          <MegaNavigation
-            items={[
-              ...(menuDesktopLeft?.items || []),
-              ...(menuDesktopRight?.items || []),
-            ]}
-            headerHeight={
-              isTransparent && observerIsVisible ? headerRect?.height : false
-            }
-          />
         </div>
       </header>
 
@@ -184,7 +160,7 @@ const CartToggle = () => {
 
   return (
     <button className="cart-toggle" onClick={() => toggleCart()}>
-      Cart
+      <Icon name="Basket" id="basket" viewBox="0 0 29.605 36.673" />
       <span
         className={cx('cart-toggle--count', {
           'is-active': cartCount > 0,

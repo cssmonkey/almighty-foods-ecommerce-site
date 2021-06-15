@@ -42,6 +42,11 @@ export default {
   },
   fields: [
     {
+      title: 'Name',
+      name: 'name',
+      type: 'string'
+    },
+    {
       title: 'Icon',
       name: 'icon',
       type: 'string',
