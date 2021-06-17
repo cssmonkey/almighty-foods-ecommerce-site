@@ -76,7 +76,7 @@
   hr {
     @apply my-16 mx-0 border-0 h-px bg-pageText;
   }
-  
+
   ::-moz-selection {
     background: var(--pageText);
     color: var(--pageBG);
@@ -109,7 +109,7 @@ details {
     .is-inverted & {
       outline-color: var(--pageBG);
     }
-    
+
     body:not(.is-tabbing) & {
       outline: none;
     }
@@ -129,12 +129,12 @@ ul {
     &:not(:last-child) {
       @apply mb-6;
     }
-    
+
     li {
       @apply mb-1;
-      
+
       &::before {
-        content: "+";
+        content: '+';
         @apply inline-block relative -ml-4 w-4;
       }
     }
@@ -143,10 +143,6 @@ ul {
 
 h1,
 .is-h1 {
-  &:not(:last-child) {
-    @apply mb-4;
-  }
-
   &.has-btn {
     @apply flex flex-col items-start sm:flex-row sm:items-center;
 
@@ -156,32 +152,7 @@ h1,
   }
 
   .hero & {
-    font-size: clamp(
-      2.25rem,
-      calc(1rem + 3.5vw),
-      5rem
-    )
-  }
-}
-
-h2,
-.is-h2 {
-  &:not(:last-child) {
-    @apply mb-4;
-  }
-}
-
-h3,
-.is-h3 {
-  &:not(:last-child) {
-    @apply mb-4;
-  }
-}
-
-h4,
-.is-h4 {
-  &:not(:last-child) {
-    @apply mb-6;
+    font-size: clamp(2.25rem, calc(1rem + 3.5vw), 5rem);
   }
 }
 

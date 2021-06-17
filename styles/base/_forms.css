@@ -1,6 +1,6 @@
 .form {
   @apply relative;
-  
+
   &--error {
     /* Error Message styles */
     @apply bg-pageBG border p-4 md:p-4 text-center;
@@ -9,7 +9,7 @@
       @apply mt-2;
     }
   }
-  
+
   &--success {
     /* Success Message styles */
     @apply bg-pageBG border p-4 md:p-4 text-center;
@@ -33,27 +33,6 @@
         @apply sm:ml-4 sm:w-auto;
       }
     }
-
-    &.is-clean {
-      @apply sm:border-b mb-4;
-
-      .control {
-        @apply sm:border-0;
-        
-        &--label,
-        input {
-          @apply sm:px-0;
-        }
-
-        &--error {
-          @apply sm:left-0 sm:transform-none;
-        }
-      }
-
-      .btn {
-        @apply sm:px-0 sm:border-0 sm:bg-transparent sm:text-pageText;
-      }
-    }
   }
 
   &--label {
@@ -74,7 +53,7 @@
         @apply block flex-none mr-4 p-1 pointer-events-none border border-current transition-colors;
         width: 20px;
         height: 20px;
-        transition-delay: .15s;
+        transition-delay: 0.15s;
 
         input:checked + & {
           @apply bg-pageText;
@@ -89,7 +68,7 @@
 
           input:checked + & {
             stroke-dashoffset: 0;
-            transition-delay: .15s;
+            transition-delay: 0.15s;
           }
         }
       }
@@ -112,10 +91,10 @@
     @apply hidden;
   }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="number"],
-  input[type="password"],
+  input[type='text'],
+  input[type='email'],
+  input[type='number'],
+  input[type='password'],
   textarea {
     @apply relative appearance-none w-full h-full px-4 py-2 rounded-none border font-inherit text-base leading-none bg-transparent text-pageText;
 
@@ -132,7 +111,7 @@
     }
   }
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     @apply sr-only;
 
     &:focus {
@@ -143,7 +122,7 @@
         .is-inverted & {
           outline-color: var(--pageBG);
         }
-        
+
         body:not(.is-tabbing) & {
           outline: none;
         }

@@ -7,6 +7,9 @@ const Marquee = dynamic(() => import('./marquee'))
 const DividerPhoto = dynamic(() => import('./divider-photo'))
 const ProductHero = dynamic(() => import('./shop/product-hero'))
 const Collection = dynamic(() => import('./shop/collection'))
+const Newsletter = dynamic(() => import('./newsletter'))
+const Quote = dynamic(() => import('./quote'))
+const ProductsGrid = dynamic(() => import('./products-grid'))
 
 export const Module = ({
   module,
@@ -42,6 +45,12 @@ export const Module = ({
           featuredProducts={featuredProducts}
         />
       )
+    case 'newsletter':
+      return <Newsletter data={module} />
+    case 'quote':
+      return <Quote data={module} />
+    case 'productsGrid':
+      return <ProductsGrid data={module} />
     default:
       return null
   }

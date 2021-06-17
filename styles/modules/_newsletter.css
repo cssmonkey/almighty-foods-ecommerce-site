@@ -1,0 +1,21 @@
+.newsletter-form {
+  @apply container mx-auto px-6 my-12;
+  &:last-child {
+    @apply mb-0;
+  }
+
+  &__inner {
+    @apply mx-auto;
+    max-width: 45rem;
+  }
+
+  &__title {
+    @apply text-center mb-2;
+  }
+  &__title + &__subtitle {
+    @apply mb-4;
+  }
+  &__subtitle {
+    @apply text-center;
+  }
+}

@@ -30,7 +30,9 @@ import marquee from './modules/marquee'
 import dividerPhoto from './modules/divider-photo'
 import newsletter from './modules/newsletter'
 import productHero from './modules/product-hero'
+import productsGrid from './modules/products-grid'
 import collectionGrid from './modules/collection-grid'
+import quote from './modules/quote'
 
 // Block types
 import freeform from './blocks/freeform'
@@ -98,7 +100,9 @@ export default createSchema({
     dividerPhoto,
     newsletter,
     productHero,
+    productsGrid,
     collectionGrid,
+    quote,
 
     /* -------------- */
     /* 3: Block types */

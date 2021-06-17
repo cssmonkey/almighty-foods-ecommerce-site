@@ -1,9 +1,4 @@
-import {
-  FiHome,
-  FiHelpCircle,
-  FiAlertTriangle,
-  FiActivity
-} from 'react-icons/fi'
+import { FiHome } from 'react-icons/fi'
 
 export default {
   title: 'Home',
@@ -24,10 +19,10 @@ export default {
       name: 'modules',
       type: 'array',
       of: [
-        { type: 'grid' },
         { type: 'hero' },
+        { type: 'quote' },
         { type: 'newsletter' },
-        { type: 'dividerPhoto' }
+        { type: 'productsGrid' }
       ]
     },
     {

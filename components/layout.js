@@ -76,7 +76,11 @@ const Layout = ({ site = {}, page = {}, schema, children }) => {
         )}
 
         <link rel="preconnect" href="https://almightyfoods.myshopify.com" />
-        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin />
+        <link
+          rel="preconnect"
+          href="https://cdn.sanity.io"
+          crossOrigin="true"
+        />
 
         <title>{metaTitle}</title>
         {metaDesc && <meta name="description" content={metaDesc} />}
