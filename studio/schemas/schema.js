@@ -9,6 +9,8 @@ import page from './documents/page'
 import product from './documents/shopify-product'
 import productVariant from './documents/shopify-variant'
 import collection from './documents/shopify-collection'
+import allRecipesPage from './documents/page-recipes'
+import recipePage from './documents/page-recipe'
 
 import generalSettings from './documents/settings-general'
 import cookieSettings from './documents/settings-cookie'
@@ -74,6 +76,8 @@ export default createSchema({
     product,
     productVariant,
     collection,
+    allRecipesPage,
+    recipePage,
 
     generalSettings,
     cookieSettings,

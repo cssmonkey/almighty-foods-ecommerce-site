@@ -1,8 +1,8 @@
 import { FiFile } from 'react-icons/fi'
 
 export default {
-  title: 'Page',
-  name: 'page',
+  title: 'Recipe',
+  name: 'recipePage',
   type: 'document',
   icon: FiFile,
   fields: [
