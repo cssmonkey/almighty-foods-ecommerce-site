@@ -1,5 +1,5 @@
 .footer {
-  @apply container mt-12 mx-auto pb-8;
+  @apply container mx-auto mt-32 pb-8;
   &__logo {
     @apply flex items-center mb-4;
 

@@ -7,11 +7,6 @@ export default {
   icon: FiGrid,
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string'
-    },
-    {
       title: 'URL Slug',
       name: 'slug',
       type: 'slug',
@@ -20,6 +15,11 @@ export default {
         source: 'title',
         maxLength: 96
       }
+    },
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string'
     },
     {
       title: 'Page Modules',

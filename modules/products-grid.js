@@ -7,7 +7,7 @@ const ProductsGrid = ({ data = {} }) => {
   return (
     <div className="products-grid">
       <div className="products-grid__inner">
-        <h2>{title}</h2>
+        <h2 className="products-grid__title">{title}</h2>
       </div>
     </div>
   )

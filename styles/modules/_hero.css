@@ -1,11 +1,11 @@
 .hero {
-  @apply relative overflow-hidden max-h-screen border-b;
+  @apply relative overflow-hidden max-h-screen border-b mb-24;
   max-height: calc(var(--vh, 1vh) * 100);
 
   @media (max-height: 500px) {
     min-height: 500px;
   }
-  
+
   &--bg {
     @apply relative w-full z-0 max-h-screen h-full;
 

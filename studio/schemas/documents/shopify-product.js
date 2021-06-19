@@ -22,6 +22,13 @@ export default {
   icon: FiGift,
   fields: [
     {
+      title: 'URL Slug',
+      name: 'slug',
+      type: 'slug',
+      readOnly: true,
+      fieldset: 'shopify'
+    },
+    {
       title: 'Product Title',
       name: 'productTitle',
       type: 'string',
@@ -67,13 +74,6 @@ export default {
       title: 'SKU',
       name: 'sku',
       type: 'string',
-      readOnly: true,
-      fieldset: 'shopify'
-    },
-    {
-      title: 'URL Slug',
-      name: 'slug',
-      type: 'slug',
       readOnly: true,
       fieldset: 'shopify'
     },

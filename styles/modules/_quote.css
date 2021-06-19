@@ -1,17 +1,14 @@
 .quote {
-  @apply container mx-auto px-6 my-12;
-  &:last-child {
-    @apply mb-0;
-  }
+  @apply container mx-auto px-6 mb-24;
   &__inner {
-    @apply mx-auto py-12 px-8 sm:px-12 border-t border-b border-lightBrown;
+    @apply mx-auto py-12 sm:px-12 border-t border-b border-lightBrown;
     max-width: 64rem;
   }
   &:last-child &__inner {
     @apply mb-0 border-b-0;
   }
   blockquote {
-    @apply flex text-center text-3xl m-0 relative px-9;
+    @apply flex text-center text-3xl m-0 relative;
   }
   blockquote p {
     @apply text-3xl pt-2;

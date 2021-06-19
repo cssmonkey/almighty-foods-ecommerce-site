@@ -1,8 +1,5 @@
 .newsletter-form {
-  @apply container mx-auto px-6 my-12;
-  &:last-child {
-    @apply mb-0;
-  }
+  @apply container mx-auto px-6 mb-24;
 
   &__inner {
     @apply mx-auto;

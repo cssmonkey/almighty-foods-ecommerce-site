@@ -61,6 +61,8 @@ import accordion from './objects/accordion'
 import figure from './objects/figure'
 import horizontalRule from './objects/horizontal-rule'
 
+import recipeIngredients from './objects/recipe-ingredients'
+
 /*  ------------------------------------------ */
 /*  Your Schema documents / modules / objects
 /*  ------------------------------------------ */
@@ -131,6 +133,8 @@ export default createSchema({
 
     accordion,
     figure,
-    horizontalRule
+    horizontalRule,
+
+    recipeIngredients
   ])
 })

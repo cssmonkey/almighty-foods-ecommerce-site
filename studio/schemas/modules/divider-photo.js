@@ -1,7 +1,7 @@
 import { FiImage } from 'react-icons/fi'
 
 export default {
-  title: 'Divider Photo',
+  title: 'Image',
   name: 'dividerPhoto',
   type: 'object',
   icon: FiImage,
@@ -18,7 +18,7 @@ export default {
     },
     prepare({ photo }) {
       return {
-        title: 'Divider Photo',
+        title: 'Image',
         media: photo
       }
     }

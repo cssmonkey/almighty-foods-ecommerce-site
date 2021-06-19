@@ -38,6 +38,7 @@ const hiddenDocTypes = listItem =>
     'collection',
     'allRecipesPage',
     'recipePage',
+    'recipeIngredients',
 
     'generalSettings',
     'cookieSettings',
