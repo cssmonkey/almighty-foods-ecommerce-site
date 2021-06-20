@@ -1,5 +1,5 @@
 .products-grid {
-  @apply container mx-auto mb-24 px-6;
+  @apply container mx-auto mb-24 px-6 sm:px-0;
   &__title {
     @apply text-center mx-auto;
     max-width: 42.5rem;

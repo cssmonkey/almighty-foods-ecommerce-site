@@ -29,6 +29,7 @@
 @import 'modules/_product';
 @import 'modules/_products-grid';
 @import 'modules/_quote';
+@import 'modules/_recipe-listing';
 @import 'modules/_theme-switch';
 
 @import '_shame';

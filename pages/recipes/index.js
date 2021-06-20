@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import Layout from '@components/layout'
-import { getStaticPage } from '@lib/api'
+import Layout from '@components/layout';
+import { getStaticPage, imageMeta } from '@lib/api';
 
-import BlockContent from '@sanity/block-content-to-react'
-import { serializers } from '@lib/serializers'
+import BlockContent from '@sanity/block-content-to-react';
+import { serializers } from '@lib/serializers';
+import RecipeListing from '@modules/recipes-listing';
 
 const Recipes = ({ data }) => {
-  const { site, page } = data
+  const { site, page } = data;
 
   return (
     <Layout site={site} page={page}>
@@ -18,11 +19,10 @@ const Recipes = ({ data }) => {
         blocks={page.introText}
         serializers={serializers}
       />
-      {page.allRecipes &&
-        page.allRecipes.map((recipe, i) => <p>{recipe.title}</p>)}
+      <RecipeListing recipes={page.allRecipes} />
     </Layout>
-  )
-}
+  );
+};
 
 export async function getStaticProps({ preview, previewData }) {
   const pageData = await getStaticPage(
@@ -32,7 +32,11 @@ export async function getStaticProps({ preview, previewData }) {
       introText,
       seo,
       "allRecipes": *[_type == "recipePage"] | order(_updatedAt desc)[]{
-        title   
+        title,
+        image {
+          ${imageMeta}
+        },
+        "slug": slug.current
       }
     }
   `,
@@ -40,13 +44,13 @@ export async function getStaticProps({ preview, previewData }) {
       active: preview,
       token: previewData?.token,
     }
-  )
+  );
 
   return {
     props: {
       data: pageData,
     },
-  }
+  };
 }
 
-export default Recipes
+export default Recipes;

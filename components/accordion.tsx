@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { m } from 'framer-motion'
-import cx from 'classnames'
+import React, { useState, useEffect, FC } from 'react';
+import { m } from 'framer-motion';
+import cx from 'classnames';
 
-const Accordion = ({ toggle, onChange, id, title, children }) => {
-  const [isOpen, setIsOpen] = useState(toggle)
+interface AccordionProps {
+  id: string;
+  title: string;
+  children: JSX.Element | JSX.Element[];
+}
+const Accordion: FC<AccordionProps> = ({ id, title, children }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   const accordionAnim = {
     open: {
@@ -14,17 +19,7 @@ const Accordion = ({ toggle, onChange, id, title, children }) => {
       opacity: 0,
       height: 0,
     },
-  }
-
-  useEffect(() => {
-    setIsOpen(toggle)
-  }, [toggle])
-
-  useEffect(() => {
-    if (onChange) {
-      onChange(id, open)
-    }
-  }, [isOpen])
+  };
 
   return (
     <div key={id} className="accordion">
@@ -49,7 +44,7 @@ const Accordion = ({ toggle, onChange, id, title, children }) => {
         <div className="accordion--inner">{children}</div>
       </m.div>
     </div>
-  )
-}
+  );
+};
 
-export default Accordion
+export default Accordion;

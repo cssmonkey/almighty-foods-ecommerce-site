@@ -11,6 +11,19 @@ export default {
       name: 'ingredients',
       type: 'array',
       of: [{ type: 'string' }]
+    },
+    {
+      title: 'Add any products to ingredients list',
+      name: 'ingredientProducts',
+      type: 'array',
+      of: [
+        {
+          title: 'Product',
+          type: 'reference',
+          to: [{ type: 'product' }]
+        }
+      ],
+      validation: Rule => Rule.unique()
     }
   ]
 }

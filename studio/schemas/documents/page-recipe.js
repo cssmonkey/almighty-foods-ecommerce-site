@@ -1,4 +1,4 @@
-import { FiFile, FiAlignLeft } from 'react-icons/fi'
+import { FiFile, FiAlignLeft } from 'react-icons/fi';
 
 export default {
   title: 'Recipe',
@@ -22,32 +22,30 @@ export default {
       type: 'string'
     },
     {
-      title: 'Page Modules',
-      name: 'modules',
-      type: 'array',
-      of: [
-        { type: 'dividerPhoto' },
+      name: 'image',
+      title: 'Image',
+      type: 'figure'
+    },
+
+    {
+      name: 'intro',
+      title: 'Intro',
+      type: 'object',
+      icon: FiAlignLeft,
+      fields: [
         {
-          name: 'intro',
-          title: 'Intro',
-          type: 'object',
-          icon: FiAlignLeft,
-          fields: [
-            {
-              title: 'Intro text',
-              name: 'introText',
-              type: 'simplePortableText'
-            }
-          ],
-          preview: {
-            prepare() {
-              return {
-                title: 'Intro text'
-              }
-            }
-          }
+          title: 'Intro text',
+          name: 'introText',
+          type: 'simplePortableText'
         }
-      ]
+      ],
+      preview: {
+        prepare() {
+          return {
+            title: 'Intro text'
+          };
+        }
+      }
     },
     {
       name: 'ingredients',
@@ -71,11 +69,11 @@ export default {
       slug: 'slug'
     },
     prepare({ title = 'Untitled', slug = {} }) {
-      const path = `/${slug.current}`
+      const path = `/${slug.current}`;
       return {
         title,
         subtitle: slug.current ? path : '(missing slug)'
-      }
+      };
     }
   }
-}
+};

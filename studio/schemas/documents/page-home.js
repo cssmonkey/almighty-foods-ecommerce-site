@@ -1,4 +1,4 @@
-import { FiHome } from 'react-icons/fi'
+import { FiHome } from 'react-icons/fi';
 
 export default {
   title: 'Home',
@@ -22,7 +22,8 @@ export default {
         { type: 'hero' },
         { type: 'quote' },
         { type: 'newsletter' },
-        { type: 'productsGrid' }
+        { type: 'productsGrid' },
+        { type: 'recipesList' }
       ]
     },
     {
@@ -35,7 +36,7 @@ export default {
     prepare() {
       return {
         title: 'Home Page'
-      }
+      };
     }
   }
-}
+};

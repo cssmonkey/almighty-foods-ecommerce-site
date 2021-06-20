@@ -1,0 +1,21 @@
+.recipe-listing {
+  @apply container mx-auto mb-24 px-6 sm:px-0;
+  &__title {
+    @apply text-center mx-auto;
+    max-width: 42.5rem;
+  }
+  &__subtitle {
+    @apply text-center mx-auto;
+    max-width: 42.5rem;
+  }
+
+  &__list {
+    @apply -mx-4 pt-4;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      @apply mx-4 mb-6;
+      flex: 1;
+    }
+  }
+}

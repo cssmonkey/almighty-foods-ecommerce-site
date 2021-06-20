@@ -1,5 +1,5 @@
 .quote {
-  @apply container mx-auto px-6 mb-24;
+  @apply container mx-auto px-6 sm:px-0 mb-24;
   &__inner {
     @apply mx-auto py-12 sm:px-12 border-t border-b border-lightBrown;
     max-width: 64rem;
