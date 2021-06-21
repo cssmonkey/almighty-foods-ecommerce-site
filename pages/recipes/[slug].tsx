@@ -9,8 +9,11 @@ import Freeform from '@blocks/freeform';
 
 const RecipePage = ({ data }) => {
   const { site, page } = data;
+  const ingredientProducts = page.ingredientProducts
+    ? page.ingredientProducts
+    : [];
 
-  const fullIngredientsList = page.ingredientProducts
+  const fullIngredientsList = ingredientProducts
     .concat(page.ingredients.map((title) => ({ title })))
     .sort(function (a, b) {
       if (a.title < b.title) {
