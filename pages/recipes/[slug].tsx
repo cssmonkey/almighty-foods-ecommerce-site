@@ -29,18 +29,20 @@ const RecipePage = ({ data }) => {
   return (
     <div>
       <h1>{page.title}</h1>
-      <Freeform data={page.instructions} />
+      {page.instructions && <Freeform data={page.instructions} />}
       <ul>
         {fullIngredientsList.map((ingredient, i) => {
           return <li key={i}>{ingredient.title}</li>;
         })}
       </ul>
-      <BlockContent
-        renderContainerOnSingleChild
-        className=""
-        blocks={page.intro}
-        serializers={serializers}
-      />
+      {page.intro && (
+        <BlockContent
+          renderContainerOnSingleChild
+          className=""
+          blocks={page.intro}
+          serializers={serializers}
+        />
+      )}
     </div>
   );
 };
