@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import { buildSrcSet, buildSrc } from '@lib/helpers';
 
-interface Photo {
+export interface PhotoImage {
   customRatio: number;
   aspectRatio: number;
   alt: string;
@@ -25,7 +25,7 @@ interface PhotoProps {
   forceLoad?: boolean;
   className?: string;
   onLoad?: () => void;
-  photo: Photo;
+  photo: PhotoImage;
 }
 
 const Photo: FC<PhotoProps> = ({

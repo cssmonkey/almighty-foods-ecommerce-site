@@ -1,11 +1,11 @@
 import React, { useRef, FC } from 'react';
 import { useIntersection } from 'use-intersection';
 import Link from 'next/link';
-import Photo from '@components/photo';
+import Photo, { PhotoImage } from '@components/photo';
 
 interface Recipe {
   title: string;
-  image: Record<string, unknown>;
+  image: PhotoImage;
   slug: string;
 }
 
