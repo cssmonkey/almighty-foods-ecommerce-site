@@ -1,10 +1,34 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { useIntersection } from 'use-intersection'
-import cx from 'classnames'
+import React, { useState, useEffect, useRef, FC } from 'react';
+import { useIntersection } from 'use-intersection';
+import cx from 'classnames';
 
-import { buildSrcSet, buildSrc } from '@lib/helpers'
+import { buildSrcSet, buildSrc } from '@lib/helpers';
 
-const Photo = ({
+interface Photo {
+  customRatio: number;
+  aspectRatio: number;
+  alt: string;
+  lqip: string;
+  asset?: {
+    altText: string;
+  };
+}
+
+interface PhotoProps {
+  width?: string;
+  height?: string;
+  srcSizes?: number[];
+  hasPlaceholder?: boolean;
+  sizes?: string;
+  layout?: string;
+  quality?: number;
+  forceLoad?: boolean;
+  className?: string;
+  onLoad?: () => void;
+  photo: Photo;
+}
+
+const Photo: FC<PhotoProps> = ({
   photo,
   width,
   height,
@@ -17,48 +41,49 @@ const Photo = ({
   onLoad,
   className,
 }) => {
-  if (!photo) return null
+  if (!photo) return null;
 
-  const imageRef = useRef()
-  const [isLoaded, setIsLoaded] = useState(false)
+  const imageRef = useRef();
+  const [isLoaded, setIsLoaded] = useState(false);
   const isIntersecting = useIntersection(imageRef, {
     once: true,
     threshold: 0.1,
-  })
+  });
 
   // define our aspect ratio if not a background fill
   const aspect =
     typeof width === 'number' && typeof height === 'number'
       ? (height / width) * 100
-      : 100 / (photo.customRatio || photo.aspectRatio)
+      : 100 / (photo.customRatio || photo.aspectRatio);
 
   const aspectCustom =
-    layout === 'intrinsic' ? { paddingTop: `${aspect}%` } : null
+    layout === 'intrinsic' ? { paddingTop: `${aspect}%` } : null;
 
   // define our src and srcset
+  // @ts-ignore
   const src = buildSrc(photo, {
     ...{ width },
     ...{ height },
     ...{ quality },
-  })
-
+  });
+  // @ts-ignore
   const srcset = buildSrcSet(photo, {
     ...{ srcSizes },
     ...{ aspect },
     ...{ quality },
-  })
+  });
 
   // handle our image onLoad
   function handleLoad() {
     requestAnimationFrame(() => {
-      setIsLoaded(true)
-    })
+      setIsLoaded(true);
+    });
   }
 
   // trigger any onLoad callbacks
   useEffect(() => {
-    if (isLoaded && onLoad) onLoad()
-  }, [isLoaded])
+    if (isLoaded && onLoad) onLoad();
+  }, [isLoaded]);
 
   return (
     <figure className={className ? className : null}>
@@ -90,18 +115,18 @@ const Photo = ({
         )}
       </div>
     </figure>
-  )
-}
+  );
+};
 
 const getSize = (layout) => {
   switch (layout) {
     case 'intrinsic':
-      return 'object-cover'
+      return 'object-cover';
     case 'fill':
-      return 'object-cover'
+      return 'object-cover';
     case 'contain':
-      return 'object-contain'
+      return 'object-contain';
   }
-}
+};
 
-export default Photo
+export default Photo;
