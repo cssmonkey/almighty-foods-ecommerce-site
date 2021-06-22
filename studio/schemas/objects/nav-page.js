@@ -19,8 +19,9 @@ export default {
         { type: 'page' },
         { type: 'collection' },
         { type: 'product' },
-        { type: 'allRecipesPage' }
+        { type: 'allRecipesPage' },
+        { type: 'stockistsPage' }
       ]
     }
   ]
-}
+};

@@ -1,24 +1,15 @@
 import React from 'react';
-
-import Layout from '@components/layout';
 import { getStaticPage, imageMeta } from '@lib/api';
-
-import BlockContent from '@sanity/block-content-to-react';
-import { serializers } from '@lib/serializers';
+import Layout from '@components/layout';
 import RecipeListing from '@modules/recipes-listing';
+import PageHeader from '@components/page-header';
 
 const Recipes = ({ data }) => {
   const { site, page } = data;
 
   return (
     <Layout site={site} page={page}>
-      <h1>{page.title}</h1>
-      <BlockContent
-        renderContainerOnSingleChild
-        className="intro-text"
-        blocks={page.introText}
-        serializers={serializers}
-      />
+      <PageHeader title={page.title} introText={page.introText} />
       <RecipeListing recipes={page.allRecipes} />
     </Layout>
   );

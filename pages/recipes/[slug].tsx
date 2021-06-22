@@ -2,10 +2,12 @@ import React from 'react';
 
 import BlockContent from '@sanity/block-content-to-react';
 import { serializers } from '@lib/serializers';
-import Layout from '@components/layout';
 import { getAllDocSlugs, getRecipe } from '@lib/api';
-
+import Layout from '@components/layout';
 import Freeform from '@blocks/freeform';
+import PageHeader from '@components/page-header';
+import Photo from '@components/photo';
+import PageContent from '@components/page-content';
 
 const RecipePage = ({ data }) => {
   const { site, page } = data;
@@ -27,23 +29,26 @@ const RecipePage = ({ data }) => {
     });
 
   return (
-    <div>
-      <h1>{page.title}</h1>
-      {page.instructions && <Freeform data={page.instructions} />}
-      <ul>
-        {fullIngredientsList.map((ingredient, i) => {
-          return <li key={i}>{ingredient.title}</li>;
-        })}
-      </ul>
-      {page.intro && (
-        <BlockContent
-          renderContainerOnSingleChild
-          className=""
-          blocks={page.intro}
-          serializers={serializers}
-        />
-      )}
-    </div>
+    <Layout site={site} page={page}>
+      <PageHeader title={page.title} introText={page.introText} />
+      <Photo photo={page.image} className="page-content-image" />
+      <PageContent>
+        {page.instructions && <Freeform data={page.instructions} />}
+        <ul>
+          {fullIngredientsList.map((ingredient, i) => {
+            return <li key={i}>{ingredient.title}</li>;
+          })}
+        </ul>
+        {page.intro && (
+          <BlockContent
+            renderContainerOnSingleChild
+            className=""
+            blocks={page.intro}
+            serializers={serializers}
+          />
+        )}
+      </PageContent>
+    </Layout>
   );
 };
 

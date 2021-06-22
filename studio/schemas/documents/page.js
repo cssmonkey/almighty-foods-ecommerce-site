@@ -1,4 +1,4 @@
-import { FiFile } from 'react-icons/fi'
+import { FiFile } from 'react-icons/fi';
 
 export default {
   title: 'Page',
@@ -14,7 +14,8 @@ export default {
       options: {
         source: 'title',
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'title',
@@ -44,11 +45,11 @@ export default {
       slug: 'slug'
     },
     prepare({ title = 'Untitled', slug = {} }) {
-      const path = `/${slug.current}`
+      const path = `/${slug.current}`;
       return {
         title,
         subtitle: slug.current ? path : '(missing slug)'
-      }
+      };
     }
   }
-}
+};

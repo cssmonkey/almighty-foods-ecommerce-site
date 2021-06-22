@@ -10,12 +10,10 @@
   }
 
   &__list {
-    @apply -mx-4 pt-4;
-    display: flex;
-    flex-wrap: wrap;
+    @apply pt-4 grid grid-cols-1 gap-4 sm:grid-cols-3;
+
     li {
-      @apply mx-4 mb-6;
-      flex: 1;
+      @apply mb-6;
     }
   }
 }

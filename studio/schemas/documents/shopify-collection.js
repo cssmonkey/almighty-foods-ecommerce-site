@@ -1,4 +1,4 @@
-import { FiGrid } from 'react-icons/fi'
+import { FiGrid } from 'react-icons/fi';
 
 export default {
   title: 'Collection',
@@ -14,7 +14,8 @@ export default {
       options: {
         source: 'title',
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'title',
@@ -35,11 +36,11 @@ export default {
       validation: Rule =>
         Rule.custom(blocks => {
           const collectionGrids =
-            blocks?.filter(block => block._type === 'collectionGrid') || []
+            blocks?.filter(block => block._type === 'collectionGrid') || [];
 
           const collectionGridItems = collectionGrids.map(
             (item, index) => [{ _key: item._key }] || [index]
-          )
+          );
 
           return collectionGrids.length === 1
             ? true
@@ -47,7 +48,7 @@ export default {
                 message:
                   'You must have one "Collection Grid" module on the page',
                 paths: collectionGridItems
-              }
+              };
         })
     },
     {
@@ -75,11 +76,11 @@ export default {
       slug: 'slug'
     },
     prepare({ title = 'Untitled', slug = {} }) {
-      const path = `/shop/${slug.current}`
+      const path = `/shop/${slug.current}`;
       return {
         title,
         subtitle: slug.current ? path : '(missing slug)'
-      }
+      };
     }
   }
-}
+};

@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react'
-import Head from 'next/head'
-import { m } from 'framer-motion'
-import { imageBuilder } from '@lib/sanity'
+import React, { useEffect } from 'react';
+import Head from 'next/head';
+import { m } from 'framer-motion';
+import { imageBuilder } from '@lib/sanity';
 
-import { isBrowser, useWindowSize } from '@lib/helpers'
+import { isBrowser, useWindowSize } from '@lib/helpers';
 
-import generateSchema from '@lib/schema'
+import generateSchema from '@lib/schema';
 
-import CookieBar from '@modules/shared/cookie-bar'
-import Header from '@modules/shared/header'
-import Footer from '@modules/shared/footer'
+import CookieBar from '@modules/shared/cookie-bar';
+import Header from '@modules/shared/header';
+import Footer from '@modules/shared/footer';
 
-const duration = 0.4
+const duration = 0.4;
 const variants = {
   initial: {
     opacity: 0,
@@ -29,29 +29,29 @@ const variants = {
     opacity: 0,
     transition: { duration: duration, ease: 'linear', when: 'beforeChildren' },
   },
-}
+};
 
-const Layout = ({ site = {}, page = {}, schema, children }) => {
+const Layout = ({ site = {}, page = {}, schema = null, children }) => {
   // set <head> variables
-  const siteTitle = site.seo?.siteTitle
-  const siteIcon = site.seo?.siteIcon
+  const siteTitle = site.seo?.siteTitle;
+  const siteIcon = site.seo?.siteIcon;
 
-  const metaTitle = page.seo?.metaTitle || site.seo?.metaTitle
-  const metaDesc = page.seo?.metaDesc || site.seo?.metaDesc
+  const metaTitle = page.seo?.metaTitle || site.seo?.metaTitle;
+  const metaDesc = page.seo?.metaDesc || site.seo?.metaDesc;
 
-  const shareTitle = page.seo?.shareTitle || site.seo?.shareTitle
-  const shareDesc = page.seo?.shareDesc || site.seo?.shareDesc
+  const shareTitle = page.seo?.shareTitle || site.seo?.shareTitle;
+  const shareDesc = page.seo?.shareDesc || site.seo?.shareDesc;
   const shareGraphic =
-    page.seo?.shareGraphic?.asset || site.seo?.shareGraphic?.asset
+    page.seo?.shareGraphic?.asset || site.seo?.shareGraphic?.asset;
 
   // set window height var
-  const { height: windowHeight } = useWindowSize()
+  const { height: windowHeight } = useWindowSize();
 
   useEffect(() => {
     if (isBrowser) {
-      document.body.style.setProperty('--vh', `${windowHeight * 0.01}px`)
+      document.body.style.setProperty('--vh', `${windowHeight * 0.01}px`);
     }
-  }, [windowHeight])
+  }, [windowHeight]);
 
   return (
     <>
@@ -136,7 +136,7 @@ const Layout = ({ site = {}, page = {}, schema, children }) => {
         <Footer data={site.footer} />
       </m.div>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
