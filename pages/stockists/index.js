@@ -40,11 +40,11 @@ const Stockists = ({ data }) => {
       restStockists.push(stockist);
     }
   });
-  debugger;
+  
   return (
     <Layout site={site} page={page}>
       <PageHeader title={page.title} introText={page.introText} />
-      <Map />
+      <Map markers={stockistsList} />
       {scotlandStockists && scotlandStockists.length > 0 && (
         <StockistList title={REGIONS.scotland} listItems={scotlandStockists} />
       )}

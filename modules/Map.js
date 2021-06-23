@@ -1,43 +1,60 @@
-import React, { memo } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import GOOGLE_MAP_API from 'constants/google-map-api';
 
 const containerStyle = {
-  width: '400px',
-  height: '400px',
+  width: '700px',
+  height: '900px',
 };
 
 const center = GOOGLE_MAP_API.defaultLocation;
+const zoom = GOOGLE_MAP_API.defaultZoom;
 
-const Map = ({ data = {} }) => {
+const Map = ({ markers = [] }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: GOOGLE_MAP_API.apiKey,
   });
 
-  const [map, setMap] = React.useState(null);
+  const [map, setMap] = useState(null);
 
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
+  const onLoad = useCallback((map) => {
+    // const bounds = new window.google.maps.LatLngBounds();
+    // map.fitBounds(bounds);
+    // debugger;
+    // setMap(map);
+    const bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < markers.length; i++) {
+      if(markers[i].coordinates) {
+        return;
+      }
+      const {lat, lng} = markers[i].coordinates;
+      bounds.extend({lat, lng});
+    }
+
     map.fitBounds(bounds);
+    map.setCenter(bounds.getCenter());
+    map.setZoom(map.getZoom()-1); 
     setMap(map);
   }, []);
 
-  const onUnmount = React.useCallback(function callback(map) {
+  const onUnmount = useCallback((map) => {
     setMap(null);
   }, []);
 
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
+      center={{
+        lat: 50.736129,
+        lng: -1.988229,
+      }}
+      zoom={zoom}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
-      {/* Child components, such as markers, info windows, etc. */}
-      <></>
+      { markers.map(({coordinates, title}, i) => <Marker key={i} position={coordinates} title={title} />) }
     </GoogleMap>
   ) : (
     <></>

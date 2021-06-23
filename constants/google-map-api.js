@@ -1,9 +1,9 @@
 const GOOGLE_MAP_API = {
   apiKey: 'AIzaSyDzjsx2K1NjmvcjNyEs0FLYf4vrj5DLpRU',
-  defaultZoom: 11,
+  defaultZoom: 6,
   defaultLocation: {
-    lat: 56.3807146,
-    lng: -3.3090292,
+    lat: 50.736129,
+    lng: -1.988229,
   },
 };
 
