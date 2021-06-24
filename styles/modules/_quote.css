@@ -1,21 +1,21 @@
 .quote {
   @apply container mx-auto px-6 sm:px-0 mb-24;
   &__inner {
-    @apply mx-auto py-12 sm:px-12 border-t border-b border-lightBrown;
-    max-width: 64rem;
+    @apply py-16 border-t border-b border-lightBrown;
   }
   &:last-child &__inner {
     @apply mb-0 border-b-0;
   }
   blockquote {
-    @apply flex text-center text-3xl m-0 relative;
+    @apply mx-auto flex text-center text-3xl sm:text-5xl m-0 relative;
+    max-width: 64rem;
   }
   blockquote p {
-    @apply text-3xl pt-2;
+    @apply text-3xl sm:text-5xl pt-2;
   }
   blockquote::before {
     @apply text-highlight text-7xl;
-    content: '\201C';
+    content: '\201D';
   }
   blockquote::after {
     @apply text-highlight text-7xl;

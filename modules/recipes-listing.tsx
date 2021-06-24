@@ -56,6 +56,13 @@ const RecipeListing: FC<RecipeListingProps> = ({
               ))
               .slice(0, maxNumber ? maxNumber : recipes.length)}
         </ul>
+        <div className="recipe-listing__cta-control text-center">
+          <Link href={`/recipes`}>
+            <a className="cta-link">
+              <span className="cta-link__text">View all our recipes</span>
+            </a>
+          </Link>
+        </div>
       </div>
     </div>
   );

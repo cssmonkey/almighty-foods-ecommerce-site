@@ -1,12 +1,12 @@
 .recipe-listing {
   @apply container mx-auto mb-24 px-6 sm:px-0;
   &__title {
-    @apply text-center mx-auto;
-    max-width: 42.5rem;
+    @apply text-center mx-auto mb-4 text-3xl sm:text-5xl;
+    max-width: 40rem;
   }
   &__subtitle {
-    @apply text-center mx-auto;
-    max-width: 42.5rem;
+    @apply text-center mx-auto mb-8 text-lightBrown;
+    max-width: 40rem;
   }
 
   &__list {
@@ -15,5 +15,17 @@
     li {
       @apply mb-6;
     }
+    img {
+      transition: all 0.2s ease-in-out;
+    }
+
+    a:hover img,
+    a:focus img {
+      transform: scale(1.05) translate3d(-50%, -50%, 0);
+    }
   }
+}
+
+.recipe-listing-item-title {
+  @apply bg-white text-center px-4 py-6 block text-2xl;
 }

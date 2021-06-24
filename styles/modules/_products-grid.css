@@ -1,8 +1,8 @@
 .products-grid {
   @apply container mx-auto mb-24 px-6 sm:px-0;
   &__title {
-    @apply text-center mx-auto;
-    max-width: 42.5rem;
+    @apply text-center mx-auto mb-8 text-3xl sm:text-5xl;
+    max-width: 40rem;
   }
   &__list {
     @apply pt-4 grid grid-cols-1 gap-4 sm:grid-cols-3;

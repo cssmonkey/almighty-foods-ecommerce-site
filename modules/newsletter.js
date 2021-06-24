@@ -1,39 +1,39 @@
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { m, AnimatePresence } from 'framer-motion'
-import cx from 'classnames'
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { m, AnimatePresence } from 'framer-motion';
+import cx from 'classnames';
 
-import BlockContent from '@sanity/block-content-to-react'
-import { serializers } from '@lib/serializers'
+import BlockContent from '@sanity/block-content-to-react';
+import { serializers } from '@lib/serializers';
 
-import { fadeAnim } from '@lib/animate'
+import { fadeAnim } from '@lib/animate';
 
-import Icon from '@components/icon'
+import Icon from '@components/icon';
 
 const Newsletter = ({ data = {} }) => {
   // Extract our module data
-  const { title, subTitle, submit, successMsg, errorMsg } = data
+  const { title, subTitle, submit, successMsg, errorMsg } = data;
 
-  const [submitting, setSubmitting] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(false)
-  const { handleSubmit, register, watch, reset, errors } = useForm()
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const { handleSubmit, register, watch, reset, errors } = useForm();
 
   // Call to reset the form
   const resetForm = (e) => {
-    e.preventDefault()
-    reset()
-    setError(false)
-    setSuccess(false)
-    setSubmitting(false)
-  }
+    e.preventDefault();
+    reset();
+    setError(false);
+    setSuccess(false);
+    setSubmitting(false);
+  };
 
   // handle form submission
   const onSubmit = (data, e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    setSubmitting(true)
-    setError(false)
+    setSubmitting(true);
+    setError(false);
 
     fetch('/api/mailchimp/newsletter-join', {
       method: 'POST',
@@ -44,20 +44,20 @@ const Newsletter = ({ data = {} }) => {
     })
       .then((res) => res.json())
       .then(() => {
-        setSubmitting(false)
-        setSuccess(true)
+        setSubmitting(false);
+        setSuccess(true);
       })
       .catch((error) => {
-        setSubmitting(false)
-        setError(true)
-      })
-  }
+        setSubmitting(false);
+        setError(true);
+      });
+  };
 
   return (
     <form className="form newsletter-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="newsletter-form__inner">
         <h3 className="newsletter-form__title">{title}</h3>
-        {subTitle && <p className="newsletter-form__subtitle">{subTitle}</p>}
+        {subTitle && <h4 className="newsletter-form__subtitle">{subTitle}</h4>}
         <AnimatePresence exitBeforeEnter>
           {!error && !success && (
             <m.div
@@ -94,15 +94,15 @@ const Newsletter = ({ data = {} }) => {
                       },
                     })}
                     onFocus={(e) => {
-                      e.target.parentNode.classList.add('is-filled')
+                      e.target.parentNode.classList.add('is-filled');
                     }}
                     onBlur={(e) => {
-                      const value = e.target.value
-                      e.target.parentNode.classList.toggle('is-filled', value)
+                      const value = e.target.value;
+                      e.target.parentNode.classList.toggle('is-filled', value);
                     }}
                     onChange={(e) => {
-                      const value = e.target.value
-                      e.target.parentNode.classList.toggle('is-filled', value)
+                      const value = e.target.value;
+                      e.target.parentNode.classList.toggle('is-filled', value);
                     }}
                   />
 
@@ -181,7 +181,7 @@ const Newsletter = ({ data = {} }) => {
         </AnimatePresence>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default Newsletter
+export default Newsletter;

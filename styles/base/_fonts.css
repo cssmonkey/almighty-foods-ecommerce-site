@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'AlmightyFoodsRegular';
+  src: url('/fonts/almighty-foods.woff2') format('woff2'),
+    url('/fonts/almighty-foods.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'AlmightyFoodsBold';
+  src: url('/fonts/almighty-foods-bold.woff2') format('woff2'),
+    url('/fonts/almighty-foods-bold.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'AlmightyFoodsLight';
+  src: url('/fonts/almighty-foods-light.woff2') format('woff2'),
+    url('/fonts/almighty-foods-light.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}

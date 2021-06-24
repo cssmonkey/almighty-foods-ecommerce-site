@@ -1,18 +1,19 @@
 .newsletter-form {
-  @apply container mx-auto px-6 mb-24;
-
+  @apply container mx-auto px-6 py-24 border-t border-lightBrown;
+  &:last-child {
+    padding-bottom: 0;
+  }
   &__inner {
     @apply mx-auto;
     max-width: 45rem;
   }
 
   &__title {
-    @apply text-center mb-2;
+    @apply text-center mx-auto mb-4 text-3xl sm:text-5xl;
+    max-width: 40rem;
   }
   &__title + &__subtitle {
-    @apply mb-4;
-  }
-  &__subtitle {
-    @apply text-center;
+    @apply text-center mx-auto mb-8 text-lightBrown;
+    max-width: 40rem;
   }
 }

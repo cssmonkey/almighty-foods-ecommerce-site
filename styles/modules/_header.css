@@ -33,7 +33,7 @@ a[href='#content'].skip-link {
     }
 
     .menu-active & {
-      @apply text-white delay-75 bg-darkBrown;
+      @apply text-white delay-75;
     }
   }
 
@@ -63,6 +63,9 @@ a[href='#content'].skip-link {
 
   .is-white & {
     @apply opacity-0;
+  }
+  .is-white.menu-active & {
+    @apply opacity-100;
   }
 
   &--link {
@@ -226,6 +229,7 @@ a[href='#content'].skip-link {
       a,
       button {
         @apply text-4xl leading-normal;
+        font-family: 'AlmightyFoodsRegular', sans-serif;
       }
     }
     &--social {

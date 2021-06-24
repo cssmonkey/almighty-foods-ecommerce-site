@@ -9,12 +9,8 @@
   }
 
   body {
-    @apply bg-pageBG text-pageText font-sans leading-none;
-    font-size: 14px;
-
-    @media (--md) {
-      font-size: 16px;
-    }
+    @apply bg-pageBG text-pageText leading-none;
+    font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
   p {
@@ -33,16 +29,19 @@
   h1,
   .is-h1 {
     @apply m-0 text-5xl font-normal leading-tight;
+    font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
   h2,
   .is-h2 {
     @apply m-0 text-4xl font-normal leading-tight;
+    font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
   h3,
   .is-h3 {
     @apply m-0 text-3xl font-normal leading-tight;
+    font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
   h4,
@@ -56,6 +55,7 @@
 
   h6 {
     @apply m-0 text-xs font-normal leading-tight;
+    font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
   /* Links */

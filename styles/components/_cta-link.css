@@ -1,0 +1,34 @@
+.cta-link {
+  @apply inline-block text-lg border-b-2 border-darkBrown relative py-1 px-2;
+  font-family: 'AlmightyFoodsBold', sans-serif;
+  &__text {
+    @apply block;
+  }
+  &::after {
+    @apply absolute left-0 w-0 border-b-8 border-highlight;
+    content: '';
+    top: calc(100% + 1px);
+    transform: translateY(-50%);
+    transition: width 0.2s ease-in;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      @apply w-full;
+    }
+    .cta-link__text {
+      animation: textY 0.4s 1;
+    }
+  }
+}
+
+@keyframes textY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}

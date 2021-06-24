@@ -41,6 +41,13 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
             </li>
           ))}
         </ul>
+        <div className="products-grid__control text-center">
+          <Link href={`/shop`}>
+            <a className="cta-link">
+              <span className="cta-link__text">Shop for all our products</span>
+            </a>
+          </Link>
+        </div>
       </div>
     </div>
   );

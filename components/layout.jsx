@@ -63,6 +63,45 @@ const Layout = ({ site = {}, page = {}, schema = null, children }) => {
 
         <link preload="true" rel="icon" href="/favicon.svg" />
         <link
+          rel="preload"
+          href="/fonts/almighty-foods-bold.woff"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/almighty-foods-bold.woff2"
+          as="font"
+          crossOrigin=""
+        />
+
+        <link
+          rel="preload"
+          href="/fonts/almighty-foods-light.woff"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/almighty-foods-light.woff2"
+          as="font"
+          crossOrigin=""
+        />
+
+        <link
+          rel="preload"
+          href="/fonts/almighty-foods.woff"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/almighty-foods.woff2"
+          as="font"
+          crossOrigin=""
+        />
+
+        <link
           preload="true"
           rel="mask-icon"
           href="/favicon.svg"

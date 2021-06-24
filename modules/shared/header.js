@@ -1,38 +1,38 @@
-import React, { useState, useRef } from 'react'
-import { m } from 'framer-motion'
-import FocusTrap from 'focus-trap-react'
-import { useIntersection } from 'use-intersection'
-import { useRect } from '@reach/rect'
-import Link from 'next/link'
-import cx from 'classnames'
+import React, { useState, useRef } from 'react';
+import { m } from 'framer-motion';
+import FocusTrap from 'focus-trap-react';
+import { useIntersection } from 'use-intersection';
+import { useRect } from '@reach/rect';
+import Link from 'next/link';
+import cx from 'classnames';
 
-import { isBrowser } from '@lib/helpers'
+import { isBrowser } from '@lib/helpers';
 
-import Menu from '@blocks/navigation/menu'
-import Icon from '@components/icon'
+import Menu from '@blocks/navigation/menu';
+import Icon from '@components/icon';
 
 // Context helpers
-import { useToggleCart, useCartCount } from '@lib/context'
+import { useToggleCart, useCartCount } from '@lib/context';
 
 const Header = ({ data = {}, isTransparent }) => {
   // expand our header data
-  const { navItems, socialMedia } = data
+  const { navItems, socialMedia } = data;
 
   // setup states
-  const [isNavOpen, setNavOpen] = useState(false)
-  const observerRef = useRef()
-  const observerIsVisible = useIntersection(observerRef)
-  const headerRef = useRef()
-  const headerRect = useRect(headerRef)
+  const [isNavOpen, setNavOpen] = useState(false);
+  const observerRef = useRef();
+  const observerIsVisible = useIntersection(observerRef);
+  const headerRef = useRef();
+  const headerRect = useRect(headerRef);
 
   // setup menu toggle event
   const toggleNav = (state) => {
-    setNavOpen(state)
+    setNavOpen(state);
 
     if (isBrowser) {
-      document.body.classList.toggle('overflow-hidden', state)
+      document.body.classList.toggle('overflow-hidden', state);
     }
-  }
+  };
 
   return (
     <>
@@ -85,12 +85,14 @@ const Header = ({ data = {}, isTransparent }) => {
                       variants={{
                         show: {
                           y: '0%',
+                          opacity: 1,
                         },
                         hide: {
                           y: '-100%',
+                          opacity: 0,
                         },
                       }}
-                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                       className="menu"
                     >
                       <div
@@ -124,7 +126,7 @@ const Header = ({ data = {}, isTransparent }) => {
                                     <span className="sr-only">{link.name}</span>
                                   </a>
                                 </li>
-                              )
+                              );
                             })}
                           </ul>
                         )}
@@ -151,12 +153,12 @@ const Header = ({ data = {}, isTransparent }) => {
 
       <span ref={observerRef} className="header--observer" />
     </>
-  )
-}
+  );
+};
 
 const CartToggle = () => {
-  const toggleCart = useToggleCart()
-  const cartCount = useCartCount()
+  const toggleCart = useToggleCart();
+  const cartCount = useCartCount();
 
   return (
     <button className="cart-toggle" onClick={() => toggleCart()}>
@@ -169,7 +171,7 @@ const CartToggle = () => {
         {cartCount}
       </span>
     </button>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
