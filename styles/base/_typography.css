@@ -9,12 +9,12 @@
   }
 
   body {
-    @apply bg-pageBG text-pageText leading-none;
+    @apply bg-pageBG text-pageText leading-none text-lg;
     font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
   p {
-    @apply m-0 text-base leading-normal;
+    @apply m-0 leading-normal;
   }
 
   strong {

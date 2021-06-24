@@ -6,6 +6,7 @@ import Photo, { PhotoImage } from '@components/photo';
 interface Product {
   title: string;
   slug: string;
+  photo: PhotoImage;
 }
 
 interface ProductsGridProps {
@@ -32,7 +33,15 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
             <li className="products-grid__list-item" key={i}>
               <Link href={`/recipes/${product.slug}`}>
                 <a>
-                  <div className="products-grid-item-image"></div>
+                  {product.photo && (
+                    <div className="products-grid-item-image">
+                      <Photo
+                        photo={product.photo}
+                        hasPlaceholder={false}
+                        forceLoad={isIntersecting}
+                      />
+                    </div>
+                  )}
                   <span className="products-grid-item-title">
                     {product.title}
                   </span>

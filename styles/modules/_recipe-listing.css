@@ -18,6 +18,9 @@
     img {
       transition: all 0.2s ease-in-out;
     }
+    a {
+      display: block;
+    }
 
     a:hover img,
     a:focus img {

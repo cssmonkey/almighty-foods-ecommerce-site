@@ -2,6 +2,7 @@ import React from 'react';
 import { getStaticPage } from '@lib/api';
 import Layout from '@components/layout';
 import PageHeader from '@components/page-header';
+import PageContent from '@components/page-content';
 import StockistList from '@modules/stockist-list';
 import Map from '@modules/Map';
 
@@ -40,29 +41,35 @@ const Stockists = ({ data }) => {
       restStockists.push(stockist);
     }
   });
-  
+
   return (
     <Layout site={site} page={page}>
       <PageHeader title={page.title} introText={page.introText} />
       <Map markers={stockistsList} />
-      {scotlandStockists && scotlandStockists.length > 0 && (
-        <StockistList title={REGIONS.scotland} listItems={scotlandStockists} />
-      )}
-      {englandStockists && englandStockists.length > 0 && (
-        <StockistList title={REGIONS.england} listItems={englandStockists} />
-      )}
-      {walesStockists && walesStockists.length > 0 && (
-        <StockistList title={REGIONS.wales} listItems={walesStockists} />
-      )}
-      {northerIrelandStockists && northerIrelandStockists.length > 0 && (
-        <StockistList
-          title={REGIONS.northerIreland}
-          listItems={northerIrelandStockists}
-        />
-      )}
-      {restStockists && restStockists.length > 0 && (
-        <StockistList title={REGIONS.rest} listItems={restStockists} />
-      )}
+
+      <PageContent>
+        {scotlandStockists && scotlandStockists.length > 0 && (
+          <StockistList
+            title={REGIONS.scotland}
+            listItems={scotlandStockists}
+          />
+        )}
+        {englandStockists && englandStockists.length > 0 && (
+          <StockistList title={REGIONS.england} listItems={englandStockists} />
+        )}
+        {walesStockists && walesStockists.length > 0 && (
+          <StockistList title={REGIONS.wales} listItems={walesStockists} />
+        )}
+        {northerIrelandStockists && northerIrelandStockists.length > 0 && (
+          <StockistList
+            title={REGIONS.northerIreland}
+            listItems={northerIrelandStockists}
+          />
+        )}
+        {restStockists && restStockists.length > 0 && (
+          <StockistList title={REGIONS.rest} listItems={restStockists} />
+        )}
+      </PageContent>
     </Layout>
   );
 };

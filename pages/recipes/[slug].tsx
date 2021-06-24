@@ -31,21 +31,31 @@ const RecipePage = ({ data }) => {
   return (
     <Layout site={site} page={page}>
       <PageHeader title={page.title} introText={page.introText} />
-      <Photo photo={page.image} className="page-content-image" />
+      <Photo photo={page.image} className="page-content-image mb-6" />
       <PageContent>
-        {page.instructions && <Freeform data={page.instructions} />}
-        <ul>
-          {fullIngredientsList.map((ingredient, i) => {
-            return <li key={i}>{ingredient.title}</li>;
-          })}
-        </ul>
+        {page.instructions && (
+          <div className="text-center mb-12 text-2xl">
+            <Freeform data={page.instructions} />
+          </div>
+        )}
+        <div className="text-center mb-12">
+          <h4 className="font-bold mb-4">Ingredients</h4>
+          <ul className="text-xl">
+            {fullIngredientsList.map((ingredient, i) => {
+              return <li key={i}>{ingredient.title}</li>;
+            })}
+          </ul>
+        </div>
         {page.intro && (
-          <BlockContent
-            renderContainerOnSingleChild
-            className=""
-            blocks={page.intro}
-            serializers={serializers}
-          />
+          <div className="mb-8">
+            <h4 className="font-bold text-center mb-4">Instructions</h4>
+            <BlockContent
+              renderContainerOnSingleChild
+              className=""
+              blocks={page.intro}
+              serializers={serializers}
+            />
+          </div>
         )}
       </PageContent>
     </Layout>

@@ -1,11 +1,14 @@
 .page-header {
-  @apply container mx-auto mb-8 p-6 sm:px-0;
+  @apply container mx-auto px-6 py-12 sm:px-0;
   h1 {
-    @apply text-center mx-auto;
-    max-width: 42.5rem;
+    @apply text-center mx-auto mb-4 text-3xl sm:text-5xl;
+    max-width: 40rem;
+  }
+  h1:last-child {
+    @apply mb-0;
   }
   &__intro-text {
-    @apply text-center mx-auto;
-    max-width: 42.5rem;
+    @apply text-center mx-auto mb-4 text-lightBrown;
+    max-width: 40rem;
   }
 }
