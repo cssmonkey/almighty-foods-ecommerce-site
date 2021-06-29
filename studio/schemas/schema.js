@@ -12,6 +12,7 @@ import collection from './documents/shopify-collection';
 import allRecipesPage from './documents/page-recipes';
 import recipePage from './documents/page-recipe';
 import stockistsPage from './documents/page-stockists';
+import contactPage from './documents/page-contact';
 
 import generalSettings from './documents/settings-general';
 import cookieSettings from './documents/settings-cookie';
@@ -21,6 +22,7 @@ import footerSettings from './documents/settings-footer';
 import cartSettings from './documents/settings-cart';
 import seoSettings from './documents/settings-seo';
 import redirect from './documents/redirect';
+import customerContactEnquiry from './documents/customer-contact-enquiry';
 
 // Module types
 import grid from './modules/grid';
@@ -86,6 +88,7 @@ export default createSchema({
     allRecipesPage,
     recipePage,
     stockistsPage,
+    contactPage,
 
     generalSettings,
     cookieSettings,
@@ -95,6 +98,7 @@ export default createSchema({
     cartSettings,
     seoSettings,
     redirect,
+    customerContactEnquiry,
 
     /* --------------- */
     /* 2: Module types */

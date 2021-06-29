@@ -10,7 +10,7 @@ const Recipes = ({ data }) => {
   return (
     <Layout site={site} page={page}>
       <PageHeader title={page.title} introText={page.introText} />
-      <RecipeListing recipes={page.allRecipes} />
+      <RecipeListing recipes={page.allRecipes} showCta={false} />
     </Layout>
   );
 };

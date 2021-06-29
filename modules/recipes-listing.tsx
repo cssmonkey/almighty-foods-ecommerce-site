@@ -14,6 +14,7 @@ interface RecipeListingProps {
   subtitle?: string;
   maxNumber?: number;
   recipes: Recipe[];
+  showCta: boolean;
 }
 
 const RecipeListing: FC<RecipeListingProps> = ({
@@ -21,6 +22,7 @@ const RecipeListing: FC<RecipeListingProps> = ({
   subtitle,
   recipes,
   maxNumber,
+  showCta,
 }) => {
   const recipesListRef = useRef();
   const isIntersecting = useIntersection(recipesListRef, {
@@ -56,13 +58,15 @@ const RecipeListing: FC<RecipeListingProps> = ({
               ))
               .slice(0, maxNumber ? maxNumber : recipes.length)}
         </ul>
-        <div className="recipe-listing__cta-control text-center">
-          <Link href={`/recipes`}>
-            <a className="cta-link">
-              <span className="cta-link__text">View all our recipes</span>
-            </a>
-          </Link>
-        </div>
+        {showCta && (
+          <div className="recipe-listing__cta-control text-center">
+            <Link href={`/recipes`}>
+              <a className="cta-link">
+                <span className="cta-link__text">View all our recipes</span>
+              </a>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

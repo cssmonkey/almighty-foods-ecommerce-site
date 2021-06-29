@@ -30,7 +30,7 @@ export default {
           { title: 'Scotland', value: 'Scotland' },
           { title: 'England', value: 'England' },
           { title: 'Wales', value: 'Wales' },
-          { title: 'Norther Ireland', value: 'Northern Ireland' },
+          { title: 'Northern Ireland', value: 'Northern Ireland' },
           { title: 'Rest of the world', value: 'Rest of the World' }
         ]
       },

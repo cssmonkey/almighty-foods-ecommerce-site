@@ -59,6 +59,7 @@ export const Module = ({
           subtitle={module.subtitle}
           maxNumber={module.maxNumber}
           recipes={module.recipes}
+          showCta={true}
         />
       );
     default:
