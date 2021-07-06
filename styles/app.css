@@ -17,6 +17,8 @@
 @import 'components/_cursors';
 @import 'components/_drawers';
 @import 'components/_dropdowns';
+@import 'components/_form';
+@import 'components/_freeform-text';
 @import 'components/_page-header';
 @import 'components/_page-content';
 

@@ -1,0 +1,27 @@
+.page-form {
+  @apply mx-auto border-t border-lightBrown pt-12;
+  max-width: 48rem;
+  &__field {
+    @apply mb-8 sm:px-12;
+  }
+  &__controls {
+    @apply sm:px-12;
+  }
+  &__label {
+    @apply text-base mb-2 block;
+    font-family: 'AlmightyFoodsBold', sans-serif;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='number'],
+  input[type='password'],
+  textarea {
+    @apply px-4 py-3 border w-full border-grey rounded-sm font-inherit text-base leading-none text-black;
+  }
+}
+
+.error-message {
+  @apply block mt-2;
+  color: rgb(185, 28, 28);
+}

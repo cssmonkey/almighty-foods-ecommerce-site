@@ -20,7 +20,8 @@ export default {
         { type: 'collection' },
         { type: 'product' },
         { type: 'allRecipesPage' },
-        { type: 'stockistsPage' }
+        { type: 'stockistsPage' },
+        { type: 'contactPage' }
       ]
     }
   ]

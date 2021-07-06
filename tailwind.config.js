@@ -57,6 +57,8 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       black: '#000000',
+      lightGrey: '#e6e6e6',
+      grey: 'rgb(209, 213, 219)',
       white: '#FFFFFF',
       pageBG: 'var(--pageBG)',
       pageText: 'var(--pageText)',
@@ -92,4 +94,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};

@@ -22,7 +22,7 @@ const Page = ({ data }) => {
     <>
       {!router.isFallback && (
         <Layout site={site} page={page}>
-          <PageHeader title={page.title} />
+          <PageHeader title={page.title} introText={page.introText} />
           <PageContent>
             {page.modules?.map((module, key) => (
               <Module key={key} module={module} />

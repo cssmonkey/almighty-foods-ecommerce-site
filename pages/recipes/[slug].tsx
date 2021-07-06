@@ -33,26 +33,26 @@ const RecipePage = ({ data }) => {
       <PageHeader title={page.title} introText={page.introText} />
       <Photo photo={page.image} className="page-content-image mb-6" />
       <PageContent>
-        {page.instructions && (
-          <div className="text-center mb-12 text-2xl">
-            <Freeform data={page.instructions} />
+        {page.intro && (
+          <div className="freeform-text freeform-text--intro">
+            <Freeform data={page.intro} />
           </div>
         )}
-        <div className="text-center mb-12">
-          <h4 className="font-bold mb-4">Ingredients</h4>
-          <ul className="text-xl">
+        <div className="freeform-text">
+          <h4 className="freeform-text__title">Ingredients</h4>
+          <ul className="freeform-text__list">
             {fullIngredientsList.map((ingredient, i) => {
               return <li key={i}>{ingredient.title}</li>;
             })}
           </ul>
         </div>
-        {page.intro && (
-          <div className="mb-8">
-            <h4 className="font-bold text-center mb-4">Instructions</h4>
+        {page.instructions && (
+          <div className="freeform-text">
+            <h4 className="freeform-text__title">Instructions</h4>
             <BlockContent
               renderContainerOnSingleChild
               className=""
-              blocks={page.intro}
+              blocks={page.instructions}
               serializers={serializers}
             />
           </div>

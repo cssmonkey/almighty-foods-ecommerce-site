@@ -23,6 +23,11 @@ export default {
       type: 'string'
     },
     {
+      title: 'Intro text',
+      name: 'introText',
+      type: 'simplePortableText'
+    },
+    {
       title: 'Page Modules',
       name: 'modules',
       type: 'array',

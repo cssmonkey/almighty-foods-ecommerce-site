@@ -1,0 +1,15 @@
+.freeform-text {
+  @apply text-center mb-12;
+
+  &--intro {
+    @apply text-2xl;
+  }
+
+  &__title {
+    @apply font-bold text-center mb-4;
+  }
+
+  &__list {
+    @apply text-xl;
+  }
+}
