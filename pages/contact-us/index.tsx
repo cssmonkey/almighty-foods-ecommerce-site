@@ -21,7 +21,7 @@ const ContactUsPage = ({ data }) => {
           </div>
         )}
 
-        <ContactForm />
+        <ContactForm type="contactEnquiry" />
       </PageContent>
     </Layout>
   );

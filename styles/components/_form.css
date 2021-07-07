@@ -1,6 +1,6 @@
 .page-form {
   @apply mx-auto border-t border-lightBrown pt-12;
-  max-width: 48rem;
+
   &__field {
     @apply mb-8 sm:px-12;
   }
@@ -19,9 +19,30 @@
   textarea {
     @apply px-4 py-3 border w-full border-grey rounded-sm font-inherit text-base leading-none text-black;
   }
+  textarea {
+    min-height: 200px;
+  }
+}
+.error-summary {
+  @apply mb-8 sm:mx-12 px-6 py-4 border rounded;
+  background-color: rgba(185, 28, 28, 0.1);
+  border-color: rgba(185, 28, 28, 0.3);
+}
+.error-message {
+  color: rgb(185, 28, 28);
+}
+.input + .error-message {
+  @apply block mt-2;
 }
 
-.error-message {
-  @apply block mt-2;
-  color: rgb(185, 28, 28);
+.form-submit-message {
+  @apply text-center;
+  h3 {
+    @apply text-center mx-auto mb-4 text-3xl sm:text-5xl;
+    max-width: 40rem;
+  }
+  p {
+    @apply text-center mx-auto mb-4 text-lightBrown;
+    max-width: 40rem;
+  }
 }

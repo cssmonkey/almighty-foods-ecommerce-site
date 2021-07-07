@@ -13,6 +13,7 @@ import allRecipesPage from './documents/page-recipes';
 import recipePage from './documents/page-recipe';
 import stockistsPage from './documents/page-stockists';
 import contactPage from './documents/page-contact';
+import wholesaleContactPage from './documents/page-wholesale-contact';
 
 import generalSettings from './documents/settings-general';
 import cookieSettings from './documents/settings-cookie';
@@ -23,6 +24,7 @@ import cartSettings from './documents/settings-cart';
 import seoSettings from './documents/settings-seo';
 import redirect from './documents/redirect';
 import customerContactEnquiry from './documents/customer-contact-enquiry';
+import wholesaleContactEnquiry from './documents/wholesale-contact-enquiry';
 
 // Module types
 import grid from './modules/grid';
@@ -89,6 +91,7 @@ export default createSchema({
     recipePage,
     stockistsPage,
     contactPage,
+    wholesaleContactPage,
 
     generalSettings,
     cookieSettings,
@@ -99,6 +102,7 @@ export default createSchema({
     seoSettings,
     redirect,
     customerContactEnquiry,
+    wholesaleContactEnquiry,
 
     /* --------------- */
     /* 2: Module types */

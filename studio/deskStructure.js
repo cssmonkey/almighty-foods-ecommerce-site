@@ -43,6 +43,7 @@ const hiddenDocTypes = listItem =>
     'recipeIngredients',
     'stockistsPage',
     'contactPage',
+    'wholesaleContactPage',
 
     'generalSettings',
     'cookieSettings',
@@ -54,7 +55,8 @@ const hiddenDocTypes = listItem =>
 
     'siteSettings',
     'redirect',
-    'contactEnquiry'
+    'contactEnquiry',
+    'wholesaleContactEnquiry'
   ].includes(listItem.getId());
 
 export default () =>
@@ -148,6 +150,14 @@ export default () =>
                 .child(
                   S.documentTypeList('contactEnquiry').title(
                     'Customer contact enquiries'
+                  )
+                )
+                .icon(FiMail),
+              S.listItem()
+                .title('Wholesale contact enquiries')
+                .child(
+                  S.documentTypeList('wholesaleContactEnquiry').title(
+                    'Wholesale contact enquiries'
                   )
                 )
                 .icon(FiMail)
@@ -362,6 +372,26 @@ export default () =>
             .id('contactPage')
             .documentId('contactPage')
             .schemaType('contactPage')
+            .views([
+              S.view.form().icon(EditIcon),
+              S.view
+                .component(SeoPreview)
+                .options({ previewURL })
+                .icon(EyeIcon)
+                .title('SEO Preview')
+            ])
+        )
+        .icon(FiMail),
+      S.divider(),
+      S.listItem()
+        .title('Wholesale Contact')
+        .schemaType('wholesaleContactPage')
+        .child(
+          S.document()
+            .title('Wholesale Contact')
+            .id('wholesaleContactPage')
+            .documentId('wholesaleContactPage')
+            .schemaType('wholesaleContactPage')
             .views([
               S.view.form().icon(EditIcon),
               S.view

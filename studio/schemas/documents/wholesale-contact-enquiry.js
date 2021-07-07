@@ -1,8 +1,8 @@
 import { FiMail } from 'react-icons/fi';
 
 export default {
-  title: 'Contact enquires',
-  name: 'contactEnquiry',
+  title: 'Wholesale contact enquires',
+  name: 'wholesaleContactEnquiry',
   type: 'document',
   icon: FiMail,
   __experimental_actions: ['update', 'publish'],

@@ -6,9 +6,9 @@ import {
   Header3,
   Header4,
   Button
-} from '../../components/block-renders'
+} from '../../components/block-renders';
 
-import ConditionalFields from '../../components/conditional-field'
+import ConditionalFields from '../../components/conditional-field';
 
 export default {
   title: 'Rich Text',
@@ -101,7 +101,11 @@ export default {
                   { type: 'shopPage' },
                   { type: 'page' },
                   { type: 'collection' },
-                  { type: 'product' }
+                  { type: 'product' },
+                  { type: 'allRecipesPage' },
+                  { type: 'stockistsPage' },
+                  { type: 'contactPage' },
+                  { type: 'wholesaleContactPage' }
                 ]
               },
               {
@@ -165,4 +169,4 @@ export default {
       type: 'horizontalRule'
     }
   ]
-}
+};

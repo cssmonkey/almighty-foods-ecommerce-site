@@ -1,6 +1,6 @@
-import '../../branding/skin.css?raw'
+import '../../branding/skin.css?raw';
 
-import { Button } from '../../components/block-renders'
+import { Button } from '../../components/block-renders';
 
 export default {
   title: 'Portable Text',
@@ -35,7 +35,11 @@ export default {
                   { type: 'shopPage' },
                   { type: 'page' },
                   { type: 'collection' },
-                  { type: 'product' }
+                  { type: 'product' },
+                  { type: 'allRecipesPage' },
+                  { type: 'stockistsPage' },
+                  { type: 'contactPage' },
+                  { type: 'wholesaleContactPage' }
                 ]
               },
               {
@@ -54,4 +58,4 @@ export default {
       }
     }
   ]
-}
+};

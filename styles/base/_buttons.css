@@ -41,7 +41,7 @@
 
   /* primary style button */
   &.is-primary {
-    @apply bg-highlight border-pageText text-white text-2xl px-12 py-3 font-normal;
+    @apply bg-highlight border-pageText text-white text-lg px-12 py-3 font-normal;
 
     /* primary: inverted */
     &.is-inverted {

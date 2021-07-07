@@ -8,8 +8,6 @@ import { serializers } from '@lib/serializers';
 
 import { fadeAnim } from '@lib/animate';
 
-import Icon from '@components/icon';
-
 const Newsletter = ({ data = {} }) => {
   // Extract our module data
   const { title, subTitle, submit, successMsg, errorMsg } = data;

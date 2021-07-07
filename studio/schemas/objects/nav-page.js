@@ -21,7 +21,8 @@ export default {
         { type: 'product' },
         { type: 'allRecipesPage' },
         { type: 'stockistsPage' },
-        { type: 'contactPage' }
+        { type: 'contactPage' },
+        { type: 'wholesaleContactPage' }
       ]
     }
   ]
