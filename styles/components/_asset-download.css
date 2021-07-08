@@ -1,0 +1,9 @@
+.asset-download {
+  @apply mx-auto border-t border-lightBrown py-12 text-center;
+  &__title {
+    @apply mb-4;
+  }
+  &__btn.btn.is-primary {
+    @apply text-base;
+  }
+}

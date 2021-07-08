@@ -1,8 +1,12 @@
 .page-content {
-  @apply container mx-auto p-6 sm:px-0;
+  @apply container mx-auto px-6 sm:px-0;
   max-width: 45rem;
 }
 
 .page-content-image {
   @apply container mx-auto;
+}
+
+.section {
+  @apply mb-12;
 }

@@ -11,6 +11,8 @@ const Newsletter = dynamic(() => import('./newsletter'));
 const Quote = dynamic(() => import('./quote'));
 const ProductsGrid = dynamic(() => import('./products-grid'));
 const RecipeListing = dynamic(() => import('./recipes-listing'));
+const ContactForm = dynamic(() => import('./contact-form'));
+const AssetDownload = dynamic(() => import('./asset-download'));
 
 export const Module = ({
   module,
@@ -48,10 +50,14 @@ export const Module = ({
       );
     case 'newsletter':
       return <Newsletter data={module} />;
+    case 'contactForm':
+      return <ContactForm type={module.formType} />;
     case 'quote':
       return <Quote data={module} />;
     case 'productsGrid':
       return <ProductsGrid data={module} />;
+    case 'assetDownload':
+      return <AssetDownload data={module} />;
     case 'recipesList':
       return (
         <RecipeListing

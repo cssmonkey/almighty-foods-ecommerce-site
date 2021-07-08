@@ -11,6 +11,7 @@
 @import 'base/_page';
 
 @import 'components/_accordions';
+@import 'components/_asset-download';
 @import 'components/_carousels';
 @import 'components/_counters';
 @import 'components/_cta-link';
