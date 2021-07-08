@@ -42,8 +42,6 @@ const hiddenDocTypes = listItem =>
     'recipePage',
     'recipeIngredients',
     'stockistsPage',
-    'contactPage',
-    'wholesaleContactPage',
 
     'generalSettings',
     'cookieSettings',
@@ -362,46 +360,6 @@ export default () =>
             ])
         )
         .icon(FiMap),
-      S.divider(),
-      S.listItem()
-        .title('Contact us')
-        .schemaType('contactPage')
-        .child(
-          S.document()
-            .title('Contact us Page')
-            .id('contactPage')
-            .documentId('contactPage')
-            .schemaType('contactPage')
-            .views([
-              S.view.form().icon(EditIcon),
-              S.view
-                .component(SeoPreview)
-                .options({ previewURL })
-                .icon(EyeIcon)
-                .title('SEO Preview')
-            ])
-        )
-        .icon(FiMail),
-      S.divider(),
-      S.listItem()
-        .title('Wholesale Contact')
-        .schemaType('wholesaleContactPage')
-        .child(
-          S.document()
-            .title('Wholesale Contact')
-            .id('wholesaleContactPage')
-            .documentId('wholesaleContactPage')
-            .schemaType('wholesaleContactPage')
-            .views([
-              S.view.form().icon(EditIcon),
-              S.view
-                .component(SeoPreview)
-                .options({ previewURL })
-                .icon(EyeIcon)
-                .title('SEO Preview')
-            ])
-        )
-        .icon(FiMail),
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above

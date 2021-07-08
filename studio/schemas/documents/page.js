@@ -32,10 +32,12 @@ export default {
       name: 'modules',
       type: 'array',
       of: [
-        { type: 'grid' },
         { type: 'hero' },
+        { type: 'grid' },
+        { type: 'dividerPhoto' },
+        { type: 'assetDownload' },
         { type: 'newsletter' },
-        { type: 'dividerPhoto' }
+        { type: 'contactForm' }
       ]
     },
     {

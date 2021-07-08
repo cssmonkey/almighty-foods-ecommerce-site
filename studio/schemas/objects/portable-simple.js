@@ -37,9 +37,7 @@ export default {
                   { type: 'collection' },
                   { type: 'product' },
                   { type: 'allRecipesPage' },
-                  { type: 'stockistsPage' },
-                  { type: 'contactPage' },
-                  { type: 'wholesaleContactPage' }
+                  { type: 'stockistsPage' }
                 ]
               },
               {

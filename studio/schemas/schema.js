@@ -12,8 +12,6 @@ import collection from './documents/shopify-collection';
 import allRecipesPage from './documents/page-recipes';
 import recipePage from './documents/page-recipe';
 import stockistsPage from './documents/page-stockists';
-import contactPage from './documents/page-contact';
-import wholesaleContactPage from './documents/page-wholesale-contact';
 
 import generalSettings from './documents/settings-general';
 import cookieSettings from './documents/settings-cookie';
@@ -40,6 +38,8 @@ import collectionGrid from './modules/collection-grid';
 import quote from './modules/quote';
 import recipesListing from './modules/recipes-listing';
 import stockist from './modules/stockist';
+import contactForm from './modules/contact-form';
+import assetDownload from './modules/asset-download';
 
 // Block types
 import freeform from './blocks/freeform';
@@ -90,8 +90,6 @@ export default createSchema({
     allRecipesPage,
     recipePage,
     stockistsPage,
-    contactPage,
-    wholesaleContactPage,
 
     generalSettings,
     cookieSettings,
@@ -119,6 +117,8 @@ export default createSchema({
     quote,
     recipesListing,
     stockist,
+    contactForm,
+    assetDownload,
 
     /* -------------- */
     /* 3: Block types */
