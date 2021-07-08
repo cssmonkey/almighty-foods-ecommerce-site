@@ -30,13 +30,16 @@ const RecipePage = ({ data }) => {
 
   return (
     <Layout site={site} page={page}>
-      <PageHeader title={page.title} introText={page.introText} />
+      <PageHeader title={page.title} />
       <Photo photo={page.image} className="page-content-image mb-6" />
       <PageContent>
-        {page.intro && (
-          <div className="freeform-text freeform-text--intro">
-            <Freeform data={page.intro} />
-          </div>
+        {page.introText && (
+          <BlockContent
+            renderContainerOnSingleChild
+            className="freeform-text freeform-text--intro"
+            blocks={page.introText}
+            serializers={serializers}
+          />
         )}
         <div className="freeform-text">
           <h4 className="freeform-text__title">Ingredients</h4>
@@ -49,12 +52,7 @@ const RecipePage = ({ data }) => {
         {page.instructions && (
           <div className="freeform-text">
             <h4 className="freeform-text__title">Instructions</h4>
-            <BlockContent
-              renderContainerOnSingleChild
-              className=""
-              blocks={page.instructions}
-              serializers={serializers}
-            />
+            <Freeform data={page.instructions} />
           </div>
         )}
       </PageContent>

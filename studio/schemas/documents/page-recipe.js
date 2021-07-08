@@ -29,24 +29,9 @@ export default {
     },
 
     {
-      name: 'intro',
-      title: 'Intro',
-      type: 'object',
-      icon: FiAlignLeft,
-      fields: [
-        {
-          title: 'Intro text',
-          name: 'introText',
-          type: 'simplePortableText'
-        }
-      ],
-      preview: {
-        prepare() {
-          return {
-            title: 'Intro text'
-          };
-        }
-      }
+      title: 'Intro text',
+      name: 'introText',
+      type: 'simplePortableText'
     },
     {
       name: 'ingredients',
