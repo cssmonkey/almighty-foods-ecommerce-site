@@ -1,11 +1,11 @@
-import { FiBookOpen } from 'react-icons/fi'
+import { FiBookOpen } from 'react-icons/fi';
 
 export default {
   title: 'All Recipes Page',
   name: 'allRecipesPage',
   type: 'document',
   icon: FiBookOpen,
-  __experimental_actions: ['update', 'publish'], // disable for initial publish
+  //__experimental_actions: ['update', 'publish'], // disable for initial publish
   fields: [
     {
       name: 'title',
@@ -27,7 +27,7 @@ export default {
     prepare() {
       return {
         title: 'All Recipes Page'
-      }
+      };
     }
   }
-}
+};
