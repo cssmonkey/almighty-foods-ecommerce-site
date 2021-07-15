@@ -1,5 +1,6 @@
 .page-form {
   @apply mx-auto border-t border-lightBrown pt-12;
+  max-width: 45rem;
 
   &__field {
     @apply mb-8 sm:px-12;

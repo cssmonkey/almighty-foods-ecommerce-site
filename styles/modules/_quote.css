@@ -1,23 +1,29 @@
 .quote {
-  @apply container mx-auto px-6 sm:px-0 mb-24;
+  @apply container border-t border-b border-lightBrown mx-auto px-6 sm:px-0 mb-24;
   &__inner {
-    @apply py-16 border-t border-b border-lightBrown;
+    @apply py-16 mx-auto flex items-center flex-col;
+    max-width: 64rem;
+  }
+  &:last-child {
+    @apply border-b-0;
   }
   &:last-child &__inner {
-    @apply mb-0 border-b-0;
+    @apply mb-0;
   }
   blockquote {
-    @apply mx-auto flex text-center text-3xl sm:text-5xl m-0 relative;
-    max-width: 64rem;
+    @apply text-3xl sm:text-5xl m-0;
   }
   blockquote p {
     @apply text-3xl sm:text-5xl pt-2;
   }
-  blockquote::before {
+  blockquote footer {
+    @apply block text-2xl sm:text-2xl text-center;
+  }
+  blockquote p::before {
     @apply text-highlight text-7xl;
     content: '\201D';
   }
-  blockquote::after {
+  blockquote p::after {
     @apply text-highlight text-7xl;
     content: '\201D';
   }

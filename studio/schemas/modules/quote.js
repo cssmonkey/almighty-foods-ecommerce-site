@@ -1,4 +1,4 @@
-import { FiAlignCenter } from 'react-icons/fi'
+import { FiAlignCenter } from 'react-icons/fi';
 
 export default {
   title: 'Quote',
@@ -11,6 +11,11 @@ export default {
       name: 'text',
       type: 'string',
       validation: Rule => Rule.required()
+    },
+    {
+      title: 'Author',
+      name: 'author',
+      type: 'string'
     }
   ],
   preview: {
@@ -21,7 +26,7 @@ export default {
       return {
         title: 'Quote',
         subtitle: text
-      }
+      };
     }
   }
-}
+};

@@ -23,11 +23,15 @@ export default {
       type: 'string'
     },
     {
+      title: 'Subtitle',
+      name: 'subtitle',
+      type: 'string'
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'figure'
     },
-
     {
       title: 'Intro text',
       name: 'introText',

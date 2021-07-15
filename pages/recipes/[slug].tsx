@@ -1,7 +1,5 @@
 import React from 'react';
 
-import BlockContent from '@sanity/block-content-to-react';
-import { serializers } from '@lib/serializers';
 import { getAllDocSlugs, getRecipe } from '@lib/api';
 import Layout from '@components/layout';
 import Freeform from '@blocks/freeform';
@@ -30,25 +28,24 @@ const RecipePage = ({ data }) => {
 
   return (
     <Layout site={site} page={page}>
-      <PageHeader title={page.title} />
-      <Photo photo={page.image} className="page-content-image mb-6" />
+      <PageHeader title={page.title} subtitle={page.subtitle} />
+      <Photo photo={page.image} className="page-content-image mb-12" />
       <PageContent>
         {page.introText && (
-          <BlockContent
-            renderContainerOnSingleChild
-            className="freeform-text freeform-text--intro"
-            blocks={page.introText}
-            serializers={serializers}
-          />
+          <div className="freeform-text freeform-text--intro">
+            <Freeform data={page.introText} />
+          </div>
         )}
-        <div className="freeform-text">
-          <h4 className="freeform-text__title">Ingredients</h4>
-          <ul className="freeform-text__list">
-            {fullIngredientsList.map((ingredient, i) => {
-              return <li key={i}>{ingredient.title}</li>;
-            })}
-          </ul>
-        </div>
+        {fullIngredientsList && fullIngredientsList.length > 0 && (
+          <div className="freeform-text">
+            <h4 className="freeform-text__title">Ingredients</h4>
+            <ul className="freeform-text__list">
+              {fullIngredientsList.map((ingredient, i) => {
+                return <li key={i}>{ingredient.title}</li>;
+              })}
+            </ul>
+          </div>
+        )}
         {page.instructions && (
           <div className="freeform-text">
             <h4 className="freeform-text__title">Instructions</h4>

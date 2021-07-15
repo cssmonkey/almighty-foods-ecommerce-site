@@ -1,5 +1,6 @@
 .freeform-text {
-  @apply text-center mb-12;
+  @apply text-center mx-auto mb-12;
+  max-width: 45rem;
 
   &--intro {
     @apply text-2xl;
@@ -12,4 +13,8 @@
   &__list {
     @apply text-xl;
   }
+}
+
+.section .freeform-text {
+  @apply mb-0;
 }

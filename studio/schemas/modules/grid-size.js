@@ -1,6 +1,6 @@
-import React from 'react'
-import { FiSliders, FiHelpCircle } from 'react-icons/fi'
-import { Avatar } from '@sanity/ui'
+import React from 'react';
+import { FiSliders, FiHelpCircle } from 'react-icons/fi';
+import { Avatar } from '@sanity/ui';
 
 // import Note from '@components/note'
 
@@ -41,7 +41,8 @@ export default {
         ]
       },
       validation: Rule => Rule.required(),
-      fieldset: 'sizes'
+      fieldset: 'sizes',
+      initialValue: ' '
     },
     {
       title: 'Width',
@@ -64,7 +65,8 @@ export default {
         ]
       },
       validation: Rule => Rule.required(),
-      fieldset: 'sizes'
+      fieldset: 'sizes',
+      initialValue: 12
     },
     {
       title: 'Justify',
@@ -133,7 +135,7 @@ export default {
             size={1}
           />
         )
-      }
+      };
     }
   }
-}
+};

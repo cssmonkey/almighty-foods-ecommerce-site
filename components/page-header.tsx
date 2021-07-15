@@ -4,20 +4,21 @@ import { serializers } from '@lib/serializers';
 
 interface PageHeaderProps {
   title: string;
-  introText?: Record<string, unknown>;
+  subtitle?: string;
 }
 
-const PageHeader: FC<PageHeaderProps> = ({ title, introText }) => (
+const PageHeader: FC<PageHeaderProps> = ({ title, subtitle }) => (
   <div className="page-header">
     <h1>{title}</h1>
-    {introText && (
+    <p className="page-header__subtitle">{subtitle}</p>
+    {/* {introText && (
       <BlockContent
         renderContainerOnSingleChild
-        className="page-header__intro-text"
+        className=""
         blocks={introText}
         serializers={serializers}
       />
-    )}
+    )} */}
   </div>
 );
 

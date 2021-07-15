@@ -1,21 +1,23 @@
-import { FiGrid } from 'react-icons/fi'
+import { FiGrid } from 'react-icons/fi';
 
 const getBlockNames = types => {
   const typeNames = types.map(type => {
     switch (type) {
       case 'freeform':
-        return 'Freeform'
+        return 'Freeform';
       case 'accordions':
-        return 'Accordions'
+        return 'Accordions';
       case 'productCard':
-        return 'Product Card'
+        return 'Product Card';
+      case 'figure':
+        return 'Image';
       default:
-        return null
+        return null;
     }
-  })
+  });
 
-  return typeNames.join(' + ')
-}
+  return typeNames.join(' + ');
+};
 
 export default {
   title: 'Content Grid',
@@ -57,17 +59,17 @@ export default {
       columns: 'columns'
     },
     prepare({ columns }) {
-      const name = getBlockNames(columns.map(col => col.blocks[0]._type))
+      const name = getBlockNames(columns.map(col => col.blocks[0]._type));
 
       const image = (columns[0].blocks[0].content || []).find(
         block => block._type === 'figure'
-      )
+      );
 
       return {
         title: `${columns.length} Column${columns.length > 1 ? 's' : ''}`,
         subtitle: name,
         media: image
-      }
+      };
     }
   }
-}
+};

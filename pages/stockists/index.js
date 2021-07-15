@@ -1,6 +1,7 @@
 import React from 'react';
 import { getStaticPage } from '@lib/api';
 import Layout from '@components/layout';
+import Freeform from '@blocks/freeform';
 import PageHeader from '@components/page-header';
 import PageContent from '@components/page-content';
 import StockistList from '@modules/stockist-list';
@@ -44,10 +45,15 @@ const Stockists = ({ data }) => {
 
   return (
     <Layout site={site} page={page}>
-      <PageHeader title={page.title} introText={page.introText} />
+      <PageHeader title={page.title} subtitle={page.subtitle} />
       <Map markers={stockistsList} />
 
       <PageContent>
+        {page.introText && (
+          <div className="freeform-text freeform-text--intro">
+            <Freeform data={page.introText} />
+          </div>
+        )}
         {scotlandStockists && scotlandStockists.length > 0 && (
           <StockistList
             title={REGIONS.scotland}
@@ -79,6 +85,7 @@ export async function getStaticProps({ preview, previewData }) {
     `
     *[_type == "stockistsPage"] | order(_updatedAt desc)[0]{
       title,
+      subtitle,
       introText,
       stockistLocations[]{
         title,

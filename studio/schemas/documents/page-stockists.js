@@ -13,6 +13,11 @@ export default {
       type: 'string'
     },
     {
+      title: 'Subtitle',
+      name: 'subtitle',
+      type: 'string'
+    },
+    {
       title: 'Intro text',
       name: 'introText',
       type: 'simplePortableText'

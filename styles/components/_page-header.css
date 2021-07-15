@@ -7,8 +7,8 @@
   h1:last-child {
     @apply mb-0;
   }
-  &__intro-text {
-    @apply text-center mx-auto mb-4 text-lightBrown;
+  &__subtitle {
+    @apply text-center mx-auto mb-0 text-lightBrown;
     max-width: 40rem;
   }
 }

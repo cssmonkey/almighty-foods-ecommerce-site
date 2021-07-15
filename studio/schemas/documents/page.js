@@ -23,6 +23,16 @@ export default {
       type: 'string'
     },
     {
+      title: 'Subtitle',
+      name: 'subtitle',
+      type: 'string'
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'figure'
+    },
+    {
       title: 'Intro text',
       name: 'introText',
       type: 'simplePortableText'
@@ -33,6 +43,7 @@ export default {
       type: 'array',
       of: [
         { type: 'hero' },
+        { type: 'quote' },
         { type: 'grid' },
         { type: 'dividerPhoto' },
         { type: 'assetDownload' },

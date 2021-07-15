@@ -1,7 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Error from '@pages/404';
-
+import Freeform from '@blocks/freeform';
+import Photo from '@components/photo';
 import Layout from '@components/layout';
 import PageHeader from '@components/page-header';
 import PageContent from '@components/page-content';
@@ -22,8 +23,14 @@ const Page = ({ data }) => {
     <>
       {!router.isFallback && (
         <Layout site={site} page={page}>
-          <PageHeader title={page.title} introText={page.introText} />
+          <PageHeader title={page.title} subtitle={page.subtitle} />
+          <Photo photo={page.image} className="page-content-image mb-12" />
           <PageContent>
+            {page.introText && (
+              <div className="freeform-text freeform-text--intro">
+                <Freeform data={page.introText} />
+              </div>
+            )}
             {page.modules?.map((module, key) => (
               <Module key={key} module={module} />
             ))}

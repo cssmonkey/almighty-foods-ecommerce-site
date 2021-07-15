@@ -10,7 +10,8 @@ body {
 }
 
 .section {
-  &--content {
+  /* &--content {
     @apply mx-auto;
-  }
+    max-width: 45rem;
+  } */
 }

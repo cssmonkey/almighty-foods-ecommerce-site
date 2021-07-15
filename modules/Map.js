@@ -5,7 +5,7 @@ import GOOGLE_MAP_API from 'constants/google-map-api';
 
 const containerStyle = {
   width: '100%',
-  height: '400px',
+  height: '500px',
 };
 
 const center = GOOGLE_MAP_API.defaultLocation;
@@ -39,7 +39,7 @@ const Map = ({ markers = [] }) => {
   }, []);
 
   return isLoaded ? (
-    <div className="container mx-auto mb-6">
+    <div className="container mx-auto mb-12">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
