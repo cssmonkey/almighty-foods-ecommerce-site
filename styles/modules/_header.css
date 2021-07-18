@@ -159,7 +159,7 @@ a[href='#content'].skip-link {
 }
 
 .cart-toggle {
-  @apply clean-btn flex items-center relative bg-transparent -mr-2 p-2 font-semibold uppercase opacity-100;
+  @apply clean-btn flex items-center relative bg-transparent -mr-2 p-2 opacity-100;
   font: inherit;
   transition: opacity 0.2s ease-in;
   svg {

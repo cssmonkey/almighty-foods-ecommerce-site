@@ -14,17 +14,19 @@
     @apply text-3xl sm:text-5xl m-0;
   }
   blockquote p {
-    @apply text-3xl sm:text-5xl pt-2;
+    @apply text-3xl sm:text-5xl text-center flex mb-0;
   }
   blockquote footer {
     @apply block text-2xl sm:text-2xl text-center;
   }
   blockquote p::before {
-    @apply text-highlight text-7xl;
+    @apply text-highlight text-7xl pr-2;
     content: '\201D';
+    line-height: inherit;
   }
   blockquote p::after {
-    @apply text-highlight text-7xl;
+    @apply text-highlight text-7xl pl-2;
     content: '\201D';
+    line-height: inherit;
   }
 }

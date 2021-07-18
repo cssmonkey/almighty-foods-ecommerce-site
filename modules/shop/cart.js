@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import FocusTrap from 'focus-trap-react'
-import { m } from 'framer-motion'
-import cx from 'classnames'
+import React, { useState, useEffect } from 'react';
+import FocusTrap from 'focus-trap-react';
+import { m } from 'framer-motion';
+import cx from 'classnames';
 
-import { centsToPrice } from '@lib/helpers'
-import CartItem from '@blocks/shop/cart-item'
+import { centsToPrice } from '@lib/helpers';
+import CartItem from '@blocks/shop/cart-item';
 
 import {
   useSiteContext,
@@ -13,35 +13,35 @@ import {
   useCartItems,
   useCheckout,
   useToggleCart,
-} from '@lib/context'
+} from '@lib/context';
 
 const Cart = ({ data }) => {
-  const { cart } = data
+  const { cart } = data;
 
-  const { isCartOpen, isUpdating } = useSiteContext()
-  const { subTotal } = useCartTotals()
-  const cartCount = useCartCount()
-  const lineItems = useCartItems()
-  const checkoutURL = useCheckout()
-  const toggleCart = useToggleCart()
+  const { isCartOpen, isUpdating } = useSiteContext();
+  const { subTotal } = useCartTotals();
+  const cartCount = useCartCount();
+  const lineItems = useCartItems();
+  const checkoutURL = useCheckout();
+  const toggleCart = useToggleCart();
 
-  const [hasFocus, setHasFocus] = useState(false)
-  const [checkoutLink, setCheckoutLink] = useState(checkoutURL)
+  const [hasFocus, setHasFocus] = useState(false);
+  const [checkoutLink, setCheckoutLink] = useState(checkoutURL);
 
   const handleKeyup = (e) => {
     if (e.which === 27) {
-      toggleCart(false)
+      toggleCart(false);
     }
-  }
+  };
 
   const goToCheckout = (e) => {
-    e.preventDefault()
-    toggleCart(false)
+    e.preventDefault();
+    toggleCart(false);
 
     setTimeout(() => {
-      window.open(checkoutLink, '_self')
-    }, 200)
-  }
+      window.open(checkoutLink, '_self');
+    }, 200);
+  };
 
   // update our checkout URL to use our custom domain name
   useEffect(() => {
@@ -51,10 +51,10 @@ const Cart = ({ data }) => {
             /^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/?\n]+)/g,
             cart.storeURL
           )
-        : checkoutURL
-      setCheckoutLink(buildCheckoutLink)
+        : checkoutURL;
+      setCheckoutLink(buildCheckoutLink);
     }
-  }, [checkoutURL])
+  }, [checkoutURL]);
 
   return (
     <>
@@ -83,9 +83,7 @@ const Cart = ({ data }) => {
         >
           <div className="cart--inner">
             <div className="cart--header">
-              <div className="cart--title">
-                Your Cart <span className="cart--count">{cartCount}</span>
-              </div>
+              <div className="cart--title">Your Cart</div>
               <button className="cart-toggle" onClick={() => toggleCart(false)}>
                 Done
               </button>
@@ -103,7 +101,7 @@ const Cart = ({ data }) => {
               <div className="cart--footer">
                 <div className="cart--subtotal">
                   <span>Subtotal</span>
-                  <span>${centsToPrice(subTotal)}</span>
+                  <span>£{centsToPrice(subTotal)}</span>
                 </div>
 
                 <a
@@ -130,23 +128,23 @@ const Cart = ({ data }) => {
         onClick={() => toggleCart(false)}
       />
     </>
-  )
-}
+  );
+};
 
 const CartItems = ({ items }) => {
   return (
     <div className="cart--items">
       {items.map((item) => {
-        return <CartItem key={item.id} item={item} />
+        return <CartItem key={item.id} item={item} />;
       })}
     </div>
-  )
-}
+  );
+};
 
 const EmptyCart = () => (
   <div className="cart--empty">
     <p>Your cart is empty</p>
   </div>
-)
+);
 
-export default Cart
+export default Cart;
