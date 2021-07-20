@@ -1,34 +1,34 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
 
-import { hasObject } from '@lib/helpers'
+import { hasObject } from '@lib/helpers';
 
-import Photo from '@components/photo'
-import { ProductCounter, ProductPrice } from '@blocks/product'
+import Photo from '@components/photo';
+import { ProductCounter, ProductPrice } from '@blocks/product';
 
-import { useUpdateItem, useRemoveItem, useToggleCart } from '@lib/context'
+import { useUpdateItem, useRemoveItem, useToggleCart } from '@lib/context';
 
 function CartItem({ item }) {
-  const removeItem = useRemoveItem()
-  const updateItem = useUpdateItem()
-  const toggleCart = useToggleCart()
+  const removeItem = useRemoveItem();
+  const updateItem = useUpdateItem();
+  const toggleCart = useToggleCart();
 
   const changeQuantity = (quantity) => {
-    updateItem(item.lineID, quantity)
-  }
+    updateItem(item.lineID, quantity);
+  };
 
-  const defaultPhoto = item.photos.cart?.find((set) => !set.forOption)
+  const defaultPhoto = item.photos.cart?.find((set) => !set.forOption);
   const variantPhoto = item.photos.cart?.find((set) => {
     const option = set.forOption
       ? {
           name: set.forOption.split(':')[0],
           value: set.forOption.split(':')[1],
         }
-      : {}
-    return option.value && hasObject(item.options, option)
-  })
+      : {};
+    return option.value && hasObject(item.options, option);
+  });
 
-  const photos = variantPhoto ? variantPhoto : defaultPhoto
+  const photos = variantPhoto ? variantPhoto : defaultPhoto;
 
   return (
     <div className="cart-item">
@@ -67,7 +67,7 @@ function CartItem({ item }) {
               id={item.id}
               defaultCount={item.quantity}
               onUpdate={changeQuantity}
-              className="is-small is-inverted"
+              className="is-small"
             />
           </div>
           <button
@@ -79,7 +79,7 @@ function CartItem({ item }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CartItem
+export default CartItem;

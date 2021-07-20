@@ -1,5 +1,5 @@
 .cart {
-  @apply fixed top-0 right-0 w-full h-screen max-w-3xl z-90 bg-white text-darkBrown invisible pointer-events-none;
+  @apply fixed top-0 right-0 w-full h-screen max-w-xl z-90 bg-white text-darkBrown invisible pointer-events-none;
   height: calc(var(--vh, 1vh) * 100);
   will-change: transform;
   transition: visibility 0.2s 0.8s;
@@ -45,7 +45,7 @@
   }
 
   &--title {
-    @apply text-center;
+    @apply text-center text-3xl;
   }
 
   &--count {
@@ -62,10 +62,6 @@
 
   &--subtotal {
     @apply flex justify-between py-4 sm:py-8 px-4 border-t border-lightBrown;
-
-    span {
-      @apply font-semibold;
-    }
   }
 
   &--message {
@@ -78,7 +74,7 @@
 }
 
 .cart-item {
-  @apply flex relative;
+  @apply flex relative border-2 border-highlight p-8 rounded-xl;
 
   &:not(:last-child) {
     @apply mb-8 pb-8 border-b;
@@ -98,7 +94,7 @@
   }
 
   &--header {
-    @apply sm:flex;
+    @apply text-center;
 
     .price {
       @apply ml-auto;
@@ -107,10 +103,6 @@
         @apply sm:text-lg sm:leading-normal font-semibold;
       }
     }
-  }
-
-  &--title {
-    @apply sm:pr-12;
   }
 
   &--variant {
@@ -144,5 +136,9 @@
 
   &--tools {
     @apply flex justify-between relative z-10 mt-auto pt-6;
+
+    .btn {
+      @apply font-normal p-0;
+    }
   }
 }

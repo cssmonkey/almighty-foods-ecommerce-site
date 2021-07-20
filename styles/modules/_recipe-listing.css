@@ -16,15 +16,19 @@
       @apply mb-6;
     }
     img {
-      transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-out;
     }
     a {
       display: block;
     }
 
+    a:hover .recipe-listing-item-title,
+    a:focus .recipe-listing-item-title {
+      animation: textY 0.4s 1;
+    }
     a:hover img,
     a:focus img {
-      transform: scale(1.05) translate3d(-50%, -50%, 0);
+      transform: scale(1.01) translate3d(-50%, -50%, 0);
     }
   }
 }

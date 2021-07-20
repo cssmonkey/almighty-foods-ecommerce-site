@@ -73,7 +73,7 @@ const Cart = ({ data }) => {
               x: '100%',
             },
           }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           onKeyUp={(e) => handleKeyup(e)}
           onAnimationComplete={() => setHasFocus(isCartOpen)}
           className={cx('cart is-inverted', {
@@ -107,7 +107,7 @@ const Cart = ({ data }) => {
                 <a
                   href={checkoutLink}
                   onClick={(e) => goToCheckout(e)}
-                  className="btn is-primary is-inverted is-large is-block"
+                  className="btn is-primary is-large is-block"
                 >
                   {isUpdating ? 'Updating...' : 'Checkout'}
                 </a>

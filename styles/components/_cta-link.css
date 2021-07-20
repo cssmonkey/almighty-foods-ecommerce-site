@@ -5,7 +5,7 @@
     @apply block;
   }
   &::after {
-    @apply absolute left-0 w-0 border-b-8 border-highlight;
+    @apply absolute left-0 w-0 border-b-4 border-highlight;
     content: '';
     top: calc(100% + 1px);
     transform: translateY(-50%);
@@ -20,15 +20,5 @@
     .cta-link__text {
       animation: textY 0.4s 1;
     }
-  }
-}
-
-@keyframes textY {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  30% {
-    transform: translateY(-4px);
   }
 }
