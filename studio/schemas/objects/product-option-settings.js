@@ -1,6 +1,6 @@
-import React from 'react'
-import { FiSettings } from 'react-icons/fi'
-import { FaCircle } from 'react-icons/fa'
+import React from 'react';
+import { FiSettings } from 'react-icons/fi';
+import { FaCircle } from 'react-icons/fa';
 
 const getSwatch = color => {
   return (
@@ -11,8 +11,8 @@ const getSwatch = color => {
         borderRadius: '50%'
       }}
     />
-  )
-}
+  );
+};
 
 export default {
   title: 'option Settings',
@@ -21,7 +21,7 @@ export default {
   icon: FiSettings,
   fields: [
     {
-      title: 'Wich option is this for?',
+      title: 'Which option is this for?',
       name: 'forOption',
       type: 'string',
       options: {
@@ -50,14 +50,14 @@ export default {
       forOption: 'forOption'
     },
     prepare({ color, forOption }) {
-      const option = forOption ? forOption.split(':') : null
+      const option = forOption ? forOption.split(':') : null;
       return {
         title:
           option && option.length > 1
             ? `${option[0]}: ${option[1]}`
             : 'All Variants',
         media: color?.hex ? getSwatch(color.hex.toUpperCase()) : null
-      }
+      };
     }
   }
-}
+};

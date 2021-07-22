@@ -11,7 +11,9 @@ const ProductPrice: FC<ProductPriceProps> = ({ price, comparePrice }) => {
   return (
     <div className="price">
       <span className="price--current">£{centsToPrice(price)}</span>
-      <span className="price--old">£{centsToPrice(comparePrice)}</span>
+      {!!comparePrice && comparePrice !== 0 && (
+        <span className="price--old">£{centsToPrice(comparePrice)}</span>
+      )}
     </div>
   );
 };

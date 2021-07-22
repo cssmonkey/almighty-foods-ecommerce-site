@@ -38,7 +38,7 @@ a[href='#content'].skip-link {
   }
 
   &--content {
-    @apply flex flex-col items-center relative z-30 container mx-auto;
+    @apply flex flex-col items-center relative z-30 mx-auto;
   }
 
   &--border {

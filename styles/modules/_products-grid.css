@@ -1,5 +1,5 @@
 .products-grid {
-  @apply container mx-auto mb-24 px-6 sm:px-0;
+  @apply container mx-auto mb-12 sm:mb-24 px-6 sm:px-0;
   &__title {
     @apply text-center mx-auto mb-8 text-3xl sm:text-5xl;
     max-width: 40rem;
@@ -10,17 +10,37 @@
 }
 
 .products-grid__list-item {
-  @apply mb-6;
+  @apply mb-6 relative;
   &-title {
-    @apply bg-white text-center px-4 py-2 block text-2xl;
+    @apply bg-white text-center px-4 pt-2 block text-3xl;
   }
 
   a {
-    @apply block border-2 border-transparent p-8 rounded-xl;
+    @apply block border-2 border-transparent p-8 rounded-3xl;
     transition: border-color 0.2s ease-out;
   }
-  a:hover,
-  a:focus {
+  &:hover a {
     @apply border-highlight;
+  }
+}
+
+.products-grid__list-item-price-bar {
+  @apply text-center pb-2;
+
+  .price {
+    &--current {
+      @apply px-1 text-lightBrown;
+    }
+    &--old {
+      @apply px-1 text-highlight line-through;
+    }
+  }
+}
+
+.products-grid__list-item-add-to-cart {
+  transform: translateY(-50%);
+  text-align: center;
+  .btn {
+    @apply border-2 border-white;
   }
 }

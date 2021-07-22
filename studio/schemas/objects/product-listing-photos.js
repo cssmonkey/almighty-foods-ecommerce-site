@@ -1,4 +1,4 @@
-import { FiLayers } from 'react-icons/fi'
+import { FiLayers } from 'react-icons/fi';
 
 export default {
   title: 'Listing Photos',
@@ -7,7 +7,7 @@ export default {
   icon: FiLayers,
   fields: [
     {
-      title: 'Wich Variants is this for?',
+      title: 'Which Variants is this for?',
       name: 'forOption',
       type: 'string',
       options: {
@@ -37,14 +37,14 @@ export default {
       forOption: 'forOption'
     },
     prepare({ listingPhoto, forOption }) {
-      const option = forOption ? forOption.split(':') : null
+      const option = forOption ? forOption.split(':') : null;
       return {
         title:
           option && option.length > 1
             ? `${option[0]}: ${option[1]}`
             : 'All Variants',
         media: listingPhoto ? listingPhoto : null
-      }
+      };
     }
   }
-}
+};

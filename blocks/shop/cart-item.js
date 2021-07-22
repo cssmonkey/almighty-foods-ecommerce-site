@@ -43,7 +43,9 @@ function CartItem({ item }) {
       <div className="cart-item--details">
         <div className="cart-item--header">
           <div className="cart-item--title">
-            <div className="cart-item--variant">{item.title}</div>
+            {item.title && item.title !== 'Default Title' && (
+              <div className="cart-item--variant">{item.title}</div>
+            )}
             <h2 className="cart-item--name">
               <Link
                 href={`/products/${item.product.slug}?variant=${item.id}`}

@@ -3,7 +3,7 @@
   max-width: 45rem;
 
   &--intro {
-    @apply text-2xl;
+    @apply text-2xl sm:text-3xl;
   }
 
   &__title {

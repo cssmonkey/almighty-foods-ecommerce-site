@@ -110,7 +110,7 @@
   }
 
   &--name {
-    @apply mb-2 sm:mb-4 text-xl sm:text-3xl;
+    @apply mb-2 text-3xl;
   }
 
   &--link {

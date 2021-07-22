@@ -3,7 +3,7 @@
   --black: #000000;
   --white: #ffffff;
   --darkBrown: #81674b;
-  --lightBrown: #e8decf;
+  --lightBrown: rgba(129, 103, 75, 0.75);
   --highlight: #fd7777;
 
   --black-hsl: 0, 0%, 0%;
@@ -22,14 +22,6 @@
 
   --pageBG-hsl: 0, 0%, 0%;
   --pageText-hsl: 60, 14%, 95%;
-}
-
-[data-theme='metal'] {
-  --pageBG: #000000;
-  --pageText: #8fff1f;
-
-  --pageBG-hsl: 0, 0%, 0%;
-  --pageText-hsl: 90, 100%, 56%;
 }
 
 @custom-media --xs (min-width: 480px);

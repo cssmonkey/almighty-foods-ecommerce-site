@@ -36,7 +36,7 @@
   }
 
   &--label {
-    @apply absolute top-1/2 transform -translate-y-1/2 left-0 px-4 py-2;
+    @apply absolute top-1/2 transform -translate-y-1/2 left-0 px-4 py-2 text-grey;
 
     .is-filled & {
       @apply hidden;
@@ -101,7 +101,10 @@
     .is-inline & {
       @apply border-0;
     }
-
+    &::placeholder {
+      /* Chrome/Opera/Safari */
+      @apply text-grey;
+    }
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {

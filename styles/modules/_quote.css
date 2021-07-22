@@ -1,5 +1,5 @@
 .quote {
-  @apply container border-t border-b border-lightBrown mx-auto px-6 sm:px-0 mb-24;
+  @apply container border-t border-b border-lightBrown mx-auto px-6 sm:px-0 mb-12 sm:mb-24;
   &__inner {
     @apply py-16 mx-auto flex items-center flex-col;
     max-width: 64rem;

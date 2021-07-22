@@ -1,5 +1,5 @@
 .btn {
-  @apply clean-btn inline-block relative bg-pageBG px-5 py-2 text-center rounded-full border font-sans font-semibold text-xs;
+  @apply clean-btn inline-block relative bg-pageBG px-5 py-1 text-center rounded-full text-xs;
 
   &.is-block {
     @apply block w-full;
@@ -41,7 +41,7 @@
 
   /* primary style button */
   &.is-primary {
-    @apply bg-highlight border-pageText text-white text-lg px-12 py-3 font-normal;
+    @apply bg-highlight border-pageText text-white text-lg px-12 py-2 font-normal;
 
     /* primary: inverted */
     &.is-inverted {

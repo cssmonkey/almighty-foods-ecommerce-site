@@ -52,19 +52,19 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
                 comparePrice={product.comparePrice}
               />
             </div>
-            {product.inStock && (
-              <div className="products-grid__list-item-add-to-cart">
-                <ProductAdd
-                  productID={defaultVariant}
-                  quantity={1}
-                  className="btn is-primary is-large is-block"
-                >
-                  Add To Cart
-                </ProductAdd>
-              </div>
-            )}
           </a>
         </Link>
+        {product.inStock && (
+          <div className="products-grid__list-item-add-to-cart">
+            <ProductAdd
+              productID={defaultVariant.id}
+              quantity={1}
+              className="btn is-primary"
+            >
+              Add To Cart
+            </ProductAdd>
+          </div>
+        )}
       </li>
     );
   };
