@@ -3,11 +3,6 @@ import React, { useState, useCallback, memo } from 'react';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 import GOOGLE_MAP_API from 'constants/google-map-api';
 
-const containerStyle = {
-  width: '100%',
-  height: '500px',
-};
-
 const center = GOOGLE_MAP_API.defaultLocation;
 const zoom = GOOGLE_MAP_API.defaultZoom;
 
@@ -39,19 +34,17 @@ const Map = ({ markers = [] }) => {
   }, []);
 
   return isLoaded ? (
-    <div className="container mx-auto mb-12">
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={zoom}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        {markers.map(({ coordinates, title }, i) => (
-          <Marker key={i} position={coordinates} title={title} />
-        ))}
-      </GoogleMap>
-    </div>
+    <GoogleMap
+      center={center}
+      zoom={zoom}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+      mapContainerClassName="map-container"
+    >
+      {markers.map(({ coordinates, title }, i) => (
+        <Marker key={i} position={coordinates} title={title} />
+      ))}
+    </GoogleMap>
   ) : (
     <></>
   );
