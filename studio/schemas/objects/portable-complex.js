@@ -5,7 +5,8 @@ import {
   Header2,
   Header3,
   Header4,
-  Button
+  Button,
+  EnlargedParagraph
 } from '../../components/block-renders';
 
 import ConditionalFields from '../../components/conditional-field';
@@ -74,6 +75,13 @@ export default {
           value: 'h4mock',
           blockEditor: {
             render: Header4
+          }
+        },
+        {
+          title: 'Enlarge paragraph',
+          value: 'enlargedParagraph',
+          blockEditor: {
+            render: EnlargedParagraph
           }
         }
       ],

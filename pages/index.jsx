@@ -1,21 +1,24 @@
-import React from 'react'
+import React from 'react';
 
-import Layout from '@components/layout'
-import { getStaticPage, modules } from '@lib/api'
+import Layout from '@components/layout';
+import { getStaticPage, modules } from '@lib/api';
+import PageContent from '@components/page-content';
 
-import { Module } from '@modules/index'
+import { Module } from '@modules/index';
 
 const Home = ({ data }) => {
-  const { site, page } = data
+  const { site, page } = data;
 
   return (
     <Layout site={site} page={page}>
-      {page.modules?.map((module, key) => (
-        <Module key={key} module={module} />
-      ))}
+      <PageContent>
+        {page.modules?.map((module, key) => (
+          <Module key={key} module={module} />
+        ))}
+      </PageContent>
     </Layout>
-  )
-}
+  );
+};
 
 export async function getStaticProps({ preview, previewData }) {
   const pageData = await getStaticPage(
@@ -32,13 +35,13 @@ export async function getStaticProps({ preview, previewData }) {
       active: preview,
       token: previewData?.token,
     }
-  )
+  );
 
   return {
     props: {
       data: pageData,
     },
-  }
+  };
 }
 
-export default Home
+export default Home;

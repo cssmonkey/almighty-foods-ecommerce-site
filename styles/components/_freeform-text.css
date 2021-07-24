@@ -1,9 +1,9 @@
 .freeform-text {
-  @apply text-center mx-auto mb-12;
+  @apply text-center mx-auto mb-12 sm:mb-24 px-6;
   max-width: 45rem;
-
+  .enlarge-paragraph,
   &--intro {
-    @apply text-2xl sm:text-3xl;
+    @apply text-2xl sm:text-3xl text-lightBrown;
   }
 
   &__title {
@@ -12,6 +12,49 @@
 
   &__list {
     @apply text-xl;
+  }
+
+  h1,
+  .is-h1 {
+    @apply mb-6;
+  }
+
+  h2,
+  .is-h2 {
+    @apply mb-6;
+  }
+
+  h3,
+  .is-h3 {
+    @apply mb-6;
+  }
+
+  h4,
+  .is-h4 {
+    @apply mb-6;
+  }
+
+  h5 {
+    @apply mb-6;
+  }
+
+  h6 {
+    @apply mb-6;
+  }
+
+  h1,
+  .is-h1,
+  h2,
+  .is-h2,
+  h3,
+  .is-h3,
+  h4,
+  .is-h4,
+  h5,
+  h6 {
+    &:last-child {
+      @apply mb-0;
+    }
   }
 }
 

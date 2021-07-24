@@ -64,6 +64,7 @@ module.exports = {
       pageText: 'var(--pageText)',
       darkBrown: 'var(--darkBrown)',
       lightBrown: 'var(--lightBrown)',
+      slight: 'var(--slight)',
       highlight: 'var(--highlight)',
     },
     screens: {

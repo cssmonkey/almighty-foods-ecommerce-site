@@ -1,5 +1,5 @@
-import React from 'react'
-import cx from 'classnames'
+import React from 'react';
+import cx from 'classnames';
 
 export const Header1 = props => (
   <h1
@@ -12,7 +12,7 @@ export const Header1 = props => (
   >
     {props.children}
   </h1>
-)
+);
 
 export const Header2 = props => (
   <h2
@@ -25,7 +25,7 @@ export const Header2 = props => (
   >
     {props.children}
   </h2>
-)
+);
 
 export const Header3 = props => (
   <h3
@@ -38,7 +38,7 @@ export const Header3 = props => (
   >
     {props.children}
   </h3>
-)
+);
 
 export const Header4 = props => (
   <h4
@@ -51,10 +51,10 @@ export const Header4 = props => (
   >
     {props.children}
   </h4>
-)
+);
 
 export const Button = ({ isButton, styles, children }) => {
-  if (!isButton) return children
+  if (!isButton) return children;
 
   return (
     <span
@@ -65,5 +65,18 @@ export const Button = ({ isButton, styles, children }) => {
     >
       {children}
     </span>
-  )
-}
+  );
+};
+
+export const EnlargedParagraph = ({ children }) => (
+  <p
+    style={{
+      margin: '0',
+      fontSize: '1.25rem',
+      lineHeight: '1.25',
+      fontWeight: 400
+    }}
+  >
+    {children}
+  </p>
+);

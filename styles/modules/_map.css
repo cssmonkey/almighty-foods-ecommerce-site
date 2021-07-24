@@ -1,4 +1,7 @@
 .map-container {
   @apply mb-12 sm:mb-24 container mx-auto h-0 overflow-hidden;
-  padding-top: 35%;
+  padding-top: 56.25%;
+  @media (--sm) {
+    padding-top: 35%;
+  }
 }

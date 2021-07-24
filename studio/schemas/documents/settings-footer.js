@@ -8,7 +8,35 @@ export default {
       title: 'Accreditation logos',
       name: 'accreditationLogos',
       type: 'array',
-      of: [{ type: 'navPage' }, { type: 'navLink' }, { type: 'navDropdown' }]
+      of: [
+        {
+          name: 'accreditationLogo',
+          type: 'object',
+          fields: [
+            {
+              title: 'Image',
+              name: 'accreditationImage',
+              type: 'figure'
+            },
+            {
+              title: 'Site URL',
+              name: 'accreditationURL',
+              type: 'url'
+            }
+          ],
+          preview: {
+            select: {
+              media: 'accreditationImage'
+            },
+            prepare({ media }) {
+              return {
+                title: media.alt || 'Accreditation logo',
+                media
+              };
+            }
+          }
+        }
+      ]
     },
     {
       title: 'Footer navigation',
@@ -26,7 +54,7 @@ export default {
     prepare() {
       return {
         title: 'Footer Settings'
-      }
+      };
     }
   }
-}
+};

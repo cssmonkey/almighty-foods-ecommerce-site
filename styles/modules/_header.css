@@ -18,7 +18,7 @@ a[href='#content'].skip-link {
   }
 
   &--inner {
-    @apply text-pageText relative z-20 p-2 sm:p-6 bg-pageBG;
+    @apply text-pageText relative z-20 py-2 px-4 sm:py-6 sm:px-12 bg-pageBG;
 
     .is-overlay & {
       @apply bg-transparent transition-colors duration-300;
@@ -42,7 +42,7 @@ a[href='#content'].skip-link {
   }
 
   &--border {
-    @apply absolute inset-x-0 bottom-0 z-20 border-t border-lightBrown;
+    @apply absolute inset-x-0 bottom-0 z-20 border-t border-slight;
     transition: opacity 0s 0.6s linear;
 
     .is-white & {

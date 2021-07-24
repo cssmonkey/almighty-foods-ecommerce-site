@@ -1,5 +1,5 @@
 .asset-download {
-  @apply mx-auto border-t border-b border-lightBrown py-12 text-center;
+  @apply mx-auto border-t border-b border-slight py-12 text-center;
   &__title {
     @apply mb-4;
   }

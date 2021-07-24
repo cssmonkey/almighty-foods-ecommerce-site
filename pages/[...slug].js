@@ -24,8 +24,9 @@ const Page = ({ data }) => {
       {!router.isFallback && (
         <Layout site={site} page={page}>
           <PageHeader title={page.title} subtitle={page.subtitle} />
-          <Photo photo={page.image} className="page-content-image" />
+
           <PageContent>
+            <Photo photo={page.image} className="page-content-image" />
             {page.introText && (
               <div className="freeform-text freeform-text--intro">
                 <Freeform data={page.introText} />

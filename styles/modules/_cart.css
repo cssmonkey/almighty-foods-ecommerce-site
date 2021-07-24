@@ -35,7 +35,7 @@
     @apply relative mx-4 pb-3 mt-6 sm:mx-8 sm:mt-12 sm:pb-6 text-xl leading-normal;
 
     &::after {
-      @apply absolute inset-x-0 bottom-0 border-t border-lightBrown;
+      @apply absolute inset-x-0 bottom-0 border-t border-slight;
       content: '';
     }
 
@@ -61,7 +61,7 @@
   }
 
   &--subtotal {
-    @apply flex justify-between py-4 sm:py-8 px-4 border-t border-lightBrown;
+    @apply flex justify-between py-4 sm:py-8 px-4 border-t border-slight;
   }
 
   &--message {

@@ -20,10 +20,12 @@ export default {
       type: 'array',
       of: [
         { type: 'hero' },
-        { type: 'quote' },
-        { type: 'newsletter' },
         { type: 'productsGrid' },
-        { type: 'recipesList' }
+        { type: 'recipesList' },
+        { type: 'grid' },
+        { type: 'dividerPhoto' },
+        { type: 'quote' },
+        { type: 'newsletter' }
       ]
     },
     {
