@@ -31,6 +31,10 @@
       transform: scale(1.01) translate3d(-50%, -50%, 0);
     }
   }
+
+  &__cta-control {
+    @apply text-center;
+  }
 }
 
 .recipe-listing-item-title {

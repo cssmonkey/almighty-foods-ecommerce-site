@@ -1,6 +1,11 @@
 import React, { useState, useCallback, memo } from 'react';
 
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  InfoWindow,
+} from '@react-google-maps/api';
 import GOOGLE_MAP_API from 'constants/google-map-api';
 
 const center = GOOGLE_MAP_API.defaultLocation;
@@ -13,6 +18,7 @@ const Map = ({ markers = [] }) => {
   });
 
   const [map, setMap] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
   const onLoad = (map) => {
     const bounds = new google.maps.LatLngBounds();
@@ -41,9 +47,41 @@ const Map = ({ markers = [] }) => {
       onUnmount={onUnmount}
       mapContainerClassName="map-container"
     >
-      {markers.map(({ coordinates, title }, i) => (
-        <Marker key={i} position={coordinates} title={title} />
+      {markers.map((location, i) => (
+        <Marker
+          key={i}
+          position={location.coordinates}
+          title={location.title}
+          onClick={() => {
+            setSelectedLocation(location);
+          }}
+        />
       ))}
+
+      {selectedLocation && (
+        <InfoWindow
+          onCloseClick={() => {
+            setSelectedLocation(null);
+          }}
+          position={{
+            lat: selectedLocation.coordinates.lat,
+            lng: selectedLocation.coordinates.lng,
+          }}
+        >
+          <div className="map-info-window">
+            <h5>
+              {selectedLocation.url ? (
+                <a href={selectedLocation.url} target="_blank">
+                  {selectedLocation.title}
+                </a>
+              ) : (
+                <>{selectedLocation.title}</>
+              )}
+            </h5>
+            <p>{selectedLocation.region}</p>
+          </div>
+        </InfoWindow>
+      )}
     </GoogleMap>
   ) : (
     <></>

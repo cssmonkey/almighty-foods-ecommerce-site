@@ -1,5 +1,5 @@
 .page-form {
-  @apply mx-auto border-t border-slight pt-12;
+  @apply mx-auto border-t border-slight pt-12 px-6;
   max-width: 45rem;
 
   &__field {

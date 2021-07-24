@@ -27,7 +27,7 @@ const Page = ({ data }) => {
 
           <PageContent>
             <Photo photo={page.image} className="page-content-image" />
-            {page.introText && (
+            {page.introText?.content && (
               <div className="freeform-text freeform-text--intro">
                 <Freeform data={page.introText} />
               </div>

@@ -1,0 +1,14 @@
+.stockist-listing {
+  &__inner {
+    @apply mb-12;
+  }
+  &__title {
+    @apply mb-2 text-center;
+  }
+  &__list {
+    @apply text-center;
+  }
+  &__list-item {
+    @apply text-lg;
+  }
+}
