@@ -20,6 +20,18 @@ const Map = ({ markers = [] }) => {
   const [map, setMap] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
 
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.key === 'Escape') {
+        selectedLocation(null);
+      }
+    };
+    window.addEventListener('keydown', listener);
+    return () => {
+      window.removeEventListener('keydown', listener);
+    };
+  }, []);
+
   const onLoad = (map) => {
     const bounds = new google.maps.LatLngBounds();
     for (var i = 0; i < markers.length; i++) {
