@@ -41,7 +41,7 @@ const Grid = ({ data = {} }) => {
     <section className="section">
       <div className="section--content">
         <div
-          className={`grid grid-cols-${size} gap-x-4 gap-y-4 sm:gap-x-8 lg:gap-x-12 lg:gap-y-6`}
+          className={`grid grid-cols-${size} gap-x-4 gap-y-4 sm:gap-x-8 sm:gap-y-8 lg:gap-x-12 lg:gap-y-12`}
         >
           {columns.map((col, key) => {
             const { sizes, blocks } = col;

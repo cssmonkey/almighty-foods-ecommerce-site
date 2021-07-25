@@ -1,10 +1,10 @@
-import { FiGift } from 'react-icons/fi'
+import { FiGift } from 'react-icons/fi';
 
 export default {
   name: 'productVariant',
   title: 'Variant',
   type: 'document',
-  __experimental_actions: ['update', 'publish', 'delete'], // disable for initial publish
+  //__experimental_actions: ['update', 'publish', 'delete'], // disable for initial publish
   fieldsets: [
     {
       title: 'Shopify',
@@ -135,11 +135,11 @@ export default {
     }) {
       const getSubtitle = () => {
         if (title) {
-          return title === variantTitle ? null : `(${variantTitle})`
+          return title === variantTitle ? null : `(${variantTitle})`;
         } else {
-          return productTitle
+          return productTitle;
         }
-      }
+      };
 
       return {
         title:
@@ -147,7 +147,7 @@ export default {
           (wasDeleted ? ' (removed)' : '') +
           (isDraft ? ' (draft)' : ''),
         subtitle: getSubtitle()
-      }
+      };
     }
   }
-}
+};

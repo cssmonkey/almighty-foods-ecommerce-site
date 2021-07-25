@@ -2,7 +2,7 @@ export default {
   title: 'General Settings',
   name: 'generalSettings',
   type: 'document',
-  __experimental_actions: ['update', 'publish'], // disable for initial publish
+  //__experimental_actions: ['update', 'publish'], // disable for initial publish
   fields: [
     {
       title: 'Live Site URL',
@@ -21,7 +21,7 @@ export default {
     prepare() {
       return {
         title: 'General Settings'
-      }
+      };
     }
   }
-}
+};

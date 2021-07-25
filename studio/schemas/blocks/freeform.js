@@ -10,6 +10,19 @@ export default {
       title: ' ',
       name: 'content',
       type: 'complexPortableText'
+    },
+    {
+      title: 'Alignment',
+      name: 'textAlign',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Left', value: 'left' },
+          { title: 'Right', value: 'right' },
+          { title: 'Center', value: 'center' }
+        ]
+      },
+      initialValue: 'center'
     }
   ],
   preview: {

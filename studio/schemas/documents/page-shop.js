@@ -1,11 +1,11 @@
-import { FiShoppingCart } from 'react-icons/fi'
+import { FiShoppingCart } from 'react-icons/fi';
 
 export default {
   title: 'Shop All Page',
   name: 'shopPage',
   type: 'document',
   icon: FiShoppingCart,
-  __experimental_actions: ['update', 'publish'], // disable for initial publish
+  //__experimental_actions: ['update', 'publish'], // disable for initial publish
   fields: [
     {
       title: 'Page Modules',
@@ -22,11 +22,11 @@ export default {
         Rule.custom(blocks => {
           const collectionGrids = blocks.filter(
             block => block._type === 'collectionGrid'
-          )
+          );
 
           const collectionGridItems = collectionGrids.map(
             (item, index) => [{ _key: item._key }] || [index]
-          )
+          );
 
           return collectionGrids.length === 1
             ? true
@@ -34,7 +34,7 @@ export default {
                 message:
                   'You must have one "Collection Grid" module on the page',
                 paths: collectionGridItems
-              }
+              };
         })
     },
     {
@@ -62,7 +62,7 @@ export default {
     prepare() {
       return {
         title: 'Shop Page'
-      }
+      };
     }
   }
-}
+};

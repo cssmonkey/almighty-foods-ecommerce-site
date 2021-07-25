@@ -1,10 +1,10 @@
-import { FiGift } from 'react-icons/fi'
+import { FiGift } from 'react-icons/fi';
 
 export default {
   name: 'product',
   title: 'Product',
   type: 'document',
-  __experimental_actions: ['update', 'publish', 'delete'], // disable for initial publish
+  //__experimental_actions: ['update', 'publish', 'delete'], // disable for initial publish
   fieldsets: [
     {
       title: 'Shopify',
@@ -189,18 +189,18 @@ export default {
         Rule.custom(blocks => {
           const productHeros = blocks.filter(
             block => block._type === 'productHero'
-          )
+          );
 
           const productHeroItems = productHeros.map(
             (item, index) => [{ _key: item._key }] || [index]
-          )
+          );
 
           return productHeros.length === 1
             ? true
             : {
                 message: 'You must have one "Product Hero" module on the page',
                 paths: productHeroItems
-              }
+              };
         })
     },
     {
@@ -242,7 +242,7 @@ export default {
       slug = {},
       cartPhotos
     }) {
-      const path = `/products/${slug.current}`
+      const path = `/products/${slug.current}`;
       return {
         title:
           (title ? title : productTitle) +
@@ -250,7 +250,7 @@ export default {
           (isDraft ? ' (draft)' : ''),
         media: cartPhotos?.length ? cartPhotos[0].cartPhoto : null,
         subtitle: slug.current ? path : '(missing slug)'
-      }
+      };
     }
   }
-}
+};

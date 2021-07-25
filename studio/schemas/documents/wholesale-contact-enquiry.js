@@ -5,7 +5,7 @@ export default {
   name: 'wholesaleContactEnquiry',
   type: 'document',
   icon: FiMail,
-  //__experimental_actions: ['update', 'publish'],
+  ////__experimental_actions: ['update', 'publish'],
   fields: [
     {
       title: 'Name',

@@ -1,10 +1,10 @@
-import { FiAlertCircle } from 'react-icons/fi'
+import { FiAlertCircle } from 'react-icons/fi';
 
 export default {
   title: 'Header Settings',
   name: 'headerSettings',
   type: 'document',
-  __experimental_actions: ['update', 'publish'], // disable for initial publish
+  //__experimental_actions: ['update', 'publish'], // disable for initial publish
   fields: [
     {
       title: 'Main navigation menu',
@@ -23,7 +23,7 @@ export default {
     prepare() {
       return {
         title: 'Header Settings'
-      }
+      };
     }
   }
-}
+};

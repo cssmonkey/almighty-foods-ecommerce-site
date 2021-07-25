@@ -2,7 +2,7 @@ export default {
   title: 'Cart Settings',
   name: 'cartSettings',
   type: 'document',
-  __experimental_actions: ['update', 'publish'], // disable for initial publish
+  //__experimental_actions: ['update', 'publish'], // disable for initial publish
   fields: [
     {
       title: 'Shopify Checkout URL',
@@ -26,7 +26,7 @@ export default {
     prepare() {
       return {
         title: 'Cart Settings'
-      }
+      };
     }
   }
-}
+};

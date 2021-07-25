@@ -5,7 +5,7 @@ export default {
   name: 'homePage',
   type: 'document',
   icon: FiHome,
-  __experimental_actions: ['update', 'publish'], // disable for initial publish
+  //__experimental_actions: ['update', 'publish'], // disable for initial publish
   fields: [
     {
       title: 'Overlay header with transparency?',

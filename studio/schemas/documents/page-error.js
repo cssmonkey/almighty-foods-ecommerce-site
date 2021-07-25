@@ -1,11 +1,11 @@
-import { FiAlertOctagon } from 'react-icons/fi'
+import { FiAlertOctagon } from 'react-icons/fi';
 
 export default {
   title: 'Error Page',
   name: 'errorPage',
   type: 'document',
   icon: FiAlertOctagon,
-  __experimental_actions: ['update', 'publish'], // disable for initial publish
+  //__experimental_actions: ['update', 'publish'], // disable for initial publish
   fields: [
     {
       title: 'Page Modules',
@@ -28,7 +28,7 @@ export default {
     prepare() {
       return {
         title: 'Error Page'
-      }
+      };
     }
   }
-}
+};
