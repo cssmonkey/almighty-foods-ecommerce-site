@@ -20,12 +20,6 @@ export default {
       readOnly: true
     },
     {
-      title: 'Subject',
-      name: 'subject',
-      type: 'string',
-      readOnly: true
-    },
-    {
       title: 'Message',
       name: 'message',
       type: 'text',
@@ -34,8 +28,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'subject',
-      subtitle: 'name'
+      title: 'name',
+      subtitle: 'email'
     },
     prepare({ title, subtitle }) {
       return {

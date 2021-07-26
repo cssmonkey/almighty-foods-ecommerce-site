@@ -40,7 +40,14 @@
     }
 
     .cart-toggle {
-      @apply absolute left-0 top-0 p-0;
+      @apply absolute left-0 top-1 rounded-full bg-highlight text-white p-1;
+      &-icon {
+        @apply w-6 h-6;
+        transform: rotate(45deg);
+      }
+      span {
+        @apply sr-only;
+      }
     }
   }
 

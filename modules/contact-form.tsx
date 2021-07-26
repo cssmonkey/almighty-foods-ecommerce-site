@@ -15,7 +15,7 @@ interface ContactFormProps {
   type: 'contactEnquiry' | 'wholesaleContactEnquiry';
 }
 
-const ContactForm: FC<ContactFormProps> = ({ type }) => {
+const CustomerForm: FC<ContactFormProps> = ({ type }) => {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -23,14 +23,12 @@ const ContactForm: FC<ContactFormProps> = ({ type }) => {
   const validationSchema = Yup.object({
     name: Yup.string().required('Please enter your full name'),
     email: Yup.string().email().required('Please enter your email address'),
-    subject: Yup.string().required('Please enter a subject line'),
     message: Yup.string().required('Please enter your message'),
   } as const);
 
   const initialValues = {
     name: '',
     email: '',
-    subject: '',
     message: '',
   } as const;
 
@@ -92,6 +90,7 @@ const ContactForm: FC<ContactFormProps> = ({ type }) => {
                   <ErrorMessage name="name" render={renderError} />
                 </div>
               </div>
+
               <div className="page-form__field">
                 <label className="page-form__label" htmlFor="email">
                   Email address
@@ -108,17 +107,160 @@ const ContactForm: FC<ContactFormProps> = ({ type }) => {
               </div>
 
               <div className="page-form__field">
-                <label className="page-form__label" htmlFor="subject">
-                  Subject
+                <label className="page-form__label" htmlFor="message">
+                  Message
                 </label>
                 <div className="page-form__control">
                   <Field
-                    name="subject"
+                    name="message"
+                    as="textarea"
+                    className="textarea"
+                    placeholder="Message"
+                  />
+                  <ErrorMessage name="message" render={renderError} />
+                </div>
+              </div>
+              <div className="page-form__controls">
+                <button
+                  disabled={submitting}
+                  className={cx('btn is-primary', {
+                    'is-loading': submitting,
+                  })}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </Form>
+    </Formik>
+  );
+};
+
+const WholesalerForm: FC<ContactFormProps> = ({ type }) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required('Please enter your full name'),
+    company: Yup.string().required('Please enter the name of your company'),
+    email: Yup.string().email().required('Please enter your email address'),
+    website: Yup.string().required('Please enter your website url'),
+    message: Yup.string().required('Please enter your message'),
+  } as const);
+
+  const initialValues = {
+    name: '',
+    company: '',
+    email: '',
+    website: '',
+    message: '',
+  } as const;
+
+  const onSubmit = (values) => {
+    const request = { ...values, _type: type };
+
+    sanity
+      .create(request)
+      .then(() => {
+        setSubmitting(false);
+        setSuccess(true);
+      })
+      .catch(() => {
+        setSubmitting(false);
+        setError(true);
+      });
+  };
+
+  const renderError = (message: string): JSX.Element => (
+    <p className="error-message">{message}</p>
+  );
+
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={async (values, { resetForm }) => {
+        await onSubmit(values);
+        resetForm();
+      }}
+    >
+      <Form>
+        <div className="page-form">
+          {error && (
+            <div className="error-summary">
+              <p className="error-message">
+                Something went wrong, please try again
+              </p>
+            </div>
+          )}
+          {success ? (
+            <div className="form-submit-message">
+              <h3>Message sent</h3>
+              <p>Your message has been sent, thank you for getting in touch</p>
+            </div>
+          ) : (
+            <>
+              <div className="page-form__field">
+                <label className="page-form__label" htmlFor="name">
+                  Full name
+                </label>
+                <div className="page-form__control">
+                  <Field
+                    name="name"
                     type="text"
                     className="input"
-                    placeholder="Subject"
+                    placeholder="Full name"
                   />
-                  <ErrorMessage name="subject" render={renderError} />
+                  <ErrorMessage name="name" render={renderError} />
+                </div>
+              </div>
+
+              <div className="page-form__field">
+                <label className="page-form__label" htmlFor="company">
+                  Company
+                </label>
+                <div className="page-form__control">
+                  <Field
+                    name="company"
+                    type="text"
+                    className="input"
+                    placeholder="Company"
+                  />
+                  <ErrorMessage name="company" render={renderError} />
+                </div>
+              </div>
+
+              <div className="page-form__field">
+                <label className="page-form__label" htmlFor="email">
+                  Email address
+                </label>
+                <div className="page-form__control">
+                  <Field
+                    name="email"
+                    type="text"
+                    className="input"
+                    placeholder="Email address"
+                  />
+                  <ErrorMessage name="email" render={renderError} />
+                </div>
+              </div>
+
+              <div className="page-form__field">
+                <label className="page-form__label" htmlFor="website">
+                  Website
+                </label>
+                <div className="page-form__control">
+                  <Field
+                    name="website"
+                    type="text"
+                    className="input"
+                    placeholder="Website url"
+                  />
+                  <ErrorMessage name="website" render={renderError} />
                 </div>
               </div>
               <div className="page-form__field">
@@ -152,6 +294,13 @@ const ContactForm: FC<ContactFormProps> = ({ type }) => {
       </Form>
     </Formik>
   );
+};
+
+const ContactForm: FC<ContactFormProps> = ({ type }) => {
+  if (type === 'contactEnquiry') {
+    return <CustomerForm type={type} />;
+  }
+  return <WholesalerForm type={type} />;
 };
 
 export default ContactForm;

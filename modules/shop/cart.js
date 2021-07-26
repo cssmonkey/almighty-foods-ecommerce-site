@@ -5,6 +5,7 @@ import cx from 'classnames';
 
 import { centsToPrice } from '@lib/helpers';
 import CartItem from '@blocks/shop/cart-item';
+import Icon from '@components/icon';
 
 import {
   useSiteContext,
@@ -85,7 +86,12 @@ const Cart = ({ data }) => {
             <div className="cart--header">
               <div className="cart--title">Your Cart</div>
               <button className="cart-toggle" onClick={() => toggleCart(false)}>
-                Done
+                <Icon
+                  name="Plus"
+                  id="cart-toggle-icon"
+                  className="cart-toggle-icon"
+                />
+                <span>Done</span>
               </button>
             </div>
 

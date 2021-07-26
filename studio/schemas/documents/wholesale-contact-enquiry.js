@@ -14,14 +14,20 @@ export default {
       readOnly: true
     },
     {
+      title: 'Company',
+      name: 'company',
+      type: 'string',
+      readOnly: true
+    },
+    {
       title: 'Email address',
       name: 'email',
       type: 'string',
       readOnly: true
     },
     {
-      title: 'Subject',
-      name: 'subject',
+      title: 'Website',
+      name: 'website',
       type: 'string',
       readOnly: true
     },
@@ -34,8 +40,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'subject',
-      subtitle: 'name'
+      title: 'name',
+      subtitle: 'email'
     },
     prepare({ title, subtitle }) {
       return {
