@@ -12,7 +12,7 @@
 .products-grid__list-item {
   @apply mb-6 relative;
   &-title {
-    @apply bg-white text-center px-4 pt-2 block text-3xl;
+    @apply text-center px-4 pt-2 block text-3xl;
   }
 
   a {

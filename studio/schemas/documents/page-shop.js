@@ -15,7 +15,6 @@ export default {
         { type: 'collectionGrid' },
         { type: 'grid' },
         { type: 'hero' },
-        { type: 'marquee' },
         { type: 'dividerPhoto' }
       ],
       validation: Rule =>

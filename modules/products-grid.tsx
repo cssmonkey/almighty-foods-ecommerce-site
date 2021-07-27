@@ -16,12 +16,12 @@ interface Product {
 interface ProductsGridProps {
   data: {
     title?: string;
-    productsList?: Product[];
+    products?: Product[];
   };
 }
 //@ts-ignore
 const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
-  const { title, productsList } = data;
+  const { title, products } = data;
   const productsListRef = useRef();
   const isIntersecting = useIntersection(productsListRef, {
     once: true,
@@ -30,14 +30,16 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
 
   const renderListItem = (product, i) => {
     const defaultVariant = product.variants[0];
+    const photo = product.photos.listing && product.photos.listing[0].default;
+
     return (
       <li className="products-grid__list-item" key={i}>
         <Link href={`/products/${product.slug}`}>
           <a>
-            {product.photo && (
+            {photo && (
               <div className="products-grid__list-item-image">
                 <Photo
-                  photo={product.photo}
+                  photo={photo}
                   hasPlaceholder={false}
                   forceLoad={isIntersecting}
                 />
@@ -74,7 +76,7 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
       <div className="products-grid__inner">
         {title && <h2 className="products-grid__title">{title}</h2>}
         <ul ref={productsListRef} className="products-grid__list">
-          {productsList.map(renderListItem)}
+          {products.map(renderListItem)}
         </ul>
         <div className="products-grid__control text-center">
           <Link href={`/shop`}>

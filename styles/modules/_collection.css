@@ -1,19 +1,37 @@
 .collection {
-  @apply overflow-hidden border-b;
-  
+  @apply container mx-auto mb-12 sm:mb-24 px-6 sm:px-0;
   &--grid {
-    @apply grid grid-cols-1 md:grid-cols-3 -m-px;
+    @apply pt-24 grid grid-cols-1 gap-4 sm:grid-cols-3;
   }
 
   &--pagination {
     @apply relative p-4 sm:py-8 is-textured bg-pageBG border-t text-center;
+  }
+
+  .product-card {
+    @apply p-8;
+    a::after {
+      @apply border-2 border-transparent rounded-3xl;
+      transition: border-color 0.2s ease-out;
+    }
+    a:hover::after,
+    a:focus::after {
+      @apply border-highlight;
+    }
+
+    .product-card--visuals + .product-card--details {
+      @apply mt-0;
+    }
+    &-title {
+      @apply bg-white text-center px-4 pt-2 block text-3xl;
+    }
   }
 }
 
 .collection-count {
   @apply hidden relative ml-2 leading-none;
   vertical-align: super;
-  font-size: .5em;
+  font-size: 0.5em;
 
   /* Only show product counts for the mega-nav */
   .mega-nav & {
@@ -24,12 +42,6 @@
 .product-card {
   @apply flex flex-col relative;
 
-  .collection &,
-  .marquee--product & {
-    @apply p-8 border;
-    margin: -.5px;
-  }
-
   &.is-inline {
     @apply my-4;
   }
@@ -37,7 +49,7 @@
   &--thumb {
     @apply z-0;
   }
-  
+
   &--photo {
     @apply relative overflow-hidden;
 
@@ -73,19 +85,7 @@
   }
 
   &--title {
-    @apply m-0 !important;
-    
-    .is-featured & {
-      @apply text-base;
-    }
-
-    .is-inline & {
-      @apply text-2xl;
-    }
-
-    + .price {
-      @apply mt-2;
-    }
+    @apply px-4 pt-2 block text-3xl;
   }
 
   &--link {
@@ -93,7 +93,7 @@
 
     &::after {
       @apply block absolute inset-0 z-20;
-      content: "";
+      content: '';
     }
   }
 
@@ -101,11 +101,11 @@
     @apply flex items-center justify-center;
 
     &--current {
-      @apply sm:text-base sm:leading-normal font-semibold;
+      @apply px-1 text-lightBrown;
     }
 
-    &--discount {
-      @apply ml-2 p-1 rounded-sm bg-pageText text-pageBG text-xxs leading-tight tracking-widest font-semibold uppercase;
+    &--old {
+      @apply px-1 text-highlight line-through;
     }
   }
 
@@ -129,8 +129,8 @@
     @apply mt-4 text-base font-semibold text-center transition-opacity duration-200;
 
     .product-featured:hover & {
-        @apply opacity-100 visible;
-      }
+      @apply opacity-100 visible;
+    }
   }
 
   &:hover {

@@ -16,7 +16,7 @@ export default {
       title: 'Product Cards',
       name: 'cards',
       description: 'These settings are for product listings and carts',
-      options: { columns: 2 }
+      options: { columns: 1 }
     }
   ],
   icon: FiGift,
@@ -120,13 +120,6 @@ export default {
         'Define a Gallery for your product, or for a subset of variants'
     },
     {
-      title: 'Options Settings',
-      name: 'optionSettings',
-      type: 'array',
-      of: [{ type: 'productOptionSettings' }],
-      description: 'Define additional settings for product options'
-    },
-    {
       title: 'Use Galleries',
       name: 'useGallery',
       type: 'string',
@@ -137,19 +130,6 @@ export default {
           { title: 'Yes', value: 'true' },
           { title: 'No', value: 'false' }
         ]
-      },
-      fieldset: 'cards'
-    },
-    {
-      title: 'Surface Option',
-      name: 'surfaceOption',
-      type: 'string',
-      description:
-        'Surface one of the product options for this product on Collection pages',
-      options: {
-        list: [{ title: 'None', value: '' }],
-        fromField: 'options',
-        fromFieldData: { title: 'name', value: 'position' }
       },
       fieldset: 'cards'
     },
@@ -168,13 +148,6 @@ export default {
       fieldset: 'cards'
     },
     {
-      title: 'Overlay header with transparency?',
-      name: 'hasTransparentHeader',
-      type: 'boolean',
-      description:
-        'When toggled on, the header will appear with a transparent background over the first content module and text/logos will be white until scrolling is engaged.'
-    },
-    {
       title: 'Page Modules',
       name: 'modules',
       type: 'array',
@@ -182,7 +155,6 @@ export default {
         { type: 'productHero' },
         { type: 'grid' },
         { type: 'hero' },
-        { type: 'marquee' },
         { type: 'dividerPhoto' }
       ],
       validation: Rule =>

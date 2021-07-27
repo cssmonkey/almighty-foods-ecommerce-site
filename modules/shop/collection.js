@@ -1,36 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 // import { useIntersection } from 'use-intersection'
 
-import ProductCard from '@blocks/shop/product-card'
+import ProductCard from '@blocks/shop/product-card';
 
 const Collection = ({
   products,
   featuredProducts = [],
   paginationLimit = 3,
 }) => {
-  if (!products || products.length === 0) return null
+  if (!products || products.length === 0) return null;
 
-  const orderedProducts = mapOrder(products, featuredProducts, 'id')
+  const orderedProducts = mapOrder(products, featuredProducts, 'id');
 
-  const hasPagination = paginationLimit > 0
-  const pmax = paginationLimit
-  const [hasMore, setMore] = useState(products.length > pmax)
+  const hasPagination = paginationLimit > 0;
+  const pmax = paginationLimit;
+  const [hasMore, setMore] = useState(products.length > pmax);
   const [pagination, setPagination] = useState([
     ...orderedProducts.slice(0, pmax),
-  ])
+  ]);
 
-  const productsList = hasPagination ? pagination : orderedProducts
+  const productsList = hasPagination ? pagination : orderedProducts;
 
   const loadMore = () => {
-    const curPage = pagination.length
-    const nextPage = orderedProducts.slice(curPage, curPage + pmax)
-    const newPage = [...pagination, ...nextPage]
+    const curPage = pagination.length;
+    const nextPage = orderedProducts.slice(curPage, curPage + pmax);
+    const newPage = [...pagination, ...nextPage];
 
     if (hasMore) {
-      setPagination(newPage)
-      setMore(newPage.length < orderedProducts.length ? true : false)
+      setPagination(newPage);
+      setMore(newPage.length < orderedProducts.length ? true : false);
     }
-  }
+  };
 
   // uncomment below and assign the ref for auto-loading on scroll
   // const loadMore = useIntersection(loadMoreRef)
@@ -70,17 +70,17 @@ const Collection = ({
         </div>
       )}
     </section>
-  )
-}
+  );
+};
 
 function mapOrder(array, myorder, key) {
-  if (!array) return
+  if (!array) return;
 
-  var order = myorder.reduce((r, k, i) => ((r[k] = i + 1), r), {})
+  var order = myorder.reduce((r, k, i) => ((r[k] = i + 1), r), {});
   const theSort = array.sort(
     (a, b) => (order[a[key]] || Infinity) - (order[b[key]] || Infinity)
-  )
-  return theSort
+  );
+  return theSort;
 }
 
-export default Collection
+export default Collection;

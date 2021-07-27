@@ -1,4 +1,4 @@
-import { FiGrid } from 'react-icons/fi'
+import { FiGrid } from 'react-icons/fi';
 
 export default {
   title: 'Products Grid',
@@ -13,7 +13,7 @@ export default {
     },
     {
       title: 'Products',
-      name: 'productsList',
+      name: 'products',
       type: 'array',
       of: [
         {
@@ -25,4 +25,4 @@ export default {
       validation: Rule => Rule.unique()
     }
   ]
-}
+};
