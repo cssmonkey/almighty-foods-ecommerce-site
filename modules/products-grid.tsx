@@ -18,9 +18,10 @@ interface ProductsGridProps {
     title?: string;
     products?: Product[];
   };
+  showCta?: boolean;
 }
 //@ts-ignore
-const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
+const ProductsGrid: FC<ProductsGridProps> = ({ data, showCta = true }) => {
   const { title, products } = data;
   const productsListRef = useRef();
   const isIntersecting = useIntersection(productsListRef, {
@@ -30,16 +31,15 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
 
   const renderListItem = (product, i) => {
     const defaultVariant = product.variants[0];
-    const photo = product.photos.listing && product.photos.listing[0].default;
 
     return (
       <li className="products-grid__list-item" key={i}>
         <Link href={`/products/${product.slug}`}>
           <a>
-            {photo && (
+            {product.mainImage && (
               <div className="products-grid__list-item-image">
                 <Photo
-                  photo={photo}
+                  photo={product.mainImage}
                   hasPlaceholder={false}
                   forceLoad={isIntersecting}
                 />
@@ -78,13 +78,17 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
         <ul ref={productsListRef} className="products-grid__list">
           {products.map(renderListItem)}
         </ul>
-        <div className="products-grid__control text-center">
-          <Link href={`/shop`}>
-            <a className="cta-link">
-              <span className="cta-link__text">Shop for all our products</span>
-            </a>
-          </Link>
-        </div>
+        {showCta && (
+          <div className="products-grid__control text-center">
+            <Link href={`/shop`}>
+              <a className="cta-link">
+                <span className="cta-link__text">
+                  Shop for all our products
+                </span>
+              </a>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

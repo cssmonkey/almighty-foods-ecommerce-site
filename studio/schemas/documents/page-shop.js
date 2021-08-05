@@ -8,6 +8,11 @@ export default {
   //__experimental_actions: ['update', 'publish'], // disable for initial publish
   fields: [
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string'
+    },
+    {
       title: 'Page Modules',
       name: 'modules',
       type: 'array',

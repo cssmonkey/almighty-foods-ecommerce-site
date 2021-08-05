@@ -22,6 +22,7 @@
 @import 'components/_form';
 @import 'components/_freeform-text';
 @import 'components/_page-header';
+@import 'components/_shop-navigation';
 
 @import 'modules/_cookie-bar';
 @import 'modules/_promo-banner';

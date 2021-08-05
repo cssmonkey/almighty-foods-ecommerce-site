@@ -1,0 +1,39 @@
+.shop-navigation {
+  ul {
+    @apply pt-12 pb-6 px-6 sm:px-0 mx-auto flex items-center justify-center;
+    max-width: 64rem;
+  }
+  li {
+    @apply mx-4;
+  }
+
+  a {
+    @apply block text-2xl relative py-1;
+    .link__text {
+      @apply block;
+    }
+    &::after {
+      @apply absolute left-0 w-0 border-b-4 border-highlight;
+      content: '';
+      top: calc(100% + 1px);
+      transform: translateY(-50%);
+      transition: width 0.2s ease-in;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        @apply w-full;
+      }
+      .link__text {
+        animation: textY 0.4s 1;
+      }
+    }
+
+    &.active {
+      &::after {
+        @apply w-full border-lightGrey;
+      }
+    }
+  }
+}

@@ -1,15 +1,20 @@
-import React from 'react'
+import React from 'react';
 
-import Layout from '@components/layout'
-import { getStaticPage, modules, allProducts } from '@lib/api'
+import Layout from '@components/layout';
+import { getStaticPage, modules, allProducts } from '@lib/api';
 
-import { Module } from '@modules/index'
+import { Module } from '@modules/index';
+import ShopNavigation from '@components/shop-navigation';
 
 const Shop = ({ data }) => {
-  const { site, page } = data
+  const { site, page } = data;
 
   return (
     <Layout site={site} page={page}>
+      <ShopNavigation
+        shopPageTitle={page.title}
+        collections={page.collections}
+      />
       {page.modules?.map((module, key) => (
         <Module
           key={key}
@@ -19,14 +24,15 @@ const Shop = ({ data }) => {
         />
       ))}
     </Layout>
-  )
-}
+  );
+};
 
 export async function getStaticProps({ preview, previewData }) {
   const shopData = await getStaticPage(
     `
     *[_type == "shopPage"] | order(_updatedAt desc)[0]{
-      hasTransparentHeader,
+      title,
+      "collections": *[_type == "collection"] | order(_updatedAt desc){title, "slug": slug.current}, 
       modules[]{
         ${modules}
       },
@@ -39,13 +45,13 @@ export async function getStaticProps({ preview, previewData }) {
       active: preview,
       token: previewData?.token,
     }
-  )
+  );
 
   return {
     props: {
       data: shopData,
     },
-  }
+  };
 }
 
-export default Shop
+export default Shop;

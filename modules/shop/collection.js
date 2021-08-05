@@ -1,74 +1,14 @@
-import React, { useState } from 'react';
-// import { useIntersection } from 'use-intersection'
+import React from 'react';
+import ProductsGrid from '@modules/products-grid';
 
-import ProductCard from '@blocks/shop/product-card';
-
-const Collection = ({
-  products,
-  featuredProducts = [],
-  paginationLimit = 3,
-}) => {
+const Collection = ({ products, featuredProducts = [] }) => {
   if (!products || products.length === 0) return null;
 
   const orderedProducts = mapOrder(products, featuredProducts, 'id');
 
-  const hasPagination = paginationLimit > 0;
-  const pmax = paginationLimit;
-  const [hasMore, setMore] = useState(products.length > pmax);
-  const [pagination, setPagination] = useState([
-    ...orderedProducts.slice(0, pmax),
-  ]);
-
-  const productsList = hasPagination ? pagination : orderedProducts;
-
-  const loadMore = () => {
-    const curPage = pagination.length;
-    const nextPage = orderedProducts.slice(curPage, curPage + pmax);
-    const newPage = [...pagination, ...nextPage];
-
-    if (hasMore) {
-      setPagination(newPage);
-      setMore(newPage.length < orderedProducts.length ? true : false);
-    }
-  };
-
-  // uncomment below and assign the ref for auto-loading on scroll
-  // const loadMore = useIntersection(loadMoreRef)
-
-  // useEffect(() => {
-  //   if (loadMore) {
-  //     loadMore()
-  //   }
-  // }, [loadMore])
-
   return (
     <section className="collection">
-      <div className="collection--grid">
-        {productsList.map((product, key) => (
-          <ProductCard
-            key={key}
-            index={key}
-            product={product}
-            hasVisuals={product.photos.main || product.photos.listing}
-            showGallery={product.photos.main && product.useGallery === 'true'}
-            showThumbs={
-              product.photos.listing && product.useGallery === 'false'
-            }
-            showOption={product.surfaceOption}
-            showPrice
-          />
-        ))}
-      </div>
-
-      {hasPagination && hasMore && (
-        <div className="collection--pagination">
-          {hasMore && (
-            <button className="btn is-large" onClick={loadMore}>
-              Load More
-            </button>
-          )}
-        </div>
-      )}
+      <ProductsGrid data={{ products: orderedProducts }} showCta={false} />
     </section>
   );
 };

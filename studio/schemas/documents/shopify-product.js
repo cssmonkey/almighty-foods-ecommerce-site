@@ -112,6 +112,11 @@ export default {
       type: 'simplePortableText'
     },
     {
+      title: 'Product image',
+      name: 'mainImage',
+      type: 'figure'
+    },
+    {
       title: 'Gallery',
       name: 'galleryPhotos',
       type: 'array',
@@ -203,8 +208,7 @@ export default {
       title: 'title',
       productTitle: 'productTitle',
       slug: 'slug',
-      cartPhotos: 'cartPhotos',
-      listingPhoto: 'listingPhoto'
+      mainImage: 'mainImage'
     },
     prepare({
       isDraft = false,
@@ -212,7 +216,7 @@ export default {
       title,
       productTitle,
       slug = {},
-      cartPhotos
+      mainImage
     }) {
       const path = `/products/${slug.current}`;
       return {
@@ -220,7 +224,7 @@ export default {
           (title ? title : productTitle) +
           (wasDeleted ? ' (removed)' : '') +
           (isDraft ? ' (draft)' : ''),
-        media: cartPhotos?.length ? cartPhotos[0].cartPhoto : null,
+        media: mainImage,
         subtitle: slug.current ? path : '(missing slug)'
       };
     }
