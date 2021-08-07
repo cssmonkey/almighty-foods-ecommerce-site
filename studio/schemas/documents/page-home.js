@@ -25,7 +25,8 @@ export default {
         { type: 'grid' },
         { type: 'dividerPhoto' },
         { type: 'quote' },
-        { type: 'newsletter' }
+        { type: 'newsletter' },
+        { type: 'freeform' }
       ]
     },
     {

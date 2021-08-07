@@ -13,6 +13,7 @@ const ProductsGrid = dynamic(() => import('./products-grid'));
 const RecipeListing = dynamic(() => import('./recipes-listing'));
 const ContactForm = dynamic(() => import('./contact-form'));
 const AssetDownload = dynamic(() => import('./asset-download'));
+const Freeform = dynamic(() => import('../blocks/freeform'));
 
 export const Module = ({
   module,
@@ -68,6 +69,8 @@ export const Module = ({
           showCta={true}
         />
       );
+    case 'freeform':
+      return <Freeform data={module} />;
     default:
       return null;
   }

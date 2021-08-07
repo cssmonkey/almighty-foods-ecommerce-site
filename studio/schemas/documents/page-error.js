@@ -15,7 +15,8 @@ export default {
         { type: 'grid' },
         { type: 'hero' },
         { type: 'marquee' },
-        { type: 'dividerPhoto' }
+        { type: 'dividerPhoto' },
+        { type: 'freeform' }
       ]
     },
     {

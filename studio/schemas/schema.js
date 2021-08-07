@@ -70,6 +70,9 @@ import horizontalRule from './objects/horizontal-rule';
 
 import recipeIngredients from './objects/recipe-ingredients';
 
+import nutritionInformation from './objects/nutrition-information';
+import nutritionInformationRow from './objects/nutrition-information-row';
+
 /*  ------------------------------------------ */
 /*  Your Schema documents / modules / objects
 /*  ------------------------------------------ */
@@ -149,6 +152,9 @@ export default createSchema({
     figure,
     horizontalRule,
 
-    recipeIngredients
+    recipeIngredients,
+
+    nutritionInformation,
+    nutritionInformationRow
   ])
 });

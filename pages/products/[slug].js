@@ -1,21 +1,23 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import { useRouter } from 'next/router'
-import axios from 'axios'
-import useSWR from 'swr'
+import React, { useState, useEffect, useCallback } from 'react';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import useSWR from 'swr';
 
-import Error from '@pages/404'
-import Layout from '@components/layout'
-import { getAllDocSlugs, getProduct } from '@lib/api'
-import { centsToPrice, hasObject } from '@lib/helpers'
+import Error from '@pages/404';
+import Layout from '@components/layout';
+import { getAllDocSlugs, getProduct } from '@lib/api';
+import { centsToPrice, hasObject } from '@lib/helpers';
 
-import { Module } from '@modules/index'
+import { Module } from '@modules/index';
+import Photo from '@components/photo';
+import Freeform from '@blocks/freeform';
 
 // setup our activeVariant hook
 function useActiveVariant({ fallback, variants }) {
-  const router = useRouter()
-  const queryID = parseInt(router?.query?.variant)
-  const hasVariant = variants.find((v) => v.id === queryID)
-  const activeVariant = hasVariant ? queryID : fallback
+  const router = useRouter();
+  const queryID = parseInt(router?.query?.variant);
+  const hasVariant = variants.find((v) => v.id === queryID);
+  const activeVariant = hasVariant ? queryID : fallback;
 
   const setActiveVariant = useCallback(
     (variant) => {
@@ -25,12 +27,12 @@ function useActiveVariant({ fallback, variants }) {
         {
           shallow: true,
         }
-      )
+      );
     },
     [router]
-  )
+  );
 
-  return [activeVariant, setActiveVariant]
+  return [activeVariant, setActiveVariant];
 }
 
 // setup our inventory fetcher
@@ -41,20 +43,20 @@ const fetchInventory = (url, id) =>
         id: id,
       },
     })
-    .then((res) => res.data)
+    .then((res) => res.data);
 
 const Product = ({ data }) => {
-  const router = useRouter()
+  const router = useRouter();
 
   if (!router.isFallback && !data) {
-    return <Error statusCode={404} />
+    return <Error statusCode={404} />;
   }
 
   // extract our data
-  const { site, page } = data
+  const { site, page } = data;
 
   // set our Product state
-  const [product, setProduct] = useState(page.product)
+  const [product, setProduct] = useState(page.product);
 
   // find the default variant for this product by matching against the first product option
   const defaultVariant = page.product.variants?.find((v) => {
@@ -62,15 +64,15 @@ const Product = ({ data }) => {
       name: page.product.options?.[0]?.name,
       value: page.product.options?.[0]?.values[0],
       position: page.product.options?.[0]?.position,
-    }
-    return hasObject(v.options, option)
-  })
+    };
+    return hasObject(v.options, option);
+  });
 
   // set our activeVariant state to our defaultVariant (if found) or first variant
   const [activeVariant, setActiveVariant] = useActiveVariant({
     fallback: defaultVariant?.id || page.product.variants[0].id,
     variants: page.product.variants,
-  })
+  });
 
   // const [activeVariant, setActiveVariant] = useState(
   //   defaultVariant?.id || page.product.variants[0].id
@@ -81,7 +83,7 @@ const Product = ({ data }) => {
     ['/api/shopify/product-inventory', page.product.id],
     (url, id) => fetchInventory(url, id),
     { errorRetryCount: 3 }
-  )
+  );
 
   // Rehydrate our product after inventory is fetched
   useEffect(() => {
@@ -94,13 +96,13 @@ const Product = ({ data }) => {
           ...page.product.variants.map((v) => {
             const newInventory = productInventory.variants.find(
               (nv) => nv.id === v.id
-            )
-            return newInventory ? { ...v, ...newInventory } : v
+            );
+            return newInventory ? { ...v, ...newInventory } : v;
           }),
         ],
-      })
+      });
     }
-  }, [page.product, productInventory])
+  }, [page.product, productInventory]);
 
   return (
     <>
@@ -110,30 +112,63 @@ const Product = ({ data }) => {
           page={page}
           schema={getProductSchema(product, activeVariant, site)}
         >
-          {page.modules?.map((module, key) => (
-            <Module
-              key={key}
-              module={module}
-              product={product}
-              activeVariant={product.variants.find(
-                (v) => v.id == activeVariant
+          <div className="product-page">
+            <section className="product-page-section">
+              <Photo
+                photo={page.product.mainImage}
+                srcsetSizes={[400]}
+                sizes="(min-width: 768px) 400px, 35vw'"
+                className="product-page__main-image"
+              />
+              <div className="freeform-text product-description">
+                <Freeform data={page.description} />
+              </div>
+            </section>
+            <section className="product-page-section">
+              {page.nutritionInformation && (
+                <div className="nutitional-information">
+                  <h3>{page.nutritionInformation.title}</h3>
+                  <p>{page.nutritionInformation.gramsPerServing}</p>
+                  {page.nutritionInformation.nutritionInformationRow.map(
+                    (row, i) => (
+                      <p key={i}>
+                        <span>{row.nutrientName} </span>
+                        <span>per 100g {row.per100g} </span>
+                        <span>
+                          per {page.nutritionInformation.gramsPerServing}{' '}
+                          serving {row.perServing}
+                        </span>
+                      </p>
+                    )
+                  )}
+                </div>
               )}
-              onVariantChange={setActiveVariant}
-            />
-          ))}
+            </section>
+            {page.modules?.map((module, key) => (
+              <Module
+                key={key}
+                module={module}
+                product={product}
+                activeVariant={product.variants.find(
+                  (v) => v.id == activeVariant
+                )}
+                onVariantChange={setActiveVariant}
+              />
+            ))}
+          </div>
         </Layout>
       )}
     </>
-  )
-}
+  );
+};
 
 function getProductSchema(product, activeVariant, site) {
-  if (!product) return null
+  if (!product) return null;
 
-  const router = useRouter()
-  const { query } = router
+  const router = useRouter();
+  const { query } = router;
 
-  const variant = product.variants.find((v) => v.id == activeVariant)
+  const variant = product.variants.find((v) => v.id == activeVariant);
 
   return {
     '@context': 'http://schema.org',
@@ -156,24 +191,24 @@ function getProductSchema(product, activeVariant, site) {
       '@type': 'Brand',
       name: site.seo.siteTitle,
     },
-  }
+  };
 }
 
 export async function getStaticProps({ params, preview, previewData }) {
   const productData = await getProduct(params.slug, {
     active: preview,
     token: previewData?.token,
-  })
+  });
 
   return {
     props: {
       data: productData,
     },
-  }
+  };
 }
 
 export async function getStaticPaths() {
-  const allProducts = await getAllDocSlugs('product')
+  const allProducts = await getAllDocSlugs('product');
 
   return {
     paths:
@@ -182,10 +217,10 @@ export async function getStaticPaths() {
           params: {
             slug: page.slug,
           },
-        }
+        };
       }) || [],
     fallback: false,
-  }
+  };
 }
 
-export default Product
+export default Product;

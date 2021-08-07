@@ -1,5 +1,5 @@
 import React from 'react';
-import { getStaticPage, imageMeta } from '@lib/api';
+import { getStaticPage, imageMeta, ptContent } from '@lib/api';
 import Layout from '@components/layout';
 import Freeform from '@blocks/freeform';
 import RecipeListing from '@modules/recipes-listing';
@@ -30,7 +30,9 @@ export async function getStaticProps({ preview, previewData }) {
     *[_type == "allRecipesPage"] | order(_updatedAt desc)[0]{
       title,
       subtitle,
-      introText,
+      "introText": {
+        "content": introText
+      },
       seo,
       "allRecipes": *[_type == "recipePage"] | order(_updatedAt desc)[]{
         title,

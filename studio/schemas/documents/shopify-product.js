@@ -117,68 +117,19 @@ export default {
       type: 'figure'
     },
     {
-      title: 'Gallery',
-      name: 'galleryPhotos',
-      type: 'array',
-      of: [{ type: 'productGalleryPhotos' }],
-      description:
-        'Define a Gallery for your product, or for a subset of variants'
-    },
-    {
-      title: 'Use Galleries',
-      name: 'useGallery',
-      type: 'string',
-      description:
-        'Display an inline gallery, instead of a thumbnail for listings',
-      options: {
-        list: [
-          { title: 'Yes', value: 'true' },
-          { title: 'No', value: 'false' }
-        ]
-      },
-      fieldset: 'cards'
-    },
-    {
-      title: 'Listing Thumbnails',
-      name: 'listingPhotos',
-      type: 'array',
-      of: [{ type: 'productListingPhotos' }],
-      fieldset: 'cards'
-    },
-    {
-      title: 'Cart Thumbnails',
-      name: 'cartPhotos',
-      type: 'array',
-      of: [{ type: 'productCartPhotos' }],
-      fieldset: 'cards'
+      name: 'nutritionInformation',
+      title: 'Nutritional information',
+      type: 'nutritionInformation'
     },
     {
       title: 'Page Modules',
       name: 'modules',
       type: 'array',
       of: [
-        { type: 'productHero' },
         { type: 'grid' },
-        { type: 'hero' },
-        { type: 'dividerPhoto' }
-      ],
-      validation: Rule =>
-        Rule.custom(blocks => {
-          const productHeros = blocks.filter(
-            block => block._type === 'productHero'
-          );
-
-          const productHeroItems = productHeros.map(
-            (item, index) => [{ _key: item._key }] || [index]
-          );
-
-          return productHeros.length === 1
-            ? true
-            : {
-                message: 'You must have one "Product Hero" module on the page',
-                paths: productHeroItems
-              };
-        })
+        { type: 'dividerPhoto', type: 'freeform' },
+        { type: 'quote' }
+      ]
     },
     {
       title: 'SEO / Share Settings',
@@ -186,21 +137,6 @@ export default {
       type: 'seo'
     }
   ],
-  initialValue: {
-    useGallery: 'false',
-    galleryPhotos: {
-      _type: 'productGallery',
-      forOption: ''
-    },
-    listingPhotos: {
-      _type: 'productListingPhotos',
-      forOption: ''
-    },
-    cartPhotos: {
-      _type: 'productCartPhotos',
-      forOption: ''
-    }
-  },
   preview: {
     select: {
       isDraft: 'isDraft',

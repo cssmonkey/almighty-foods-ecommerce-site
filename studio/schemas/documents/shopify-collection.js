@@ -30,7 +30,8 @@ export default {
         { type: 'collectionGrid' },
         { type: 'grid' },
         { type: 'hero' },
-        { type: 'dividerPhoto' }
+        { type: 'dividerPhoto' },
+        { type: 'freeform' }
       ],
       validation: Rule =>
         Rule.custom(blocks => {

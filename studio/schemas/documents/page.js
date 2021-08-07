@@ -48,7 +48,8 @@ export default {
         { type: 'dividerPhoto' },
         { type: 'assetDownload' },
         { type: 'newsletter' },
-        { type: 'contactForm' }
+        { type: 'contactForm' },
+        { type: 'freeform' }
       ]
     },
     {
