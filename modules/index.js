@@ -70,7 +70,11 @@ export const Module = ({
         />
       );
     case 'freeform':
-      return <Freeform data={module} />;
+      return (
+        <div className="freeform-text">
+          <Freeform data={module} />
+        </div>
+      );
     default:
       return null;
   }

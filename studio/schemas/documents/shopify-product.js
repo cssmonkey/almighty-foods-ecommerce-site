@@ -109,7 +109,7 @@ export default {
     {
       title: 'Description',
       name: 'description',
-      type: 'simplePortableText'
+      type: 'freeform'
     },
     {
       title: 'Product image',

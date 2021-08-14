@@ -11,6 +11,10 @@ import { centsToPrice, hasObject } from '@lib/helpers';
 import { Module } from '@modules/index';
 import Photo from '@components/photo';
 import Freeform from '@blocks/freeform';
+import PageContent from '@components/page-content';
+import PageHeader from '@components/page-header';
+import { ProductActions } from '@blocks/product';
+import NutritionalInformation from '@components/nutritional-information';
 
 // setup our activeVariant hook
 function useActiveVariant({ fallback, variants }) {
@@ -103,7 +107,7 @@ const Product = ({ data }) => {
       });
     }
   }, [page.product, productInventory]);
-
+  const price = `£${centsToPrice(page.product.price)}`;
   return (
     <>
       {!router.isFallback && (
@@ -113,48 +117,49 @@ const Product = ({ data }) => {
           schema={getProductSchema(product, activeVariant, site)}
         >
           <div className="product-page">
-            <section className="product-page-section">
-              <Photo
-                photo={page.product.mainImage}
-                srcsetSizes={[400]}
-                sizes="(min-width: 768px) 400px, 35vw'"
-                className="product-page__main-image"
-              />
-              <div className="freeform-text product-description">
-                <Freeform data={page.description} />
-              </div>
-            </section>
-            <section className="product-page-section">
-              {page.nutritionInformation && (
-                <div className="nutitional-information">
-                  <h3>{page.nutritionInformation.title}</h3>
-                  <p>{page.nutritionInformation.gramsPerServing}</p>
-                  {page.nutritionInformation.nutritionInformationRow.map(
-                    (row, i) => (
-                      <p key={i}>
-                        <span>{row.nutrientName} </span>
-                        <span>per 100g {row.per100g} </span>
-                        <span>
-                          per {page.nutritionInformation.gramsPerServing}{' '}
-                          serving {row.perServing}
-                        </span>
-                      </p>
-                    )
-                  )}
+            <PageHeader title={page.product.title} subtitle={price} />
+            <PageContent>
+              <section className="product-page-section product-page-section--main">
+                <Photo
+                  photo={page.product.mainImage}
+                  srcsetSizes={[400]}
+                  sizes="(min-width: 768px) 400px, 35vw'"
+                  className="product-page__main-image"
+                />
+                <div className="freeform-text product-description">
+                  <Freeform data={page.description} />
+                  <div className="product-controls">
+                    <ProductActions
+                      activeVariant={product.variants.find(
+                        (v) => v.id == activeVariant
+                      )}
+                    />
+                  </div>
                 </div>
-              )}
-            </section>
-            {page.modules?.map((module, key) => (
-              <Module
-                key={key}
-                module={module}
-                product={product}
-                activeVariant={product.variants.find(
-                  (v) => v.id == activeVariant
+              </section>
+              <section className="product-page-section">
+                {page.nutritionInformation && (
+                  <NutritionalInformation
+                    title={page.nutritionInformation.title}
+                    gramsPerServing={page.nutritionInformation.gramsPerServing}
+                    rows={page.nutritionInformation.nutritionInformationRow}
+                  />
                 )}
-                onVariantChange={setActiveVariant}
-              />
-            ))}
+              </section>
+              <section className="product-page-section">
+                {page.modules?.map((module, key) => (
+                  <Module
+                    key={key}
+                    module={module}
+                    product={product}
+                    activeVariant={product.variants.find(
+                      (v) => v.id == activeVariant
+                    )}
+                    onVariantChange={setActiveVariant}
+                  />
+                ))}
+              </section>
+            </PageContent>
           </div>
         </Layout>
       )}

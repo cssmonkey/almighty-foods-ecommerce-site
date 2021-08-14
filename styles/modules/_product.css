@@ -1,72 +1,25 @@
-.product {
-  @apply border-b;
-
-  &--content {
-    @apply relative grid md:grid-cols-2 md:gap-px md:bg-pageText;
+.product-page {
+  .page-header__subtitle {
+    @apply text-3xl;
+  }
+  &-section {
+    @apply container mx-auto mb-12 sm:mb-24 px-6 sm:px-0;
   }
 
-  &--gallery {
-    @apply relative mb-12 md:mb-0 xs:p-8 md:p-24 bg-pageBG border-b md:border-none;
-
-    .carousel {
-      @apply max-w-xl mx-auto;
-    }
+  &-section--main {
+    @apply grid grid-cols-1 gap-12 sm:grid-cols-2;
   }
-
-  &--details {
-    @apply bg-pageBG flex flex-col;
+  .product-description {
+    @apply text-left m-0 px-0;
   }
-
-  &--info {
-    @apply w-full max-w-xl m-auto p-4 sm:p-8;
+  .product-controls {
+    @apply my-12;
   }
-
-  &--header {
-    @apply flex mb-8 pb-2 border-b;
-
-    .price {
-      @apply flex flex-col items-end mt-auto ml-auto;
-
-      &--current {
-        @apply text-xl leading-normal font-semibold;
-      }
-
-      &--discount {
-        @apply mb-2 p-1 rounded-sm bg-pageText text-pageBG text-xxs leading-tight tracking-widest font-semibold uppercase;
-      }
-    }
-  }
-
-  &--title {
-    @apply pr-8 sm:pr-12;
-  }
-
-  &--name {
-    @apply m-0 text-3xl leading-snug;
-  }
-
-  &--variant {
-    @apply flex items-center mb-2 text-sm leading-relaxed tracking-wider font-semibold uppercase;
-
-    .label {
-      @apply -my-1 transform scale-90;
-    }
-  }
-
-  &--options {
-    @apply mt-12;
-  }
-
-  &--actions {
-    @apply sm:flex sticky bottom-0 mt-4 p-4 md:p-8 border-t bg-pageBG is-textured text-center;
-
-    .counter {
-      @apply hidden sm:inline-flex;
-    }
-  }
-
-  &--waitlist {
-    @apply relative w-full;
+}
+.product--actions {
+  @apply flex;
+  .counter-container {
+    @apply ml-8;
   }
 }
 

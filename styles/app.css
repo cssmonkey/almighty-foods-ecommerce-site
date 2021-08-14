@@ -23,6 +23,7 @@
 @import 'components/_freeform-text';
 @import 'components/_page-header';
 @import 'components/_shop-navigation';
+@import 'components/_nutritional-information';
 
 @import 'modules/_cookie-bar';
 @import 'modules/_promo-banner';
@@ -45,5 +46,5 @@
 
 @import '_shame';
 
-/* HULL demo theme styles: */
-@import '_hull';
+/* theme styles: */
+@import '_almighty-foods';

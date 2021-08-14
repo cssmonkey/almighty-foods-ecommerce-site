@@ -1,0 +1,19 @@
+.nutritional-information {
+  @apply border border-slight p-6 sm:p-8;
+
+  &__title {
+    @apply text-center text-2xl sm:text-4xl mb-8;
+  }
+  &__table {
+    @apply w-full text-lg;
+    thead {
+      @apply border-b border-slight text-left;
+    }
+    thead th {
+      @apply pb-2;
+    }
+    tbody td {
+      @apply py-2;
+    }
+  }
+}

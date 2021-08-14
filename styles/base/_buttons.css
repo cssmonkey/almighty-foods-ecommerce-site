@@ -1,5 +1,5 @@
 .btn {
-  @apply clean-btn inline-block relative bg-pageBG px-5 py-1 text-center rounded-full text-xs;
+  @apply clean-btn inline-block relative bg-pageBG px-5 py-1 text-center rounded-full text-base;
 
   &.is-block {
     @apply block w-full;
@@ -14,7 +14,7 @@
   }
 
   /* default: hover */
-  &:not(.is-primary):not(.is-white):not(.is-disabled):not(.is-soldout) {
+  &:not(.is-primary):not(.is-white):not(.is-disabled):not(.is-soldout):not(.is-text) {
     &.is-active,
     &:hover {
       @apply bg-pageText border-pageText text-pageBG;
@@ -61,6 +61,10 @@
     &.is-disabled,
     &:not(.is-disabled):hover {
       @apply opacity-60;
+    }
+
+    &:hover {
+      @apply text-highlight;
     }
   }
 

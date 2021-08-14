@@ -1,9 +1,9 @@
-import React, { useState, useCallback, useEffect } from 'react'
-import { m, AnimatePresence } from 'framer-motion'
-import cx from 'classnames'
+import React, { useState, useCallback, useEffect } from 'react';
+import { m, AnimatePresence } from 'framer-motion';
+import cx from 'classnames';
 
-import { clampRange } from '@lib/helpers'
-import Icon from '@components/icon'
+import { clampRange } from '@lib/helpers';
+import Icon from '@components/icon';
 
 const flipAnim = {
   show: {
@@ -30,50 +30,50 @@ const flipAnim = {
       when: 'afterChildren',
     },
   }),
-}
+};
 
 const ProductCounter = React.memo(
-  ({ id, defaultCount = 1, onUpdate, max, className }) => {
-    const [lineQuantity, setLineQuantity] = useState(defaultCount)
+  ({ id, defaultCount = 1, onUpdate, max, className, showText }) => {
+    const [lineQuantity, setLineQuantity] = useState(defaultCount);
 
-    const [direction, setDirection] = useState(1)
-    const [motionKey, setMotionKey] = useState(0)
-    const [isAnimating, setIsAnimating] = useState(false)
+    const [direction, setDirection] = useState(1);
+    const [motionKey, setMotionKey] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     const animateQuantity = useCallback((amount, direction) => {
-      const count = max ? clampRange(amount, 1, max) : amount
+      const count = max ? clampRange(amount, 1, max) : amount;
 
       // Bail if at edges
-      if (count < 1 || count > max) return
+      if (count < 1 || count > max) return;
 
-      setIsAnimating(true)
-      setDirection(direction)
-      setMotionKey(count + (direction > 0 ? '-up' : '-down'))
-      setLineQuantity(count)
+      setIsAnimating(true);
+      setDirection(direction);
+      setMotionKey(count + (direction > 0 ? '-up' : '-down'));
+      setLineQuantity(count);
 
       if (onUpdate) {
-        onUpdate(count)
+        onUpdate(count);
       }
-    }, [])
+    }, []);
 
     const updateQuantity = useCallback((amount) => {
-      const count = max ? clampRange(amount, 1, max) : amount
+      const count = max ? clampRange(amount, 1, max) : amount;
 
-      if (count < 1) return
+      if (count < 1) return;
 
-      setIsAnimating(false)
-      setLineQuantity(count)
+      setIsAnimating(false);
+      setLineQuantity(count);
 
       if (onUpdate) {
-        onUpdate(count)
+        onUpdate(count);
       }
-    }, [])
+    }, []);
 
     useEffect(() => {
-      setLineQuantity(defaultCount)
-    }, [defaultCount])
+      setLineQuantity(defaultCount);
+    }, [defaultCount]);
 
-    return (
+    const counter = (
       <div className={cx('counter', className)}>
         <button
           aria-label="Decrease quantity by one"
@@ -115,8 +115,20 @@ const ProductCounter = React.memo(
           <Icon name="Plus" id={id} />
         </button>
       </div>
-    )
-  }
-)
+    );
 
-export default ProductCounter
+    return (
+      <div className="counter-container">
+        {showText ? (
+          <>
+            <span className="counter-label">Quantity</span> {counter}{' '}
+          </>
+        ) : (
+          <>{counter}</>
+        )}
+      </div>
+    );
+  }
+);
+
+export default ProductCounter;
