@@ -49,7 +49,7 @@ const Stockists = ({ data }) => {
       <Map markers={stockistsList} />
 
       <PageContent>
-        {page.introText && (
+        {page.introText?.content && (
           <div className="freeform-text freeform-text--intro">
             <Freeform data={page.introText} />
           </div>

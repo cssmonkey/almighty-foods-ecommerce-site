@@ -11,7 +11,7 @@
   }
 
   &__list {
-    @apply text-xl;
+    @apply text-2xl;
   }
 
   h1,

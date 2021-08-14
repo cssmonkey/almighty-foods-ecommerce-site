@@ -127,8 +127,10 @@ export default {
       type: 'array',
       of: [
         { type: 'grid' },
-        { type: 'dividerPhoto', type: 'freeform' },
-        { type: 'quote' }
+        { type: 'dividerPhoto' },
+        { type: 'freeform' },
+        { type: 'quote' },
+        { type: 'productsGrid' }
       ]
     },
     {

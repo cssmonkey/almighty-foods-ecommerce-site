@@ -12,6 +12,11 @@ export default {
       type: 'string'
     },
     {
+      title: 'Subtitle',
+      name: 'subtitle',
+      type: 'string'
+    },
+    {
       title: 'Products',
       name: 'products',
       type: 'array',
@@ -23,6 +28,13 @@ export default {
         }
       ],
       validation: Rule => Rule.unique()
+    },
+    {
+      title: 'Show All products CTA?',
+      name: 'showCta',
+      type: 'boolean',
+      description:
+        'When toggled on, CTA link to All products page will be displayed'
     }
   ]
 };

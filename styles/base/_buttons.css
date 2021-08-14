@@ -68,4 +68,14 @@
   &.is-large {
     @apply text-2xl font-normal px-7;
   }
+
+  &--icon.is-primary {
+    @apply rounded-full p-2 flex;
+    .icon {
+      @apply w-6 h-6;
+    }
+    span {
+      @apply sr-only;
+    }
+  }
 }

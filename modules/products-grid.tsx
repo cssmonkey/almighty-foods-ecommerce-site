@@ -16,13 +16,14 @@ interface Product {
 interface ProductsGridProps {
   data: {
     title?: string;
+    subtitle?: string;
     products?: Product[];
+    showCta?: boolean;
   };
-  showCta?: boolean;
 }
 //@ts-ignore
-const ProductsGrid: FC<ProductsGridProps> = ({ data, showCta = true }) => {
-  const { title, products } = data;
+const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
+  const { title, products, subtitle, showCta } = data;
   const productsListRef = useRef();
   const isIntersecting = useIntersection(productsListRef, {
     once: true,
@@ -75,6 +76,7 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data, showCta = true }) => {
     <div className="products-grid">
       <div className="products-grid__inner">
         {title && <h2 className="products-grid__title">{title}</h2>}
+        {subtitle && <h3 className="products-grid__subtitle">{subtitle}</h3>}
         <ul ref={productsListRef} className="products-grid__list">
           {products.map(renderListItem)}
         </ul>

@@ -13,7 +13,7 @@ const Recipes = ({ data }) => {
     <Layout site={site} page={page}>
       <PageHeader title={page.title} subtitle={page.subtitle} />
       <PageContent>
-        {page.introText && (
+        {page.introText?.content && (
           <div className="freeform-text freeform-text--intro">
             <Freeform data={page.introText} />
           </div>

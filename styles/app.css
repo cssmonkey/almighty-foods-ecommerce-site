@@ -41,6 +41,7 @@
 @import 'modules/_stockist-list';
 @import 'modules/_theme-switch';
 @import 'modules/_map';
+@import 'modules/_ingredients-list';
 
 @import '_shame';
 

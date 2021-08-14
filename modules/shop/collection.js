@@ -8,7 +8,7 @@ const Collection = ({ products, featuredProducts = [] }) => {
 
   return (
     <section className="collection">
-      <ProductsGrid data={{ products: orderedProducts }} showCta={false} />
+      <ProductsGrid data={{ products: orderedProducts }} />
     </section>
   );
 };
