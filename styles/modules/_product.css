@@ -17,9 +17,9 @@
   }
 }
 .product--actions {
-  @apply flex;
+  @apply sm:flex;
   .counter-container {
-    @apply ml-8;
+    @apply mt-4 sm:mt-0 sm:ml-8;
   }
 }
 

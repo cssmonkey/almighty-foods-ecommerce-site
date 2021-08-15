@@ -1,8 +1,8 @@
 .counter-container {
-  @apply flex items-center;
+  @apply sm:flex sm:items-center;
 }
 .counter-label {
-  @apply mr-4;
+  @apply mr-4 block mb-2 sm:mb-0;
 }
 .counter {
   @apply inline-grid h-full;

@@ -17,24 +17,13 @@ function CartItem({ item }) {
     updateItem(item.lineID, quantity);
   };
 
-  const defaultPhoto = item.photos.cart?.find((set) => !set.forOption);
-  const variantPhoto = item.photos.cart?.find((set) => {
-    const option = set.forOption
-      ? {
-          name: set.forOption.split(':')[0],
-          value: set.forOption.split(':')[1],
-        }
-      : {};
-    return option.value && hasObject(item.options, option);
-  });
-
-  const photos = variantPhoto ? variantPhoto : defaultPhoto;
+  const defaultPhoto = item.product.mainImage;
 
   return (
     <div className="cart-item">
-      {photos && (
+      {defaultPhoto && (
         <Photo
-          photo={photos?.default}
+          photo={defaultPhoto}
           srcsetSizes={[400]}
           sizes="(min-width: 768px) 400px, 35vw'"
           className="cart-item--photo"

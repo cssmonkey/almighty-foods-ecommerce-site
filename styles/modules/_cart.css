@@ -97,7 +97,7 @@
   }
 
   &--details {
-    @apply flex flex-col flex-grow pl-4;
+    @apply flex flex-col flex-grow pl-8;
   }
 
   &--header {
