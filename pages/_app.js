@@ -1,31 +1,47 @@
-import React, { useState, useEffect } from 'react'
-import Router from 'next/router'
-import Head from 'next/head'
-import { ThemeProvider } from 'next-themes'
-import { LazyMotion, domAnimation, AnimatePresence } from 'framer-motion'
+import React, { useState, useEffect } from 'react';
+import Router from 'next/router';
+import Head from 'next/head';
+import { ThemeProvider } from 'next-themes';
+import TagManager from 'react-gtm-module';
+import { track } from '@lib/gtm';
 
-import '../styles/tailwind.css'
-import '../styles/app.css'
+import { LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 
-import { SiteContextProvider } from '@lib/context'
+import '../styles/tailwind.css';
+import '../styles/app.css';
 
-import { isBrowser } from '@lib/helpers'
-import Cart from '@modules/shop/cart'
+import { SiteContextProvider } from '@lib/context';
+
+import { isBrowser } from '@lib/helpers';
+import Cart from '@modules/shop/cart';
+
+const tagManagerArgs = {
+  gtmId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
+};
 
 const MyApp = ({ Component, pageProps, router }) => {
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs);
+
+    const { asPath } = router;
+    track('pageview', {
+      page: asPath,
+    });
+  }, []);
 
   // The scroll location on the page is not restored on history changes
   useEffect(() => {
-    window.history.scrollRestoration = 'manual'
-  }, [router])
+    window.history.scrollRestoration = 'manual';
+  }, [router]);
 
   // Trigger our loading class
   useEffect(() => {
     if (isBrowser) {
-      document.documentElement.classList.toggle('is-loading', isLoading)
+      document.documentElement.classList.toggle('is-loading', isLoading);
     }
-  }, [isLoading])
+  }, [isLoading]);
 
   // Setup Next router events
   useEffect(() => {
@@ -34,38 +50,42 @@ const MyApp = ({ Component, pageProps, router }) => {
       if (
         url.indexOf('?') > -1 &&
         url.split('?')[0] === router.asPath.split('?')[0]
-      )
-        return
+      ) {
+        return;
+      }
 
       // Otherwise, start loading
-      setLoading(true)
-    })
+      setLoading(true);
+    });
 
-    Router.events.on('routeChangeComplete', () => {
-      setTimeout(() => setLoading(false), 400) // accounts for page transition
-    })
+    Router.events.on('routeChangeComplete', (url) => {
+      track('pageview', {
+        page: url,
+      });
+      setTimeout(() => setLoading(false), 400); // accounts for page transition
+    });
 
     Router.events.on('routeChangeError', () => {
-      setLoading(false)
-    })
-  }, [])
+      setLoading(false);
+    });
+  }, []);
 
   // intelligently add focus states if keyboard is used
   const handleFirstTab = (event) => {
     if (event.keyCode === 9) {
       if (isBrowser) {
-        document.body.classList.add('is-tabbing')
-        window.removeEventListener('keydown', handleFirstTab)
+        document.body.classList.add('is-tabbing');
+        window.removeEventListener('keydown', handleFirstTab);
       }
     }
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener('keydown', handleFirstTab)
+    window.addEventListener('keydown', handleFirstTab);
     return () => {
-      window.removeEventListener('keydown', handleFirstTab)
-    }
-  }, [])
+      window.removeEventListener('keydown', handleFirstTab);
+    };
+  }, []);
 
   return (
     <ThemeProvider disableTransitionOnChange>
@@ -79,8 +99,8 @@ const MyApp = ({ Component, pageProps, router }) => {
           <AnimatePresence
             exitBeforeEnter
             onExitComplete={() => {
-              window.scrollTo(0, 0)
-              document.body.classList.remove('overflow-hidden')
+              window.scrollTo(0, 0);
+              document.body.classList.remove('overflow-hidden');
             }}
           >
             <Component key={router.asPath.split('?')[0]} {...pageProps} />
@@ -90,7 +110,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         </LazyMotion>
       </SiteContextProvider>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;
