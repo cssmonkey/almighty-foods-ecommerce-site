@@ -50,6 +50,7 @@
     "sitemap": "^6.3.3",
     "swr": "^0.5.4",
     "tailwindcss": "^2.0.2",
+    "universal-cookie": "^4.0.4",
     "use-intersection": "^0.2.1",
     "yup": "^0.32.9"
   },

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, FC } from 'react';
+import React, { FC } from 'react';
 import cx from 'classnames';
 
 interface Rows {

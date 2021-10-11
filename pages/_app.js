@@ -1,9 +1,12 @@
+import Cookies from 'universal-cookie';
 import React, { useState, useEffect } from 'react';
+import App from 'next/app';
 import Router from 'next/router';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import TagManager from 'react-gtm-module';
 import { track } from '@lib/gtm';
+import Login from '@components/login';
 
 import { LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 
@@ -87,6 +90,10 @@ const MyApp = ({ Component, pageProps, router }) => {
     };
   }, []);
 
+  if (!pageProps.hasReadPermission) {
+    return <Login />;
+  }
+
   return (
     <ThemeProvider disableTransitionOnChange>
       <SiteContextProvider data={{ ...pageProps?.data?.site }}>
@@ -111,6 +118,17 @@ const MyApp = ({ Component, pageProps, router }) => {
       </SiteContextProvider>
     </ThemeProvider>
   );
+};
+
+MyApp.getInitialProps = async (appContext) => {
+  const appProps = await App.getInitialProps(appContext);
+
+  const cookies = new Cookies(appContext.ctx.req.headers.cookie);
+  const password = cookies.get('src') ?? '';
+
+  appProps.pageProps.hasReadPermission = password === 'letmein';
+
+  return { ...appProps };
 };
 
 export default MyApp;
