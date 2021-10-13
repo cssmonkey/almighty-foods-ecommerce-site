@@ -22,6 +22,7 @@
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^2.7.0",
     "@sanity/image-url": "^0.140.19",
+    "@storyofams/next-password-protect": "^1.5.12",
     "axios": "^0.21.0",
     "base64-string": "^1.1.2",
     "classnames": "^2.2.6",
@@ -50,7 +51,6 @@
     "sitemap": "^6.3.3",
     "swr": "^0.5.4",
     "tailwindcss": "^2.0.2",
-    "universal-cookie": "^4.0.4",
     "use-intersection": "^0.2.1",
     "yup": "^0.32.9"
   },

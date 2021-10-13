@@ -1,22 +1,18 @@
-import Cookies from 'universal-cookie';
 import React, { useState, useEffect } from 'react';
-import App from 'next/app';
 import Router from 'next/router';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import TagManager from 'react-gtm-module';
-import { track } from '@lib/gtm';
-import Login from '@components/login';
-
+import { withPasswordProtect } from '@storyofams/next-password-protect';
 import { LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+
+import { track } from '@lib/gtm';
+import { SiteContextProvider } from '@lib/context';
+import { isBrowser } from '@lib/helpers';
+import Cart from '@modules/shop/cart';
 
 import '../styles/tailwind.css';
 import '../styles/app.css';
-
-import { SiteContextProvider } from '@lib/context';
-
-import { isBrowser } from '@lib/helpers';
-import Cart from '@modules/shop/cart';
 
 const tagManagerArgs = {
   gtmId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
@@ -90,10 +86,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     };
   }, []);
 
-  if (!pageProps.hasReadPermission) {
-    return <Login />;
-  }
-
   return (
     <ThemeProvider disableTransitionOnChange>
       <SiteContextProvider data={{ ...pageProps?.data?.site }}>
@@ -120,15 +112,4 @@ const MyApp = ({ Component, pageProps, router }) => {
   );
 };
 
-MyApp.getInitialProps = async (appContext) => {
-  const appProps = await App.getInitialProps(appContext);
-
-  const cookies = new Cookies(appContext.ctx.req.headers.cookie);
-  const password = cookies.get('src') ?? '';
-
-  appProps.pageProps.hasReadPermission = password === 'letmein';
-
-  return { ...appProps };
-};
-
-export default MyApp;
+export default withPasswordProtect(MyApp);
