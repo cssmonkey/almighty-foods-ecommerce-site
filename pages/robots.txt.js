@@ -3,19 +3,24 @@ const Robots = () => {
     <div>
       Should not be navigated via Next Link. Use a standard {`<a>`} tag!
     </div>
-  )
-}
+  );
+};
 
 export async function getServerSideProps({ req, res }) {
-  res.setHeader('Content-Type', 'text/plain')
+  res.setHeader('Content-Type', 'text/plain');
+  //   res.write(`Sitemap: https://${req.headers.host}/sitemap.xml
+
+  // User-agent: *
+  // Allow: /*
+  // Disallow: /api/*`);
   res.write(`Sitemap: https://${req.headers.host}/sitemap.xml
     
-User-agent: *
-Allow: /*
-Disallow: /api/*`)
-  res.end()
+  User-agent: *
+  Disallow: /`);
 
-  return { props: {} }
+  res.end();
+
+  return { props: {} };
 }
 
-export default Robots
+export default Robots;
