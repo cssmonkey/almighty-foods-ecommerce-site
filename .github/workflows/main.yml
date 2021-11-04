@@ -16,8 +16,8 @@ jobs:
           SANITY_AUTH_TOKEN: ${{ secrets.BACKUP }}
         with:
           args: dataset export production backups/backup.tar.gz
-      - name: Upload backup.tar.gz
-        uses: actions/upload-artifact@v2
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
         with:
           name: backup-tarball
           path: backups/backup.tar.gz
