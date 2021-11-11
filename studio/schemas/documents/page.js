@@ -49,7 +49,8 @@ export default {
         { type: 'assetDownload' },
         { type: 'newsletter' },
         { type: 'contactForm' },
-        { type: 'freeform' }
+        { type: 'freeform' },
+        { type: 'ourTeam' }
       ]
     },
     {

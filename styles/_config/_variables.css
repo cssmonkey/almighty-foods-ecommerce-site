@@ -2,16 +2,16 @@
 :root {
   --black: #000000;
   --white: #ffffff;
-  --darkBrown: #81674b;
+  --darkBrown: #6b5433;
   --lightBrown: rgba(129, 103, 75, 0.75);
   --slight: rgba(129, 103, 75, 0.3);
-  --highlight: #fd7777;
+  --highlight: #fd5e5e;
 
   --black-hsl: 0, 0%, 0%;
   --white-hsl: 0, 0%, 100%;
 
   --pageBG: #ffffff;
-  --pageText: #81674b;
+  --pageText: #6b5433;
 
   --pageBG-hsl: 60, 14%, 95%;
   --pageText-hsl: 0, 0%, 0%;

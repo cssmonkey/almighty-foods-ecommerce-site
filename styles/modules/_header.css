@@ -59,7 +59,7 @@ a[href='#content'].skip-link {
 
 .logo {
   @apply flex flex-col relative z-10 opacity-100;
-  transition: opacity 0.2s ease-in;
+  transition: opacity 0.02s ease-in;
 
   .is-white & {
     @apply opacity-0;
@@ -184,7 +184,7 @@ a[href='#content'].skip-link {
   @apply flex justify-end items-center absolute inset-0 z-0;
 
   .menu {
-    @apply fixed top-0 left-0 w-full h-screen z-50 flex flex-col text-white bg-darkBrown;
+    @apply fixed top-0 left-0 w-full h-screen z-50 flex flex-col text-white bg-highlight;
     will-change: transform;
 
     @media (min-width: 421px) {
