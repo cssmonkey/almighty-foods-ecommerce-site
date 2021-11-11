@@ -29,7 +29,7 @@
     "react-dom": "^16.14.0",
     "react-icons": "^4.2.0",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
-    "sanity-plugin-media-library": "^1.0.2",
+    "sanity-plugin-media-library": "^2.0.1",
     "sanity-plugin-note-field": "^1.1.1",
     "sanity-plugin-vercel-deploy": "^2.0.0",
     "styled-components": "^5.3.1"

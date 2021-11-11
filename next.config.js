@@ -61,6 +61,7 @@ module.exports = withBundleAnalyzer({
 
     NEXT_PUBLIC_GOOGLE_ANALYTICS: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
     PASSWORD: process.env.PASSWORD,
+    PASSWORD_PROTECT: process.env.PASSWORD_PROTECT,
   },
   async redirects() {
     const sanityRedirects = await fetchSanityRedirects();

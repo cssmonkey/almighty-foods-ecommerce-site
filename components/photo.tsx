@@ -15,8 +15,8 @@ export interface PhotoImage {
 }
 
 interface PhotoProps {
-  width?: string;
-  height?: string;
+  width?: number;
+  height?: number;
   srcSizes?: number[];
   hasPlaceholder?: boolean;
   sizes?: string;

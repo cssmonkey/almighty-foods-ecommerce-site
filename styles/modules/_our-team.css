@@ -1,0 +1,28 @@
+.our-team {
+  @apply mx-auto px-6 sm:px-0 max-w-3xl;
+  &__title {
+    @apply text-center mx-auto mb-12 text-3xl sm:text-5xl;
+    max-width: 40rem;
+  }
+
+  &__row {
+    @apply flex mb-12;
+  }
+
+  &__row:nth-child(odd) &__content {
+    @apply order-last mr-0 ml-8;
+  }
+
+  &__content {
+    @apply flex-1 mr-8;
+  }
+
+  &__image-container {
+    @apply flex-none;
+    width: 320px;
+  }
+
+  &__content-title {
+    @apply text-2xl sm:text-3xl mb-6;
+  }
+}

@@ -40,6 +40,8 @@ import recipesListing from './modules/recipes-listing';
 import stockist from './modules/stockist';
 import contactForm from './modules/contact-form';
 import assetDownload from './modules/asset-download';
+import ourTeam from './modules/our-team';
+import teamMember from './modules/team-member';
 
 // Block types
 import freeform from './blocks/freeform';
@@ -122,6 +124,8 @@ export default createSchema({
     stockist,
     contactForm,
     assetDownload,
+    ourTeam,
+    teamMember,
 
     /* -------------- */
     /* 3: Block types */

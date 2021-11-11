@@ -1,5 +1,5 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 const Logo = ({ projectName }) => {
   return (
@@ -123,8 +123,8 @@ const Logo = ({ projectName }) => {
         </g>
       </svg>
     </Icon>
-  )
-}
+  );
+};
 
 const Icon = styled.div`
   display: block;
@@ -145,9 +145,9 @@ const Icon = styled.div`
   svg {
     display: block;
     margin: 0 auto;
-    height: 100%;
+    height: 100% !important;
     width: auto;
   }
-`
+`;
 
-export default Logo
+export default Logo;

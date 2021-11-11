@@ -26,5 +26,10 @@
 
   &--content {
     @apply w-full max-w-5xl mx-auto px-4 pt-24 pb-12 text-center text-white;
+    width: 60vw;
+
+    @media (--sm) {
+      width: 40vw;
+    }
   }
 }
