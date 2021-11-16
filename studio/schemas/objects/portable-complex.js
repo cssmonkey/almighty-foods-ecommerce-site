@@ -85,7 +85,10 @@ export default {
           }
         }
       ],
-      lists: [{ title: 'Bullet', value: 'bullet' }],
+      lists: [
+        { title: 'Bullet', value: 'bullet' },
+        { title: 'Number', value: 'number' }
+      ],
       marks: {
         decorators: [
           { title: 'Strong', value: 'strong' },

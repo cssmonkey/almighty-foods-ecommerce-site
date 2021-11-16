@@ -18,10 +18,17 @@
   }
 
   &--actions {
-    @apply grid sm:grid-cols-2 gap-1 flex-shrink-0;
+    @apply flex items-center;
 
     button {
-      @apply order-first sm:order-none;
+      @apply ml-4;
+    }
+
+    .is-text:hover,
+    .is-text:focus {
+      @apply text-white;
+      opacity: 1 !important;
+      text-decoration: underline;
     }
   }
 }

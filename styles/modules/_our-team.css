@@ -1,24 +1,24 @@
 .our-team {
-  @apply mx-auto px-6 sm:px-0 max-w-3xl;
+  @apply container mx-auto px-6;
   &__title {
     @apply text-center mx-auto mb-12 text-3xl sm:text-5xl;
     max-width: 40rem;
   }
 
   &__row {
-    @apply flex mb-12;
+    @apply sm:flex mb-12 max-w-3xl mx-auto;
   }
 
   &__row:nth-child(odd) &__content {
-    @apply order-last mr-0 ml-8;
+    @apply order-last mr-0 sm:ml-8;
   }
 
   &__content {
-    @apply flex-1 mr-8;
+    @apply flex-1 mb-4 sm:mr-8 sm:mb-0;
   }
 
   &__image-container {
-    @apply flex-none;
+    @apply flex-none max-w-full;
     width: 320px;
   }
 

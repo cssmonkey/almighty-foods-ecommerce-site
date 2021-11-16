@@ -14,13 +14,13 @@
 }
 
 .products-grid__list-item {
-  @apply mb-6 relative;
+  @apply mb-6 relative flex flex-col;
   &-title {
     @apply text-center px-4 pt-2 block text-3xl;
   }
 
   a {
-    @apply block border-2 border-transparent p-8 rounded-3xl;
+    @apply block border-2 border-transparent p-8 rounded-3xl flex-1;
     transition: border-color 0.2s ease-out;
   }
   &:hover a {

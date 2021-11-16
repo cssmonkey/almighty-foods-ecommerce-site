@@ -9,14 +9,11 @@ import PageContent from '@components/page-content';
 import { ProductAdd } from '@blocks/product';
 import Icon from '@components/icon';
 
-const RecipePage = ({ data }) => {
-  const { site, page } = data;
-  const ingredients = page.ingredients ? page.ingredients : [];
-  const ingredientProducts = page.ingredientProducts
-    ? page.ingredientProducts
-    : [];
+const getIngredientList = (ingredientList) => {
+  const ingredients = ingredientList.ingredients || [];
+  const ingredientProducts = ingredientList.ingredientProducts || [];
 
-  const fullIngredientsList = ingredientProducts
+  return ingredientProducts
     .concat(ingredients.map((title) => ({ title })))
     .sort(function (a, b) {
       if (a.title < b.title) {
@@ -27,6 +24,17 @@ const RecipePage = ({ data }) => {
       }
       return 0;
     });
+};
+
+const RecipePage = ({ data }) => {
+  const { site, page } = data;
+  const ingredientLists = page.ingredientLists.map((ingredientList, i) => {
+    return {
+      key: ingredientList._key,
+      title: ingredientList.title,
+      list: getIngredientList(ingredientList),
+    };
+  });
 
   return (
     <Layout site={site} page={page}>
@@ -38,40 +46,49 @@ const RecipePage = ({ data }) => {
             <Freeform data={page.introText} />
           </div>
         )}
-        {fullIngredientsList && fullIngredientsList.length > 0 && (
-          <div className="freeform-text">
-            <h4 className="freeform-text__title">Ingredients</h4>
-            <ul className="freeform-text__list ingredients-list">
-              {fullIngredientsList.map(({ title, variants }, i) => {
-                if (variants) {
-                  const defaultVariant = variants[0];
+        {ingredientLists.map(({ list, title, key }, indx) => {
+          return (
+            <div key={indx}>
+              {list && list.length > 0 && (
+                <div className="freeform-text">
+                  <h4 className="freeform-text__title">{title}</h4>
+                  <ul className="freeform-text__list ingredients-list">
+                    {list.map(({ title, variants }, i) => {
+                      if (variants) {
+                        const defaultVariant = variants[0];
 
-                  return (
-                    <li key={i} className="ingredients-list__product-item">
-                      <span>
-                        {title}
-                        <ProductAdd
-                          productID={defaultVariant.id}
-                          quantity={1}
-                          className="btn is-primary btn--icon"
-                        >
-                          <Icon
-                            className="icon"
-                            name="Plus"
-                            id="add-to-cart-icon"
-                            title="Add to cart"
-                          />
-                          <span>Add To Cart</span>
-                        </ProductAdd>
-                      </span>
-                    </li>
-                  );
-                }
-                return <li key={i}>{title}</li>;
-              })}
-            </ul>
-          </div>
-        )}
+                        return (
+                          <li
+                            key={`ingredient-product_${i}`}
+                            className="ingredients-list__product-item"
+                          >
+                            <span>
+                              {title}
+                              <ProductAdd
+                                productID={defaultVariant.id}
+                                quantity={1}
+                                className="btn is-primary btn--icon"
+                              >
+                                <Icon
+                                  className="icon"
+                                  name="Plus"
+                                  id="add-to-cart-icon"
+                                  title="Add to cart"
+                                />
+                                <span>Add To Cart</span>
+                              </ProductAdd>
+                            </span>
+                          </li>
+                        );
+                      }
+                      return <li key={`ingredient-text_${i}`}>{title}</li>;
+                    })}
+                  </ul>
+                </div>
+              )}
+            </div>
+          );
+        })}
         {page.instructions && (
           <div className="freeform-text">
             <h4 className="freeform-text__title">Instructions</h4>

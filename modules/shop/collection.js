@@ -16,6 +16,10 @@ const Collection = ({ products, featuredProducts = [] }) => {
 function mapOrder(array, myorder, key) {
   if (!array) return;
 
+  if (!myorder) {
+    return array;
+  }
+
   var order = myorder.reduce((r, k, i) => ((r[k] = i + 1), r), {});
   const theSort = array.sort(
     (a, b) => (order[a[key]] || Infinity) - (order[b[key]] || Infinity)

@@ -1,4 +1,4 @@
-import { FiFile, FiAlignLeft } from 'react-icons/fi';
+import { FiFile } from 'react-icons/fi';
 
 export default {
   title: 'Recipe',
@@ -38,9 +38,15 @@ export default {
       type: 'simplePortableText'
     },
     {
-      name: 'ingredients',
-      title: 'Ingredients',
-      type: 'recipeIngredients'
+      title: 'Ingredient lists',
+      name: 'ingredientLists',
+      type: 'array',
+      of: [
+        {
+          title: 'Ingredients',
+          type: 'recipeIngredients'
+        }
+      ]
     },
     {
       name: 'instructions',
