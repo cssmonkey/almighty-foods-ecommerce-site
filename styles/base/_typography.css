@@ -124,7 +124,7 @@ p {
 
 ul {
   .rc & {
-    @apply pl-8 text-base leading-normal;
+    @apply pl-8 text-lg leading-normal;
 
     &:not(:last-child) {
       @apply mb-6;
@@ -137,6 +137,16 @@ ul {
         content: '+';
         @apply inline-block relative -ml-4 w-4;
       }
+    }
+  }
+}
+
+ol {
+  .rc & {
+    @apply pl-8 text-base leading-normal;
+
+    &:not(:last-child) {
+      @apply mb-6;
     }
   }
 }

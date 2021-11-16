@@ -1,4 +1,4 @@
-import { FiBookOpen } from 'react-icons/fi'
+import { FiBookOpen } from 'react-icons/fi';
 
 export default {
   title: 'Ingredients',
@@ -6,6 +6,12 @@ export default {
   type: 'document',
   icon: FiBookOpen,
   fields: [
+    {
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+      initialValue: 'Ingredients'
+    },
     {
       title: 'Add recipe ingredients',
       name: 'ingredients',
@@ -26,4 +32,4 @@ export default {
       validation: Rule => Rule.unique()
     }
   ]
-}
+};

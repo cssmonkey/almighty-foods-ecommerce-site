@@ -43,14 +43,14 @@ export default {
       fieldset: 'shopify'
     },
     {
-      title: 'Price (cents)',
+      title: 'Price (pence)',
       name: 'price',
       type: 'number',
       readOnly: true,
       fieldset: 'shopify'
     },
     {
-      title: 'Compare Price (cents)',
+      title: 'Compare Price (pence)',
       name: 'comparePrice',
       type: 'number',
       readOnly: true,
