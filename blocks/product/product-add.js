@@ -27,7 +27,11 @@ const ProductAdd = ({ productID, quantity = 1, className, children }) => {
           className={cx(className, { 'is-disabled': isAdding })}
           onClick={() => addItemToCart(productID, quantity)}
         >
-          {isAdding ? 'Adding...' : <>{children ? children : 'Add to Cart'}</>}
+          {isAdding ? (
+            'Adding...'
+          ) : (
+            <>{children ? children : 'Add to Basket'}</>
+          )}
         </button>
       )}
     </>

@@ -143,7 +143,17 @@ ul {
 
 ol {
   .rc & {
-    @apply pl-8 text-base leading-normal;
+    @apply pl-8 text-base leading-normal list-none;
+    counter-reset: count;
+
+    li {
+      counter-increment: count;
+    }
+    li::before {
+      content: counter(count) '.';
+      margin-right: 0.4rem;
+      font-weight: bold;
+    }
 
     &:not(:last-child) {
       @apply mb-6;

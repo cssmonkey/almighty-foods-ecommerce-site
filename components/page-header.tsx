@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { titleCase } from 'title-case';
 
 interface PageHeaderProps {
   title: string;
@@ -7,8 +8,8 @@ interface PageHeaderProps {
 
 const PageHeader: FC<PageHeaderProps> = ({ title, subtitle }) => (
   <div className="page-header">
-    <h1>{title}</h1>
-    {subtitle && <p className="page-header__subtitle">{subtitle}</p>}
+    <h1>{titleCase(title)}</h1>
+    {subtitle && <p className="page-header__subtitle">{titleCase(subtitle)}</p>}
   </div>
 );
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { titleCase } from 'title-case';
 
 import { hasObject } from '@lib/helpers';
 
@@ -33,7 +34,7 @@ function CartItem({ item }) {
         <div className="cart-item--header">
           <div className="cart-item--title">
             {item.title && item.title !== 'Default Title' && (
-              <div className="cart-item--variant">{item.title}</div>
+              <div className="cart-item--variant">{titleCase(item.title)}</div>
             )}
             <h2 className="cart-item--name">
               <Link
@@ -44,7 +45,7 @@ function CartItem({ item }) {
                   onClick={() => toggleCart(false)}
                   className="cart-item--link"
                 >
-                  {item.product.title}
+                  {titleCase(item.product.title)}
                 </a>
               </Link>
             </h2>

@@ -15,7 +15,7 @@ const ProductActions = ({ activeVariant, klaviyoAccountID }) => {
             quantity={quantity}
             className="btn is-primary is-large"
           >
-            Add To Cart
+            Add to Basket
           </ProductAdd>
           <ProductCounter
             showText

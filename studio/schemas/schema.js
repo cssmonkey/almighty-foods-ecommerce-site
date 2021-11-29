@@ -71,6 +71,7 @@ import figure from './objects/figure';
 import horizontalRule from './objects/horizontal-rule';
 
 import recipeIngredients from './objects/recipe-ingredients';
+import productIngredient from './objects/product-ingredient';
 
 import nutritionInformation from './objects/nutrition-information';
 import nutritionInformationRow from './objects/nutrition-information-row';
@@ -157,6 +158,7 @@ export default createSchema({
     horizontalRule,
 
     recipeIngredients,
+    productIngredient,
 
     nutritionInformation,
     nutritionInformationRow

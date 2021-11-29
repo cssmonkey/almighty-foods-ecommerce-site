@@ -1,8 +1,9 @@
 .our-team {
   @apply container mx-auto px-6;
   &__title {
-    @apply text-center mx-auto mb-12 text-3xl sm:text-5xl;
+    @apply text-center mx-auto mb-12 text-lightBrown;
     max-width: 40rem;
+    font-size: 2rem;
   }
 
   &__row {

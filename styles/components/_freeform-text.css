@@ -1,9 +1,9 @@
 .freeform-text {
-  @apply text-center mx-auto mb-12 sm:mb-24 px-6;
+  @apply text-center mx-auto mb-12 sm:mb-20 px-6;
   max-width: 45rem;
   .enlarge-paragraph,
   &--intro {
-    @apply text-2xl sm:text-3xl text-lightBrown;
+    @apply text-2xl sm:text-4xl text-lightBrown mb-6 sm:mb-12;
   }
 
   &__title {

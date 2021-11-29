@@ -34,7 +34,7 @@ export async function getStaticProps({ preview, previewData }) {
         "content": introText
       },
       seo,
-      "allRecipes": *[_type == "recipePage"] | order(_updatedAt desc)[]{
+      "allRecipes": *[_type == "recipePage"] | order(title asc)[]{
         title,
         image {
           ${imageMeta}

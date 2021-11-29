@@ -1,0 +1,25 @@
+.recipe-page {
+  &__section-heading {
+    @apply mb-2 text-2xl;
+  }
+  &__underline-heading {
+    @apply text-base underline;
+    margin-bottom: 0.25rem !important;
+  }
+
+  &-content {
+    @apply text-center border-b border-slight mb-8 sm:mb-12;
+
+    ul,
+    ol {
+      @apply mb-2 text-base;
+    }
+  }
+}
+
+.ingredients-listing {
+  @apply pb-8 sm:pb-12;
+  .freeform-text {
+    @apply mb-8 sm:mb-12;
+  }
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
+import { titleCase } from 'title-case';
 
-export const Header1 = props => (
+export const Header1 = ({ children }) => (
   <h1
     style={{
       margin: '0',
@@ -10,11 +11,11 @@ export const Header1 = props => (
       fontWeight: 400
     }}
   >
-    {props.children}
+    {titleCase(children)}
   </h1>
 );
 
-export const Header2 = props => (
+export const Header2 = ({ children }) => (
   <h2
     style={{
       margin: '0',
@@ -23,11 +24,11 @@ export const Header2 = props => (
       fontWeight: 400
     }}
   >
-    {props.children}
+    {titleCase(children)}
   </h2>
 );
 
-export const Header3 = props => (
+export const Header3 = ({ children }) => (
   <h3
     style={{
       margin: '0',
@@ -36,11 +37,11 @@ export const Header3 = props => (
       fontWeight: 400
     }}
   >
-    {props.children}
+    {titleCase(children)}
   </h3>
 );
 
-export const Header4 = props => (
+export const Header4 = ({ children }) => (
   <h4
     style={{
       margin: '0',
@@ -49,7 +50,7 @@ export const Header4 = props => (
       fontWeight: 400
     }}
   >
-    {props.children}
+    {titleCase(children)}
   </h4>
 );
 
