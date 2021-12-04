@@ -1,12 +1,12 @@
-import React from 'react'
-import BlockContent from '@sanity/block-content-to-react'
-import { serializers } from '@lib/serializers'
+import React from 'react';
+import BlockContent from '@sanity/block-content-to-react';
+import { serializers } from '@lib/serializers';
 
-import VideoLoop from '@components/video-loop'
-import Photo from '@components/photo'
+import VideoLoop from '@components/video-loop';
+import Photo from '@components/photo';
 
 const Hero = ({ data = {} }) => {
-  const { content, bgType, photos, video } = data
+  const { content, bgType, photos, video } = data;
 
   return (
     <section className="hero">
@@ -42,7 +42,7 @@ const Hero = ({ data = {} }) => {
               width={1600}
               srcSizes={[800, 1000, 1200, 1600]}
               sizes="100vw"
-              layout="fill"
+              layout="contain"
               className="hero--bg is-desktop"
             />
           )}
@@ -58,7 +58,7 @@ const Hero = ({ data = {} }) => {
         </>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

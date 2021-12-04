@@ -38,6 +38,13 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
       <li className="products-grid__list-item" key={i}>
         <Link href={`/products/${product.slug}`}>
           <a>
+            {product.displayNewBadge && (
+              <span className="products-grid__list-item-newbadge">
+                <span className="products-grid__list-item-newbadge-text">
+                  New
+                </span>
+              </span>
+            )}
             {product.mainImage && (
               <div className="products-grid__list-item-image">
                 <Photo
@@ -48,7 +55,7 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
               </div>
             )}
             <span className="products-grid__list-item-title">
-              {product.title}
+              {product.productType} - {product.title}
             </span>
             <div className="products-grid__list-item-price-bar">
               <ProductPrice

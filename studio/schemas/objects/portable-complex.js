@@ -6,7 +6,8 @@ import {
   Header3,
   Header4,
   Button,
-  EnlargedParagraph
+  EnlargedParagraph,
+  SlightlyEnlargedParagraph
 } from '../../components/block-renders';
 
 import ConditionalFields from '../../components/conditional-field';
@@ -82,6 +83,13 @@ export default {
           value: 'enlargedParagraph',
           blockEditor: {
             render: EnlargedParagraph
+          }
+        },
+        {
+          title: 'Slightly enlarge paragraph',
+          value: 'slightlyEnlargedParagraph',
+          blockEditor: {
+            render: SlightlyEnlargedParagraph
           }
         }
       ],

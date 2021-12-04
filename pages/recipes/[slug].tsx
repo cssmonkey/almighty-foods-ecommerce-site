@@ -15,6 +15,10 @@ const getIngredientList = (ingredientList) => {
   const ingredientProducts = ingredientList.ingredientProducts || [];
 
   return ingredientProducts
+    .map(({ beforeText, afterText, product }) => ({
+      title: `${beforeText} ${product.title} ${afterText}`,
+      variants: product.variants,
+    }))
     .concat(ingredients.map((title) => ({ title })))
     .sort(function (a, b) {
       if (a.title < b.title) {
@@ -120,6 +124,7 @@ const RecipePage = ({ data }) => {
             </>
           )}
         </div>
+        <hr />
         {page.otherRecipes && (
           <RecipeListing
             title={page.otherRecipes.title}

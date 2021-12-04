@@ -47,6 +47,7 @@ import teamMember from './modules/team-member';
 import freeform from './blocks/freeform';
 import accordions from './blocks/accordions';
 import productCard from './blocks/product-card';
+import productActions from './blocks/product-actions';
 
 // Object types
 import seo from './objects/seo';
@@ -133,6 +134,7 @@ export default createSchema({
     freeform,
     accordions,
     productCard,
+    productActions,
 
     /* ----------------------- */
     /* 4: Generic Object types */

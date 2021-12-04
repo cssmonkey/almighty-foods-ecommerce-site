@@ -10,7 +10,6 @@ import Icon from '@components/icon';
 import {
   useSiteContext,
   useCartTotals,
-  useCartCount,
   useCartItems,
   useCheckout,
   useToggleCart,
@@ -21,7 +20,6 @@ const Cart = ({ data }) => {
 
   const { isCartOpen, isUpdating } = useSiteContext();
   const { subTotal } = useCartTotals();
-  const cartCount = useCartCount();
   const lineItems = useCartItems();
   const checkoutURL = useCheckout();
   const toggleCart = useToggleCart();

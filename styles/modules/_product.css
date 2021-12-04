@@ -10,16 +10,37 @@
     @apply grid grid-cols-1 gap-12 sm:grid-cols-2;
   }
   .product-description {
-    @apply text-left m-0 px-0;
+    @apply text-left m-0 px-0 sm:ml-auto;
+    max-width: 28rem;
   }
+
+  .product-description .enlarge-paragraph {
+    @apply mb-6;
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
   .product-controls {
     @apply my-12;
   }
 }
+
 .product--actions {
   @apply sm:flex;
+  .btn {
+    @apply mr-4;
+  }
   .counter-container {
-    @apply mt-4 sm:mt-0 sm:ml-8;
+    @apply mt-4 sm:mt-0 sm:ml-auto;
+  }
+  .counter-container .counter {
+    @apply mr-0;
+  }
+  &-module {
+    @apply sm:ml-0 mb-14 sm:mb-24 px-6 sm:justify-center;
+  }
+  &-module .counter-container {
+    @apply sm:ml-0;
   }
 }
 

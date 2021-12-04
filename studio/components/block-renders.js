@@ -1,6 +1,5 @@
 import React from 'react';
 import cx from 'classnames';
-import { titleCase } from 'title-case';
 
 export const Header1 = ({ children }) => (
   <h1
@@ -11,7 +10,7 @@ export const Header1 = ({ children }) => (
       fontWeight: 400
     }}
   >
-    {titleCase(children)}
+    {children}
   </h1>
 );
 
@@ -24,7 +23,7 @@ export const Header2 = ({ children }) => (
       fontWeight: 400
     }}
   >
-    {titleCase(children)}
+    {children}
   </h2>
 );
 
@@ -37,7 +36,7 @@ export const Header3 = ({ children }) => (
       fontWeight: 400
     }}
   >
-    {titleCase(children)}
+    {children}
   </h3>
 );
 
@@ -50,7 +49,7 @@ export const Header4 = ({ children }) => (
       fontWeight: 400
     }}
   >
-    {titleCase(children)}
+    {children}
   </h4>
 );
 
@@ -70,6 +69,19 @@ export const Button = ({ isButton, styles, children }) => {
 };
 
 export const EnlargedParagraph = ({ children }) => (
+  <p
+    style={{
+      margin: '0',
+      fontSize: '1.5rem',
+      lineHeight: '1.25',
+      fontWeight: 400
+    }}
+  >
+    {children}
+  </p>
+);
+
+export const SlightlyEnlargedParagraph = ({ children }) => (
   <p
     style={{
       margin: '0',

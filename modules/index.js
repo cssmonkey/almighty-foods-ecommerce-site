@@ -15,6 +15,9 @@ const ContactForm = dynamic(() => import('./contact-form'));
 const AssetDownload = dynamic(() => import('./asset-download'));
 const Freeform = dynamic(() => import('../blocks/freeform'));
 const OurTeam = dynamic(() => import('./our-team'));
+const ProductActions = dynamic(() =>
+  import('../blocks/product/product-actions')
+);
 
 export const Module = ({
   module,
@@ -78,6 +81,13 @@ export const Module = ({
       );
     case 'ourTeam':
       return <OurTeam title={module.title} teamMembers={module.teamMembers} />;
+    case 'productActions':
+      return (
+        <ProductActions
+          customClass="product--actions-module"
+          activeVariant={activeVariant}
+        />
+      );
     default:
       return null;
   }

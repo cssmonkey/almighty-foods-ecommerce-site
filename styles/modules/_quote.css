@@ -19,14 +19,34 @@
   blockquote footer {
     @apply block text-2xl sm:text-2xl text-center;
   }
-  blockquote p::before {
-    @apply text-highlight text-7xl pr-2;
-    content: '\201D';
-    line-height: inherit;
+
+  .blockquote__quotemark-start,
+  .blockquote__quotemark-end {
+    @apply text-highlight;
+    width: 2rem;
+    height: 2rem;
   }
-  blockquote p::after {
-    @apply text-highlight text-7xl pl-2;
-    content: '\201D';
-    line-height: inherit;
+  .blockquote__quotemark-start {
+    @apply pr-2;
+  }
+  .blockquote__quotemark-end {
+    @apply pl-2;
+    transform: rotate(180deg);
+  }
+
+  .blockquote__text {
+    position: relative;
+    padding: 0 3rem;
+
+    .blockquote__quotemark-start {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .blockquote__quotemark-end {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
   }
 }

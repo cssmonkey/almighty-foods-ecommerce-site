@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-pageBG text-pageText leading-none text-lg;
+    @apply bg-pageBG text-pageText leading-none text-base;
     font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
@@ -28,13 +28,13 @@
   /* Headlines */
   h1,
   .is-h1 {
-    @apply m-0 text-5xl font-normal leading-tight;
+    @apply m-0 text-7xl font-normal leading-tight;
     font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
   h2,
   .is-h2 {
-    @apply m-0 text-4xl font-normal leading-tight;
+    @apply m-0 text-5xl font-normal leading-tight;
     font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
@@ -151,7 +151,7 @@ ol {
     }
     li::before {
       content: counter(count) '.';
-      margin-right: 0.4rem;
+      margin-right: 0.5rem;
       font-weight: bold;
     }
 

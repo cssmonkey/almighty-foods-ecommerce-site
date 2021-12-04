@@ -17,6 +17,10 @@ body {
   @apply mx-auto mb-8 sm:mb-12 container;
 }
 
-#content {
+/* #content {
   @apply px-6;
+} */
+
+hr {
+  @apply bg-slight container px-6 mx-auto;
 }
