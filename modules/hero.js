@@ -6,7 +6,7 @@ import VideoLoop from '@components/video-loop';
 import Photo from '@components/photo';
 
 const Hero = ({ data = {} }) => {
-  const { content, bgType, photos, video } = data;
+  const { content, bgType, photos, video, footerContent } = data;
 
   return (
     <section className="hero">
@@ -20,6 +20,22 @@ const Hero = ({ data = {} }) => {
               serializers={serializers}
             />
           </div>
+          {footerContent && (
+            <div className="hero--footer-content">
+              <>
+                {footerContent.footerImage && (
+                  <Photo
+                    photo={footerContent.footerImage}
+                    width={98}
+                    className="hero--footer-image"
+                  />
+                )}
+              </>
+              {footerContent.footerText && (
+                <p className="hero--footer-text">{footerContent.footerText}</p>
+              )}
+            </div>
+          )}
         </div>
       )}
 
@@ -42,7 +58,7 @@ const Hero = ({ data = {} }) => {
               width={1600}
               srcSizes={[800, 1000, 1200, 1600]}
               sizes="100vw"
-              layout="contain"
+              layout="fill"
               className="hero--bg is-desktop"
             />
           )}

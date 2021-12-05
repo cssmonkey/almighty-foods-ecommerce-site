@@ -4,14 +4,14 @@
   --white: #ffffff;
   --darkBrown: #6b5433;
   --lightBrown: #8d7154;
-  --slight: rgba(129, 103, 75, 0.3);
+  --slight: #e5dac9;
   --highlight: #fd5e5e;
 
   --black-hsl: 0, 0%, 0%;
   --white-hsl: 0, 0%, 100%;
 
   --pageBG: #ffffff;
-  --pageText: #6b5433;
+  --pageText: #8d7154;
 
   --pageBG-hsl: 60, 14%, 95%;
   --pageText-hsl: 0, 0%, 0%;

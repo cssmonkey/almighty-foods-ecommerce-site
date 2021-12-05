@@ -104,7 +104,7 @@ const Cart = ({ data }) => {
             {lineItems?.length > 0 && (
               <div className="cart--footer">
                 <div className="cart--subtotal">
-                  <span>Subtotal</span>
+                  <span>Sub-Total</span>
                   <span>£{centsToPrice(subTotal)}</span>
                 </div>
 

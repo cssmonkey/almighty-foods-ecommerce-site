@@ -16,7 +16,7 @@
 .products-grid__list-item {
   @apply mb-6 relative flex flex-col;
   &-title {
-    @apply text-center px-4 pt-2 block text-3xl;
+    @apply text-center pt-2 block text-2xl text-darkBrown;
   }
 
   a {
@@ -49,11 +49,11 @@
 }
 
 .products-grid__list-item-price-bar {
-  @apply text-center pb-2;
+  @apply text-center py-2;
 
   .price {
     &--current {
-      @apply px-1 text-lightBrown;
+      @apply px-1 text-darkBrown;
     }
     &--old {
       @apply px-1 text-highlight line-through;

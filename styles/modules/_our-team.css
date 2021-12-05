@@ -1,21 +1,20 @@
 .our-team {
-  @apply container mx-auto px-6;
+  @apply container mx-auto px-6 pt-6;
   &__title {
-    @apply text-center mx-auto mb-12 text-lightBrown;
+    @apply text-center mx-auto mb-12 text-5xl;
     max-width: 40rem;
-    font-size: 2rem;
   }
 
   &__row {
-    @apply sm:flex mb-12 max-w-3xl mx-auto;
+    @apply sm:flex mb-16 max-w-3xl mx-auto;
   }
 
   &__row:nth-child(odd) &__content {
-    @apply order-last mr-0 sm:ml-8;
+    @apply order-last mr-0 sm:ml-16;
   }
 
   &__content {
-    @apply flex-1 mb-4 sm:mr-8 sm:mb-0;
+    @apply flex-1 mb-8 sm:mr-16 sm:mb-0;
   }
 
   &__image-container {
@@ -24,6 +23,7 @@
   }
 
   &__content-title {
-    @apply text-2xl sm:text-3xl mb-6;
+    @apply mb-6;
+    font-size: 2rem;
   }
 }

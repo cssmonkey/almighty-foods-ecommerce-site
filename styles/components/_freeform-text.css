@@ -4,9 +4,15 @@
 
   .enlarge-paragraph,
   &--intro {
-    @apply text-lightBrown mb-6 sm:mb-12;
+    @apply mb-6 sm:mb-12;
     font-size: 2.5rem;
     line-height: 3rem;
+  }
+  .enlarge-paragraph {
+    @apply text-lightBrown;
+  }
+  &--intro {
+    @apply text-lightBrown;
   }
 
   .slightly-enlarge-paragraph {

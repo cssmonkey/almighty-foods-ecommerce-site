@@ -1,6 +1,6 @@
-import { FiStar } from 'react-icons/fi'
+import { FiStar } from 'react-icons/fi';
 
-import ConditionalFields from '../../components/conditional-field'
+import ConditionalFields from '../../components/conditional-field';
 
 export default {
   title: 'Hero',
@@ -28,7 +28,6 @@ export default {
     {
       name: 'photos',
       type: 'object',
-      inputComponent: ConditionalFields,
       fields: [
         {
           title: 'Background Photo (mobile)',
@@ -40,10 +39,7 @@ export default {
           name: 'desktopPhoto',
           type: 'figure'
         }
-      ],
-      options: {
-        condition: (document, context) => context().bgType === 'photo'
-      }
+      ]
     },
     {
       name: 'video',
@@ -67,6 +63,22 @@ export default {
       options: {
         condition: (document, context) => context().bgType === 'video'
       }
+    },
+    {
+      name: 'footerContent',
+      type: 'object',
+      fields: [
+        {
+          title: 'Footer text',
+          name: 'footerText',
+          type: 'string'
+        },
+        {
+          title: 'Footer image',
+          name: 'footerImage',
+          type: 'figure'
+        }
+      ]
     }
   ],
   preview: {
@@ -79,7 +91,7 @@ export default {
         title: 'Hero',
         subtitle: content && content[0]?.text,
         media: photo
-      }
+      };
     }
   }
-}
+};

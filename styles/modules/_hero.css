@@ -25,11 +25,38 @@
   }
 
   &--content {
-    @apply w-full max-w-5xl mx-auto px-4 pt-24 pb-12 text-center text-white;
+    @apply w-full max-w-5xl mx-auto px-4 pt-24 pb-12 text-center text-white flex-1 flex items-end;
     width: 60vw;
 
     @media (--sm) {
       width: 40vw;
+    }
+
+    & .rc {
+      @apply flex-1;
+    }
+  }
+
+  &--footer-content {
+    @apply w-full max-w-5xl mx-auto px-4 pb-12 text-center;
+    width: 60vw;
+
+    @media (--sm) {
+      width: 40vw;
+    }
+  }
+
+  &--footer-text {
+    @apply text-white uppercase text-xl sm:text-4xl;
+    font-family: 'AlmightyFoodsBold';
+  }
+
+  &--footer-image {
+    @apply mx-auto mb-4;
+    width: 100px;
+
+    @media (--sm) {
+      width: 130vw;
     }
   }
 }

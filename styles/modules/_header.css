@@ -58,9 +58,11 @@ a[href='#content'].skip-link {
 }
 
 .logo {
-  @apply flex flex-col relative z-10 opacity-100;
+  @apply flex flex-col relative z-10 opacity-100 text-darkBrown;
   transition: opacity 0.02s ease-in;
-
+  .menu-active & {
+    @apply text-white;
+  }
   .is-white & {
     @apply opacity-0;
   }
@@ -78,18 +80,16 @@ a[href='#content'].skip-link {
 }
 
 .menu-toggle {
-  @apply absolute inset-y-0 left-0 z-60 clean-btn p-0 bg-transparent text-pageText;
+  @apply absolute inset-y-0 left-0 z-60 clean-btn p-0 bg-transparent text-darkBrown;
 
   .is-overlay:not(.has-bg) & {
     @apply transition-colors duration-300;
   }
 
-  .is-white & {
-    @apply text-white;
-  }
   &.is-open {
     @apply text-pageText;
   }
+  .menu-active .logo--link svg,
   .menu-active & {
     @apply text-white;
   }

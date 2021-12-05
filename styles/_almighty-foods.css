@@ -38,11 +38,6 @@
     }
 
     &:hover {
-      background: hsla(var(--pageText-hsl), 0.2);
-
-      .is-inverted & {
-        background: hsla(var(--pageBG-hsl), 0.2);
-      }
     }
   }
 

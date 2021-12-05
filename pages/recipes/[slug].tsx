@@ -95,9 +95,11 @@ const RecipePage = ({ data }) => {
                                         className="icon"
                                         name="Plus"
                                         id="add-to-cart-icon"
-                                        title="Add to Basket"
+                                        title={`Add ${defaultVariant.title} to Basket`}
                                       />
-                                      <span>Add to Basket</span>
+                                      <span>
+                                        Add {defaultVariant.title} to Basket
+                                      </span>
                                     </ProductAdd>
                                   </span>
                                 </li>

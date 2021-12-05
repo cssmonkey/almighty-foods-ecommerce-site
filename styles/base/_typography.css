@@ -28,33 +28,33 @@
   /* Headlines */
   h1,
   .is-h1 {
-    @apply m-0 text-7xl font-normal leading-tight;
+    @apply m-0 text-7xl font-normal leading-tight text-darkBrown;
     font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
   h2,
   .is-h2 {
-    @apply m-0 text-5xl font-normal leading-tight;
+    @apply m-0 text-5xl font-normal leading-tight text-darkBrown;
     font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
   h3,
   .is-h3 {
-    @apply m-0 text-3xl font-normal leading-tight;
+    @apply m-0 text-3xl font-normal leading-tight text-darkBrown;
     font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
   h4,
   .is-h4 {
-    @apply m-0 text-2xl font-normal leading-snug;
+    @apply m-0 text-2xl font-normal leading-snug text-darkBrown;
   }
 
   h5 {
-    @apply m-0 text-xl font-normal leading-tight;
+    @apply m-0 text-xl font-normal leading-tight text-darkBrown;
   }
 
   h6 {
-    @apply m-0 text-xs font-normal leading-tight;
+    @apply m-0 text-xs font-normal leading-tight text-darkBrown;
     font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
