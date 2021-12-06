@@ -1,7 +1,7 @@
 .recipe-listing {
-  @apply container mx-auto mb-12 sm:mb-24 px-6 sm:px-0;
+  @apply container mx-auto mb-24 px-6 sm:px-0;
   &__title {
-    @apply text-center mx-auto text-3xl sm:text-5xl;
+    @apply text-center mx-auto text-5xl;
     max-width: 40rem;
   }
   &__title + &__subtitle {
@@ -19,8 +19,12 @@
 
     li {
       flex: none;
-      flex-basis: 33.33333%;
+      flex-basis: 100%;
       padding: 0 0.5rem 2rem;
+
+      @media (--sm) {
+        flex-basis: 33.33333%;
+      }
     }
     img {
       transition: all 0.2s ease-out;

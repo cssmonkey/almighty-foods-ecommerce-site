@@ -1,6 +1,15 @@
 .hero {
   @apply relative overflow-hidden max-h-screen border-b mb-12 sm:mb-24;
   max-height: calc(var(--vh, 1vh) * 100);
+  transition: opacity 0.7s ease-in-out;
+
+  &--fade-out {
+    opacity: 0;
+  }
+
+  &--fade-in {
+    opacity: 1;
+  }
 
   @media (max-height: 500px) {
     min-height: 500px;
@@ -26,7 +35,7 @@
 
   &--content {
     @apply w-full max-w-5xl mx-auto px-4 pt-24 pb-12 text-center text-white flex-1 flex items-end;
-    width: 60vw;
+    width: 78vw;
 
     @media (--sm) {
       width: 40vw;
@@ -38,25 +47,22 @@
   }
 
   &--footer-content {
-    @apply w-full max-w-5xl mx-auto px-4 pb-12 text-center;
+    @apply w-full mx-auto px-4 pb-6 sm:pb-12 text-center;
     width: 60vw;
+    max-width: 18rem;
 
     @media (--sm) {
-      width: 40vw;
+      max-width: none;
     }
   }
 
   &--footer-text {
-    @apply text-white uppercase text-xl sm:text-4xl;
+    @apply text-white uppercase text-4xl;
     font-family: 'AlmightyFoodsBold';
   }
 
   &--footer-image {
     @apply mx-auto mb-4;
-    width: 100px;
-
-    @media (--sm) {
-      width: 130vw;
-    }
+    width: 98px;
   }
 }

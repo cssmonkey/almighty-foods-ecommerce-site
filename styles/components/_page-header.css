@@ -1,14 +1,14 @@
 .page-header {
   @apply container mx-auto px-6 pt-14 pb-12 sm:px-0;
   h1 {
-    @apply text-center mx-auto mb-4 text-3xl sm:text-5xl;
+    @apply text-center mx-auto mb-4 text-5xl;
     max-width: 40rem;
   }
   h1:last-child {
     @apply mb-0;
   }
   &__subtitle {
-    @apply text-center mx-auto mb-0 text-3xl sm:text-4xl;
+    @apply text-center mx-auto mb-0 text-4xl;
     max-width: 40rem;
   }
 }

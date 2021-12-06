@@ -37,7 +37,14 @@
     @apply mr-0;
   }
   &-module {
-    @apply sm:ml-0 mb-14 sm:mb-24 px-6 sm:justify-center;
+    @apply text-center sm:text-left sm:ml-0 mb-14 sm:mb-24 px-6 sm:justify-center;
+
+    .btn {
+      @apply mr-0 sm:mr-4;
+    }
+    .counter-label {
+      @apply mr-0 sm:mr-4;
+    }
   }
   &-module .counter-container {
     @apply sm:ml-0;
