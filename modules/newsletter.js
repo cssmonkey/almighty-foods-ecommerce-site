@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { m, AnimatePresence } from 'framer-motion';
+import { titleCase } from 'title-case';
 import cx from 'classnames';
 
 import BlockContent from '@sanity/block-content-to-react';
@@ -54,8 +55,10 @@ const Newsletter = ({ data = {} }) => {
   return (
     <form className="form newsletter-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="newsletter-form__inner">
-        <h3 className="newsletter-form__title">{title}</h3>
-        {subTitle && <h4 className="newsletter-form__subtitle">{subTitle}</h4>}
+        <h3 className="newsletter-form__title">{titleCase(title)}</h3>
+        {subTitle && (
+          <h4 className="newsletter-form__subtitle">{titleCase(subTitle)}</h4>
+        )}
         <AnimatePresence exitBeforeEnter>
           {!error && !success && (
             <m.div

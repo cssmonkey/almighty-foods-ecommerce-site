@@ -1,4 +1,5 @@
 import React, { useRef, FC } from 'react';
+import { titleCase } from 'title-case';
 import { useIntersection } from 'use-intersection';
 import Link from 'next/link';
 import Photo, { PhotoImage } from '@components/photo';
@@ -37,6 +38,13 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
       <li className="products-grid__list-item" key={i}>
         <Link href={`/products/${product.slug}`}>
           <a>
+            {product.displayNewBadge && (
+              <span className="products-grid__list-item-newbadge">
+                <span className="products-grid__list-item-newbadge-text">
+                  New
+                </span>
+              </span>
+            )}
             {product.mainImage && (
               <div className="products-grid__list-item-image">
                 <Photo
@@ -47,7 +55,7 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
               </div>
             )}
             <span className="products-grid__list-item-title">
-              {product.title}
+              {product.productType} - {product.title}
             </span>
             <div className="products-grid__list-item-price-bar">
               <ProductPrice
@@ -64,7 +72,7 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
               quantity={1}
               className="btn is-primary"
             >
-              Add To Cart
+              Add to Basket
             </ProductAdd>
           </div>
         )}
@@ -75,7 +83,7 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
   return (
     <div className="products-grid">
       <div className="products-grid__inner">
-        {title && <h2 className="products-grid__title">{title}</h2>}
+        {title && <h2 className="products-grid__title">{titleCase(title)}</h2>}
         {subtitle && <h3 className="products-grid__subtitle">{subtitle}</h3>}
         <ul ref={productsListRef} className="products-grid__list">
           {products.map(renderListItem)}
@@ -85,7 +93,7 @@ const ProductsGrid: FC<ProductsGridProps> = ({ data }) => {
             <Link href={`/shop`}>
               <a className="cta-link">
                 <span className="cta-link__text">
-                  Shop for all our products
+                  {titleCase('Shop for all our products')}
                 </span>
               </a>
             </Link>

@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import cx from 'classnames';
+import { titleCase } from 'title-case';
 
 interface Rows {
   nutrientName: string;
@@ -23,12 +24,14 @@ const NutritionalInformation: FC<NutritionalInformationProps> = ({
 }) => {
   return (
     <div className={cx('nutritional-information', className)}>
-      {title && <h3 className="nutritional-information__title">{title}</h3>}
+      {title && (
+        <h3 className="nutritional-information__title">{titleCase(title)}</h3>
+      )}
 
       <table className="nutritional-information__table">
         <thead>
           <tr>
-            <th>Typical values</th>
+            <th>Typical Values</th>
             <th>Per 100g</th>
             <th>Per {gramsPerServing} Serving</th>
           </tr>

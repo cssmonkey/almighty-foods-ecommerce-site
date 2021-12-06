@@ -102,6 +102,20 @@ export default {
       fieldset: 'shopify'
     },
     {
+      title: 'Display "New" badge',
+      name: 'displayNewBadge',
+      type: 'boolean'
+    },
+    {
+      title: 'Product type',
+      name: 'productType',
+      type: 'string',
+      options: {
+        list: [{ title: 'Nut Butter', value: 'Nut Butter' }]
+      },
+      initialValue: 'Nut Butter'
+    },
+    {
       title: 'Display Title',
       name: 'title',
       type: 'string'
@@ -130,7 +144,8 @@ export default {
         { type: 'dividerPhoto' },
         { type: 'freeform' },
         { type: 'quote' },
-        { type: 'productsGrid' }
+        { type: 'productsGrid' },
+        { type: 'productActions' }
       ]
     },
     {

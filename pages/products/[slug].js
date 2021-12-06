@@ -108,6 +108,7 @@ const Product = ({ data }) => {
     }
   }, [page.product, productInventory]);
   const price = `£${centsToPrice(page.product.price)}`;
+  const title = `${page.product.productType} <br/> ${page.product.title}`;
   return (
     <>
       {!router.isFallback && (
@@ -117,7 +118,7 @@ const Product = ({ data }) => {
           schema={getProductSchema(product, activeVariant, site)}
         >
           <div className="product-page">
-            <PageHeader title={page.product.title} subtitle={price} />
+            <PageHeader title={title} subtitle={price} />
             <PageContent>
               <section className="product-page-section product-page-section--main">
                 <Photo

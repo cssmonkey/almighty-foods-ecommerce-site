@@ -25,6 +25,9 @@
     a {
       @apply block;
     }
+    &__image {
+      max-width: 68px;
+    }
   }
 
   .menu-footer {

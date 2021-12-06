@@ -103,7 +103,7 @@ const Photo: FC<PhotoProps> = ({
             sizes={sizes}
             decoding="async"
             onLoad={handleLoad}
-            alt={photo.alt || photo.asset?.altText}
+            alt={photo.alt || photo.asset?.altText || ''}
             className={cx(getSize(layout), { 'is-loaded': isLoaded })}
           />
         </picture>

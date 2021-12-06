@@ -25,8 +25,7 @@ export default {
       of: [
         {
           title: 'Product',
-          type: 'reference',
-          to: [{ type: 'product' }]
+          type: 'productIngredient'
         }
       ],
       validation: Rule => Rule.unique()

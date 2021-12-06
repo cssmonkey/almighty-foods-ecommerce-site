@@ -26,7 +26,7 @@
       @apply sm:flex;
 
       .control {
-        @apply sm:flex-1 m-0 border rounded-full bg-pageBG;
+        @apply sm:flex-1 m-0 border rounded-full bg-pageBG overflow-hidden;
       }
 
       .btn {

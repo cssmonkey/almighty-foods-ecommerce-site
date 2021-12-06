@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-
+import cx from 'classnames';
 import { ProductCounter, ProductAdd, ProductWaitlist } from '@blocks/product';
 
-const ProductActions = ({ activeVariant, klaviyoAccountID }) => {
+const ProductActions = ({ activeVariant, klaviyoAccountID, customClass }) => {
   // set default quantity
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <div className="product--actions">
+    <div className={cx('product--actions', customClass)}>
       {activeVariant?.inStock ? (
         <>
           <ProductAdd
@@ -15,7 +15,7 @@ const ProductActions = ({ activeVariant, klaviyoAccountID }) => {
             quantity={quantity}
             className="btn is-primary is-large"
           >
-            Add To Cart
+            Add to Basket
           </ProductAdd>
           <ProductCounter
             showText

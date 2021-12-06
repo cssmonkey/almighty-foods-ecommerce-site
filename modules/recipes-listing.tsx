@@ -1,6 +1,8 @@
 import React, { useRef, FC } from 'react';
 import { useIntersection } from 'use-intersection';
+import { titleCase } from 'title-case';
 import Link from 'next/link';
+import cx from 'classnames';
 import Photo, { PhotoImage } from '@components/photo';
 
 interface Recipe {
@@ -33,9 +35,16 @@ const RecipeListing: FC<RecipeListingProps> = ({
   return (
     <div className="recipe-listing">
       <div className="recipe-listing__inner">
-        {title && <h3 className="recipe-listing__title">{title}</h3>}
-        {subtitle && <h4 className="recipe-listing__subtitle">{subtitle}</h4>}
-        <ul ref={recipesListRef} className="recipe-listing__list">
+        {title && <h3 className="recipe-listing__title">{titleCase(title)}</h3>}
+        {subtitle && (
+          <h4 className="recipe-listing__subtitle">{titleCase(subtitle)}</h4>
+        )}
+        <ul
+          ref={recipesListRef}
+          className={cx('recipe-listing__list', {
+            'recipe-listing__list--2-col': recipes && recipes.length == 2,
+          })}
+        >
           {recipes &&
             recipes
               .map((recipe, i) => (
@@ -50,7 +59,7 @@ const RecipeListing: FC<RecipeListingProps> = ({
                         />
                       </div>
                       <span className="recipe-listing-item-title">
-                        {recipe.title}
+                        {titleCase(recipe.title)}
                       </span>
                     </a>
                   </Link>
@@ -62,7 +71,9 @@ const RecipeListing: FC<RecipeListingProps> = ({
           <div className="recipe-listing__cta-control">
             <Link href={`/recipes`}>
               <a className="cta-link">
-                <span className="cta-link__text">View all our recipes</span>
+                <span className="cta-link__text">
+                  {titleCase('View all our recipes')}
+                </span>
               </a>
             </Link>
           </div>

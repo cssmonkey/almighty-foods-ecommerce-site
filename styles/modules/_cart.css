@@ -68,7 +68,7 @@
   }
 
   &--subtotal {
-    @apply flex justify-between py-4 sm:py-8 px-4 border-t border-slight;
+    @apply flex justify-between py-5 border-t border-slight text-xl;
   }
 
   &--message {

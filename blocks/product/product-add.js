@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 
 import { useSiteContext, useAddItem } from '@lib/context';
 
 const ProductAdd = ({ productID, quantity = 1, className, children }) => {
   const addItemToCart = useAddItem();
-  const { shopifyClient, isLoading, isAdding } = useSiteContext();
+  const { shopifyClient, isLoading } = useSiteContext();
+  const [isAdding, setIsAdding] = useState(false);
 
   // Check that Shopify is connected
   if (!shopifyClient) {
@@ -25,9 +26,17 @@ const ProductAdd = ({ productID, quantity = 1, className, children }) => {
       ) : (
         <button
           className={cx(className, { 'is-disabled': isAdding })}
-          onClick={() => addItemToCart(productID, quantity)}
+          onClick={async () => {
+            setIsAdding(true);
+            await addItemToCart(productID, quantity);
+            setIsAdding(false);
+          }}
         >
-          {isAdding ? 'Adding...' : <>{children ? children : 'Add to Cart'}</>}
+          {isAdding ? (
+            'Adding...'
+          ) : (
+            <>{children ? children : 'Add to Basket'}</>
+          )}
         </button>
       )}
     </>

@@ -47,6 +47,7 @@ import teamMember from './modules/team-member';
 import freeform from './blocks/freeform';
 import accordions from './blocks/accordions';
 import productCard from './blocks/product-card';
+import productActions from './blocks/product-actions';
 
 // Object types
 import seo from './objects/seo';
@@ -71,6 +72,7 @@ import figure from './objects/figure';
 import horizontalRule from './objects/horizontal-rule';
 
 import recipeIngredients from './objects/recipe-ingredients';
+import productIngredient from './objects/product-ingredient';
 
 import nutritionInformation from './objects/nutrition-information';
 import nutritionInformationRow from './objects/nutrition-information-row';
@@ -132,6 +134,7 @@ export default createSchema({
     freeform,
     accordions,
     productCard,
+    productActions,
 
     /* ----------------------- */
     /* 4: Generic Object types */
@@ -157,6 +160,7 @@ export default createSchema({
     horizontalRule,
 
     recipeIngredients,
+    productIngredient,
 
     nutritionInformation,
     nutritionInformationRow

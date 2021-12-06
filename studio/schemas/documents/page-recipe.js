@@ -54,6 +54,11 @@ export default {
       type: 'freeform'
     },
     {
+      title: 'Other recipes',
+      name: 'otherRecipes',
+      type: 'recipesList'
+    },
+    {
       title: 'SEO / Share Settings',
       name: 'seo',
       type: 'seo'

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, FC } from 'react';
+import { titleCase } from 'title-case';
 import { m } from 'framer-motion';
 import cx from 'classnames';
 
@@ -29,7 +30,7 @@ const Accordion: FC<AccordionProps> = ({ id, title, children }) => {
         aria-controls={`accordion-${id}`}
         className={cx('accordion--toggle', { 'is-open': isOpen })}
       >
-        {title}
+        {titleCase(title)}
         <div className="accordion--icon" />
       </button>
 

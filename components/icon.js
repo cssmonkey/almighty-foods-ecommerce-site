@@ -244,6 +244,43 @@ const getIcon = (name, color) => {
           d="M12.1 52.1l24.4 24.4 53-53"
         />
       );
+    case 'Quote':
+      return (
+        <g transform="translate(-563 -3318.794)">
+          <circle
+            cx="11"
+            cy="11"
+            r="11"
+            transform="translate(563 3331)"
+            fill="currentColor"
+          />
+          <circle
+            cx="11"
+            cy="11"
+            r="11"
+            transform="translate(597 3331)"
+            fill="currentColor"
+          />
+          <line
+            y1="19.409"
+            x2="10.352"
+            transform="translate(565.148 3319.5)"
+            fill="none"
+            stroke="currentColor"
+            strokeMiterlimit="10"
+            strokeWidth="3"
+          />
+          <line
+            y1="19.409"
+            x2="10.352"
+            transform="translate(599.148 3319.5)"
+            fill="none"
+            stroke="currentColor"
+            strokeMiterlimit="10"
+            strokeWidth="3"
+          />
+        </g>
+      );
     default:
       return <path />;
   }

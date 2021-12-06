@@ -1,15 +1,41 @@
-import React from 'react'
-import BlockContent from '@sanity/block-content-to-react'
-import { serializers } from '@lib/serializers'
+import React, { useRef, useState } from 'react';
+import cx from 'classnames';
+import BlockContent from '@sanity/block-content-to-react';
+import { serializers } from '@lib/serializers';
+import { useIntersection } from 'use-intersection';
 
-import VideoLoop from '@components/video-loop'
-import Photo from '@components/photo'
+import VideoLoop from '@components/video-loop';
+import Photo from '@components/photo';
 
 const Hero = ({ data = {} }) => {
-  const { content, bgType, photos, video } = data
+  const { content, bgType, photos, video, footerContent } = data;
+  const heroRef = useRef();
+  const [animate, setAnimate] = useState('');
+
+  const intersecting = useIntersection(
+    heroRef,
+    {
+      rootMargin: '0px',
+      threshold: [0.45],
+    },
+    ({ isIntersecting }) => {
+      if (isIntersecting) {
+        setAnimate('fade-in');
+      } else {
+        setAnimate('fade-out');
+      }
+    }
+  );
 
   return (
-    <section className="hero">
+    <section
+      ref={heroRef}
+      intersecting={intersecting}
+      className={cx('hero', {
+        'hero--fade-in': animate === 'fade-in',
+        'hero--fade-out': animate === 'fade-out',
+      })}
+    >
       {content && (
         <div className="hero--overlay">
           <div className="hero--content">
@@ -20,6 +46,22 @@ const Hero = ({ data = {} }) => {
               serializers={serializers}
             />
           </div>
+          {footerContent && (
+            <div className="hero--footer-content">
+              <>
+                {footerContent.footerImage.image && (
+                  <img
+                    src={footerContent.footerImage.image}
+                    className="hero--footer-image"
+                    alt={footerContent.footerImage.alt || ''}
+                  />
+                )}
+              </>
+              {footerContent.footerText && (
+                <p className="hero--footer-text">{footerContent.footerText}</p>
+              )}
+            </div>
+          )}
         </div>
       )}
 
@@ -58,7 +100,7 @@ const Hero = ({ data = {} }) => {
         </>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

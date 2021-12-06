@@ -1,8 +1,8 @@
 a[href='#content'].skip-link {
-  @apply block fixed top-0 left-1/2 transform -translate-x-1/2 -translate-y-full z-90 px-2 py-1 bg-pageBG text-pageText text-xs font-semibold uppercase;
+  @apply block fixed top-0 left-0 transform -translate-x-1/2 -translate-y-full z-90 px-2 py-1 bg-pageBG text-pageText text-xs font-semibold uppercase;
 
   &:focus {
-    @apply translate-y-0 outline-none;
+    @apply translate-y-0 outline-none left-1/2;
   }
 }
 
@@ -58,9 +58,11 @@ a[href='#content'].skip-link {
 }
 
 .logo {
-  @apply flex flex-col relative z-10 opacity-100;
+  @apply flex flex-col relative z-10 opacity-100 text-darkBrown;
   transition: opacity 0.02s ease-in;
-
+  .menu-active & {
+    @apply text-white;
+  }
   .is-white & {
     @apply opacity-0;
   }
@@ -78,18 +80,16 @@ a[href='#content'].skip-link {
 }
 
 .menu-toggle {
-  @apply absolute inset-y-0 left-0 z-60 clean-btn p-0 bg-transparent text-pageText;
+  @apply absolute inset-y-0 left-0 z-60 clean-btn p-0 bg-transparent text-darkBrown;
 
   .is-overlay:not(.has-bg) & {
     @apply transition-colors duration-300;
   }
 
-  .is-white & {
-    @apply text-white;
-  }
   &.is-open {
     @apply text-pageText;
   }
+  .menu-active .logo--link svg,
   .menu-active & {
     @apply text-white;
   }
@@ -170,7 +170,7 @@ a[href='#content'].skip-link {
     @apply opacity-0;
   }
   &--count {
-    @apply w-6 h-6 rounded-full text-pageBG opacity-30 text-xs leading-loose bg-highlight absolute;
+    @apply w-6 h-6 rounded-full text-pageBG opacity-0 text-xs leading-loose bg-highlight absolute;
     right: calc(-0.75rem + 100%);
     transform: translateY(20%);
 
