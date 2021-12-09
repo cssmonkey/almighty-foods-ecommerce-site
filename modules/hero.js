@@ -7,6 +7,19 @@ import { useIntersection } from 'use-intersection';
 import VideoLoop from '@components/video-loop';
 import Photo from '@components/photo';
 
+const buildThresholdList = () => {
+  let thresholds = [];
+  let numSteps = 20;
+
+  for (let i = 1.0; i <= numSteps; i++) {
+    let ratio = i / numSteps;
+    thresholds.push(ratio);
+  }
+
+  thresholds.push(0);
+  return thresholds;
+};
+
 const Hero = ({ data = {} }) => {
   const { content, bgType, photos, video, footerContent } = data;
   const heroRef = useRef();
@@ -16,12 +29,13 @@ const Hero = ({ data = {} }) => {
     heroRef,
     {
       rootMargin: '0px',
-      threshold: [0.45],
+      threshold: buildThresholdList(),
     },
-    ({ isIntersecting }) => {
-      if (isIntersecting) {
+    ({ isIntersecting, intersectionRatio }) => {
+      console.log(intersectionRatio);
+      if (isIntersecting && intersectionRatio > 0.2) {
         setAnimate('fade-in');
-      } else {
+      } else if (intersectionRatio < 0.2) {
         setAnimate('fade-out');
       }
     }
@@ -48,15 +62,26 @@ const Hero = ({ data = {} }) => {
           </div>
           {footerContent && (
             <div className="hero--footer-content">
-              <>
+              <div>
                 {footerContent.footerImage.image && (
                   <img
+                    width="98px"
                     src={footerContent.footerImage.image}
                     className="hero--footer-image"
                     alt={footerContent.footerImage.alt || ''}
                   />
                 )}
-              </>
+              </div>
+              <div>
+                {footerContent.footerSecondImage.image && (
+                  <img
+                    src={footerContent.footerSecondImage.image}
+                    className="hero--footer-image"
+                    alt={footerContent.footerSecondImage.alt || ''}
+                  />
+                )}
+              </div>
+
               {footerContent.footerText && (
                 <p className="hero--footer-text">{footerContent.footerText}</p>
               )}

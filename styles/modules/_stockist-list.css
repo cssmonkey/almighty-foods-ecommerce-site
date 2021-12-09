@@ -3,7 +3,7 @@
     @apply mb-12;
   }
   &__title {
-    @apply mb-2 text-center;
+    @apply mb-2 text-center text-4xl sm:text-5xl;
   }
   &__list {
     @apply text-center;

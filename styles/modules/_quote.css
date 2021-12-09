@@ -14,17 +14,22 @@
     @apply text-3xl sm:text-5xl m-0;
   }
   blockquote p {
-    @apply text-3xl sm:text-5xl text-center flex mb-0;
+    @apply text-4xl sm:text-5xl text-center flex mb-0;
   }
   blockquote footer {
-    @apply block text-2xl sm:text-2xl text-center;
+    @apply block text-2xl sm:text-2xl text-center pt-2;
   }
 
   .blockquote__quotemark-start,
   .blockquote__quotemark-end {
     @apply text-highlight;
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    @media (--sm) {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
   }
   .blockquote__quotemark-start {
     @apply pr-2;
@@ -36,16 +41,20 @@
 
   .blockquote__text {
     position: relative;
-    padding: 0 3rem;
+    padding: 0 2.75rem;
+
+    @media (--sm) {
+      padding: 0 3.75rem;
+    }
 
     .blockquote__quotemark-start {
       position: absolute;
-      top: 0;
+      top: -0.5rem;
       left: 0;
     }
     .blockquote__quotemark-end {
       position: absolute;
-      bottom: 0;
+      bottom: -0.5rem;
       right: 0;
     }
   }
