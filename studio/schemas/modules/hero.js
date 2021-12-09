@@ -74,8 +74,13 @@ export default {
           type: 'string'
         },
         {
-          title: 'Footer image',
+          title: 'Footer image 1',
           name: 'footerImage',
+          type: 'figure'
+        },
+        {
+          title: 'Footer image 2',
+          name: 'footerSecondImage',
           type: 'figure'
         }
       ]

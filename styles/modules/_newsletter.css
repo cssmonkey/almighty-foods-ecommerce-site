@@ -9,7 +9,7 @@
   }
 
   &__title {
-    @apply text-center mx-auto mb-4 text-3xl sm:text-5xl;
+    @apply text-center mx-auto mb-4 text-4xl sm:text-5xl;
     max-width: 40rem;
   }
   &__title + &__subtitle {

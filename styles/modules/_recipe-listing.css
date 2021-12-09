@@ -1,7 +1,7 @@
 .recipe-listing {
   @apply container mx-auto mb-24 px-6 sm:px-0;
   &__title {
-    @apply text-center mx-auto text-5xl;
+    @apply text-center mx-auto text-4xl sm:text-5xl;
     max-width: 40rem;
   }
   &__title + &__subtitle {
