@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ThemeSwitch from './theme-switch';
-
 import Menu from '@blocks/navigation/menu';
 import Icon from '@components/icon';
 import Photo from '@components/photo';

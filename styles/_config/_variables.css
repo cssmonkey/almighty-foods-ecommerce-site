@@ -16,14 +16,14 @@
   --pageBG-hsl: 60, 14%, 95%;
   --pageText-hsl: 0, 0%, 0%;
 }
-
+/* 
 [data-theme='dark'] {
   --pageBG: #000000;
   --pageText: #f4f4f0;
 
   --pageBG-hsl: 0, 0%, 0%;
   --pageText-hsl: 60, 14%, 95%;
-}
+} */
 
 @custom-media --xs (min-width: 480px);
 @custom-media --sm (min-width: 768px);
