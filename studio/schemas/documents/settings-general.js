@@ -9,12 +9,6 @@ export default {
       description: 'The root domain or subdomain of your website.',
       name: 'siteURL',
       type: 'url'
-    },
-    {
-      title: 'Klaviyo Site ID (Public API Key)',
-      description: 'For product waitlist and newsletter forms.',
-      name: 'klaviyoAccountID',
-      type: 'string'
     }
   ],
   preview: {

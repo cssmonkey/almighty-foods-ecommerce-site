@@ -1,3 +1,6 @@
+.section + .recipe-listing {
+  @apply pt-8;
+}
 .recipe-listing {
   @apply container mx-auto mb-24 px-6 sm:px-0;
   &__title {

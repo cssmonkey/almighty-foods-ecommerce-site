@@ -1,7 +1,7 @@
 .footer {
   @apply container mx-auto mt-32 pb-8;
   &__logo {
-    @apply flex items-center mb-12;
+    @apply flex items-center mb-12 text-darkBrown;
 
     svg {
       @apply block fill-current w-auto h-12 mx-4;
