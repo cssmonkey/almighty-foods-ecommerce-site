@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-pageBG text-pageText leading-none text-base;
+    @apply bg-pageBG text-pageText leading-none text-lg;
     font-family: 'AlmightyFoodsRegular', sans-serif;
   }
 
