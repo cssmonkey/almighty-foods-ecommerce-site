@@ -1,5 +1,5 @@
 {
-  "name": "hull",
+  "name": "almighty-foods",
   "version": "2.0.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=development next dev",
