@@ -16,7 +16,7 @@ const Newsletter = ({ data = {} }) => {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const { handleSubmit, register, watch, reset, errors } = useForm();
+  const { handleSubmit, register, reset, errors } = useForm();
 
   // Call to reset the form
   const resetForm = (e) => {
