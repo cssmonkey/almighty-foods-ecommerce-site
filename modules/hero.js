@@ -32,7 +32,6 @@ const Hero = ({ data = {} }) => {
       threshold: buildThresholdList(),
     },
     ({ isIntersecting, intersectionRatio }) => {
-      console.log(intersectionRatio);
       if (isIntersecting && intersectionRatio > 0.2) {
         setAnimate('fade-in');
       } else if (intersectionRatio < 0.2) {
@@ -44,7 +43,6 @@ const Hero = ({ data = {} }) => {
   return (
     <section
       ref={heroRef}
-      intersecting={intersecting}
       className={cx('hero', {
         'hero--fade-in': animate === 'fade-in',
         'hero--fade-out': animate === 'fade-out',
