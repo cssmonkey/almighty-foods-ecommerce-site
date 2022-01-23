@@ -1,9 +1,10 @@
 .recipe-page {
   &__section-heading {
-    @apply mb-2 text-2xl;
+    @apply mb-2 text-3xl;
+    font-family: 'AlmightyFoodsBold';
   }
   &__underline-heading {
-    @apply text-xl underline;
+    @apply text-2xl underline;
     margin-bottom: 0.25rem !important;
   }
 
@@ -12,7 +13,8 @@
 
     ul,
     ol {
-      @apply mb-2 text-xl;
+      @apply mb-2 text-2xl;
+      line-height: 2.25rem;
     }
   }
 }

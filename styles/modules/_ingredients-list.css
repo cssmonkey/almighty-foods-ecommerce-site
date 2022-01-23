@@ -3,12 +3,12 @@
     @apply py-1;
   }
 
-  &__product-item > span {
-    @apply relative;
-  }
   .btn {
-    @apply absolute left-full ml-3;
-    top: 50%;
-    transform: translateY(-50%);
+    display: inline;
+    line-height: normal;
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
   }
 }
