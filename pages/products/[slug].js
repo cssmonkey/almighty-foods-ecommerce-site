@@ -121,20 +121,24 @@ const Product = ({ data }) => {
             <PageHeader title={title} subtitle={price} />
             <PageContent>
               <section className="product-page-section product-page-section--main">
-                <Photo
-                  photo={page.product.mainImage}
-                  srcsetSizes={[400]}
-                  sizes="(min-width: 768px) 400px, 35vw'"
-                  className="product-page__main-image"
-                />
-                <div className="freeform-text product-description">
-                  <Freeform data={page.description} />
-                  <div className="product-controls">
-                    <ProductActions
-                      activeVariant={product.variants.find(
-                        (v) => v.id == activeVariant
-                      )}
-                    />
+                <div className="product-page__main-image-container">
+                  <Photo
+                    photo={page.product.mainImage}
+                    srcsetSizes={[400]}
+                    sizes="(min-width: 768px) 400px, 35vw'"
+                    className="product-page__main-image"
+                  />
+                </div>
+                <div className="product-description-container">
+                  <div className="freeform-text product-description">
+                    <Freeform data={page.description} />
+                    <div className="product-controls">
+                      <ProductActions
+                        activeVariant={product.variants.find(
+                          (v) => v.id == activeVariant
+                        )}
+                      />
+                    </div>
                   </div>
                 </div>
               </section>

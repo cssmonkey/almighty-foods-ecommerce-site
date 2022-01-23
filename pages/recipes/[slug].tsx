@@ -16,8 +16,10 @@ const getIngredientList = (ingredientList) => {
 
   return ingredientProducts
     .map(({ beforeText, afterText, product }) => ({
-      title: `${beforeText} ${product.title} ${afterText}`,
+      title: beforeText,
       variants: product.variants,
+      productName: product.title,
+      afterText,
     }))
     .concat(ingredients.map((title) => ({ title })))
     .sort(function (a, b) {
@@ -75,40 +77,47 @@ const RecipePage = ({ data }) => {
                           </h4>
                         )}
                         <ul className="freeform-text__list ingredients-list">
-                          {list.map(({ title, variants }, i) => {
-                            if (variants) {
-                              const defaultVariant = variants[0];
+                          {list.map(
+                            (
+                              { title, variants, productName, afterText },
+                              i
+                            ) => {
+                              if (variants) {
+                                const defaultVariant = variants[0];
 
+                                return (
+                                  <li
+                                    key={`ingredient-product_${i}`}
+                                    className="ingredients-list__product-item"
+                                  >
+                                    {title}{' '}
+                                    <span className="ingredients-list__product-name">
+                                      <ProductAdd
+                                        productID={defaultVariant.id}
+                                        quantity={1}
+                                        className="btn is-primary btn--icon"
+                                      >
+                                        <Icon
+                                          className="icon"
+                                          name="Plus"
+                                          id="add-to-cart-icon"
+                                          title={`Add ${defaultVariant.title} to Basket`}
+                                        />
+                                        <span>
+                                          Add {defaultVariant.title} to Basket
+                                        </span>{' '}
+                                      </ProductAdd>{' '}
+                                      {productName}
+                                      {afterText}
+                                    </span>
+                                  </li>
+                                );
+                              }
                               return (
-                                <li
-                                  key={`ingredient-product_${i}`}
-                                  className="ingredients-list__product-item"
-                                >
-                                  <span>
-                                    {title}
-                                    <ProductAdd
-                                      productID={defaultVariant.id}
-                                      quantity={1}
-                                      className="btn is-primary btn--icon"
-                                    >
-                                      <Icon
-                                        className="icon"
-                                        name="Plus"
-                                        id="add-to-cart-icon"
-                                        title={`Add ${defaultVariant.title} to Basket`}
-                                      />
-                                      <span>
-                                        Add {defaultVariant.title} to Basket
-                                      </span>
-                                    </ProductAdd>
-                                  </span>
-                                </li>
+                                <li key={`ingredient-text_${i}`}>{title}</li>
                               );
                             }
-                            return (
-                              <li key={`ingredient-text_${i}`}>{title}</li>
-                            );
-                          })}
+                          )}
                         </ul>
                       </>
                     )}
