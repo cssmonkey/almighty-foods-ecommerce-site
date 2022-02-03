@@ -25,7 +25,7 @@ const ProductAdd = ({ productID, quantity = 1, className, children }) => {
         </button>
       ) : (
         <button
-          className={cx(className, { 'is-disabled': isAdding })}
+          className={cx(className, { 'is-disabled is-adding': isAdding })}
           onClick={async () => {
             setIsAdding(true);
             await addItemToCart(productID, quantity);
