@@ -141,7 +141,7 @@ ul {
   }
 }
 
-ol {
+ 
   .rc & {
     @apply pl-8 text-base leading-normal list-none;
     counter-reset: count;
