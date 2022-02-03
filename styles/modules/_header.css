@@ -173,6 +173,7 @@ a[href='#content'].skip-link {
     @apply w-6 h-6 rounded-full text-pageBG opacity-0 text-xs leading-loose bg-highlight absolute;
     right: calc(-0.75rem + 100%);
     transform: translateY(20%);
+    line-height: 1.65rem;
 
     &.is-active {
       @apply opacity-100;

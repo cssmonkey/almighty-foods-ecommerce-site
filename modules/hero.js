@@ -25,7 +25,7 @@ const Hero = ({ data = {} }) => {
   const heroRef = useRef();
   const [animate, setAnimate] = useState('');
 
-  const intersecting = useIntersection(
+  useIntersection(
     heroRef,
     {
       rootMargin: '0px',
