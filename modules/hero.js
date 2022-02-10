@@ -74,7 +74,7 @@ const Hero = ({ data = {} }) => {
                 {footerContent.footerSecondImage.image && (
                   <img
                     src={footerContent.footerSecondImage.image}
-                    className="hero--footer-image"
+                    className="hero--footer-image hero--footer-image-last"
                     alt={footerContent.footerSecondImage.alt || ''}
                   />
                 )}
