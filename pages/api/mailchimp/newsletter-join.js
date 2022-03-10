@@ -9,6 +9,7 @@ mailchimp.setConfig({
 const audienceID = process.env.MAILCHIMP_AUDIENCE_ID;
 
 export default async function send(req, res) {
+  debugger;
   if (req.method !== 'POST') {
     return res.status(404).json({ error: 'must be a POST request' });
   }
