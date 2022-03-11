@@ -60,8 +60,9 @@ const Layout = ({ site = {}, page = {}, schema = null, children }) => {
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-TileColor" content="#ff0000" />
+        <meta name="theme-color" content="#ffffff" />
 
-        <link preload="true" rel="icon" href="/favicon.svg" />
         <link
           rel="preload"
           href="/fonts/almighty-foods-bold.woff"
@@ -101,18 +102,9 @@ const Layout = ({ site = {}, page = {}, schema = null, children }) => {
           crossOrigin=""
         />
 
-        <link
-          preload="true"
-          rel="mask-icon"
-          href="/favicon.svg"
-          color="#000000"
-        />
-        {siteIcon && (
-          <link
-            rel="apple-touch-icon"
-            href={imageBuilder.image(siteIcon).width(180).height(180).url()}
-          />
-        )}
+        <link preload="true" rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
 
         <link rel="preconnect" href="https://almightyfoods.myshopify.com" />
         <link
