@@ -160,6 +160,7 @@ export async function getStaticProps({ params, preview, previewData }) {
     props: {
       data: recipeData,
     },
+    revalidate: 10,
   };
 }
 

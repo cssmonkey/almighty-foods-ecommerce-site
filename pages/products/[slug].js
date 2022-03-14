@@ -214,6 +214,7 @@ export async function getStaticProps({ params, preview, previewData }) {
     props: {
       data: productData,
     },
+    revalidate: 10,
   };
 }
 

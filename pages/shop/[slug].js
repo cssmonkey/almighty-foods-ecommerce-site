@@ -34,6 +34,7 @@ export async function getStaticProps({ params, preview, previewData }) {
     props: {
       data: collectionData,
     },
+    revalidate: 10,
   };
 }
 
