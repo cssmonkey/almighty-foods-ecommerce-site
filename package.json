@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=development next dev",
-    "build": "echo 'Building Sanity to public/studio…' && cd studio && npx sanity build ../public/studio -y && cd .. && next build",
+    "build": "next build",
+    "build:app": "echo 'Building Sanity to public/studio…' && cd studio && npx sanity build ../public/studio -y && cd .. && next build",
     "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
