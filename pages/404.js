@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import Layout from '@components/layout'
-import { getStaticPage, modules } from '@lib/api'
+import Layout from '@components/layout';
+import { getStaticPage, modules } from '@lib/api';
 
-import { Module } from '@modules/index'
+import { Module } from '@modules/index';
 
 const ErrorPage = ({ data }) => {
-  const { site, menus, page } = data
+  const { site, menus, page } = data;
 
   return (
     <Layout
@@ -20,8 +20,8 @@ const ErrorPage = ({ data }) => {
         <Module key={key} module={module} />
       ))}
     </Layout>
-  )
-}
+  );
+};
 
 export async function getStaticProps({ preview, previewData }) {
   const pageData = await getStaticPage(
@@ -37,13 +37,14 @@ export async function getStaticProps({ preview, previewData }) {
       active: preview,
       token: previewData?.token,
     }
-  )
+  );
 
   return {
     props: {
       data: pageData,
     },
-  }
+    revalidate: 10,
+  };
 }
 
-export default ErrorPage
+export default ErrorPage;
