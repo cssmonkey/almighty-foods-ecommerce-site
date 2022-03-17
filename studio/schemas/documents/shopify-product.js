@@ -108,12 +108,9 @@ export default {
     },
     {
       title: 'Product type',
-      name: 'productType',
-      type: 'string',
-      options: {
-        list: [{ title: 'Nut Butter', value: 'Nut Butter' }]
-      },
-      initialValue: 'Nut Butter'
+      name: 'selectedProductType',
+      type: 'reference',
+      to: [{ type: 'productType' }]
     },
     {
       title: 'Display Title',
