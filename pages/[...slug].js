@@ -52,7 +52,7 @@ export async function getStaticProps({ params, preview, previewData }) {
     props: {
       data: pageData,
     },
-    revalidate: 10,
+    revalidate: 5,
   };
 }
 
@@ -69,7 +69,7 @@ export async function getStaticPaths() {
           },
         };
       }) || [],
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
