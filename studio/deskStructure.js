@@ -42,6 +42,7 @@ const hiddenDocTypes = listItem =>
     'recipePage',
     'recipeIngredients',
     'stockistsPage',
+    'productType',
 
     'generalSettings',
     'cookieSettings',
@@ -263,6 +264,18 @@ export default () =>
                                 .title('SEO Preview')
                             ])
                         )
+                    )
+                ),
+              S.listItem()
+                .title('Product types')
+                .child(
+                  S.documentTypeList('productType')
+                    .title('Product types')
+                    .child(documentId =>
+                      S.document()
+                        .documentId(documentId)
+                        .schemaType('productType')
+                        .views([S.view.form().icon(EditIcon)])
                     )
                 ),
               S.listItem()

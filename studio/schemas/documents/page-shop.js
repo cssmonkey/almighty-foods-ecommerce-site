@@ -5,7 +5,7 @@ export default {
   name: 'shopPage',
   type: 'document',
   icon: FiShoppingCart,
-  //__experimental_actions: ['update', 'publish'], // disable for initial publish
+  __experimental_actions: ['update', 'publish'], // disable for initial publish
   fields: [
     {
       name: 'title',

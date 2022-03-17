@@ -4,7 +4,7 @@ export default {
   name: 'product',
   title: 'Product',
   type: 'document',
-  //__experimental_actions: ['update', 'publish', 'delete'], // disable for initial publish
+  __experimental_actions: ['update', 'publish', 'delete'], // disable for initial publish
   fieldsets: [
     {
       title: 'Shopify',
@@ -108,12 +108,9 @@ export default {
     },
     {
       title: 'Product type',
-      name: 'productType',
-      type: 'string',
-      options: {
-        list: [{ title: 'Nut Butter', value: 'Nut Butter' }]
-      },
-      initialValue: 'Nut Butter'
+      name: 'selectedProductType',
+      type: 'reference',
+      to: [{ type: 'productType' }]
     },
     {
       title: 'Display Title',
