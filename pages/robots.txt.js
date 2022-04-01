@@ -8,15 +8,12 @@ const Robots = () => {
 
 export async function getServerSideProps({ req, res }) {
   res.setHeader('Content-Type', 'text/plain');
-  //   res.write(`Sitemap: https://${req.headers.host}/sitemap.xml
 
-  // User-agent: *
-  // Allow: /*
-  // Disallow: /api/*`);
   res.write(`Sitemap: https://${req.headers.host}/sitemap.xml
     
   User-agent: *
-  Disallow: /`);
+  Allow: /*
+  Disallow: /api/*`);
 
   res.end();
 
