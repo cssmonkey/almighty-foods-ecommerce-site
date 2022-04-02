@@ -112,6 +112,4 @@ const MyApp = ({ Component, pageProps, router }) => {
   );
 };
 
-export default process.env.PASSWORD_PROTECT
-  ? withPasswordProtect(MyApp)
-  : MyApp;
+export default MyApp;
