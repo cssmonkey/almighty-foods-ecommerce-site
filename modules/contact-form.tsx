@@ -195,8 +195,10 @@ const WholesalerForm: FC<ContactFormProps> = ({ type }) => {
       body: JSON.stringify({
         subject: request.subject,
         name: request.name,
+        company: request.company,
         email: request.email,
         message: request.message,
+        website: request.website,
       }),
     })
       .then(() => {
