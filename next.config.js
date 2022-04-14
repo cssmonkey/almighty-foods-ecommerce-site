@@ -62,6 +62,11 @@ module.exports = withBundleAnalyzer({
     NEXT_PUBLIC_GOOGLE_ANALYTICS: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
     PASSWORD: process.env.PASSWORD,
     PASSWORD_PROTECT: process.env.PASSWORD_PROTECT,
+
+    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+    SENDGRID_TO_EMAIL: process.env.SENDGRID_TO_EMAIL,
+    SENDGRID_FROM_EMAIL: process.env.SENDGRID_FROM_EMAIL,
+    FORMSUBMIT_ID: process.env.FORMSUBMIT_ID,
   },
   async redirects() {
     const sanityRedirects = await fetchSanityRedirects();

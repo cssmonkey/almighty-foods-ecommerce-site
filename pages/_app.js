@@ -3,7 +3,6 @@ import Router from 'next/router';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import TagManager from 'react-gtm-module';
-import { withPasswordProtect } from '@storyofams/next-password-protect';
 import { LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 
 import { track } from '@lib/gtm';
