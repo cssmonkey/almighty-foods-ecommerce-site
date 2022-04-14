@@ -11,6 +11,8 @@ const sanity = sanityClient({
   useCdn: false,
 });
 
+const formSubmitId = process.env.FORMSUBMIT_ID;
+
 interface ContactFormProps {
   type: 'contactEnquiry' | 'wholesaleContactEnquiry';
 }
@@ -33,10 +35,25 @@ const CustomerForm: FC<ContactFormProps> = ({ type }) => {
   } as const;
 
   const onSubmit = (values) => {
-    const request = { ...values, _type: type };
+    const request = {
+      ...values,
+      subject: 'Customer enquiry from website',
+      _type: type,
+    };
 
-    sanity
-      .create(request)
+    fetch(`https://formsubmit.co/ajax/${formSubmitId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        subject: request.subject,
+        name: request.name,
+        email: request.email,
+        message: request.message,
+      }),
+    })
       .then(() => {
         setSubmitting(false);
         setSuccess(true);
@@ -45,6 +62,8 @@ const CustomerForm: FC<ContactFormProps> = ({ type }) => {
         setSubmitting(false);
         setError(true);
       });
+
+    sanity.create(request);
   };
 
   const renderError = (message: string): JSX.Element => (
@@ -161,10 +180,25 @@ const WholesalerForm: FC<ContactFormProps> = ({ type }) => {
   } as const;
 
   const onSubmit = (values) => {
-    const request = { ...values, _type: type };
+    const request = {
+      ...values,
+      subject: 'Wholesale enquiry from website',
+      _type: type,
+    };
 
-    sanity
-      .create(request)
+    fetch(`https://formsubmit.co/ajax/${formSubmitId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        subject: request.subject,
+        name: request.name,
+        email: request.email,
+        message: request.message,
+      }),
+    })
       .then(() => {
         setSubmitting(false);
         setSuccess(true);
@@ -173,6 +207,8 @@ const WholesalerForm: FC<ContactFormProps> = ({ type }) => {
         setSubmitting(false);
         setError(true);
       });
+
+    sanity.create(request);
   };
 
   const renderError = (message: string): JSX.Element => (
