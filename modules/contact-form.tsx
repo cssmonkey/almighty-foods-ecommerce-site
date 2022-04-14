@@ -37,7 +37,6 @@ const CustomerForm: FC<ContactFormProps> = ({ type }) => {
   const onSubmit = (values) => {
     const request = {
       ...values,
-      subject: 'Customer enquiry from website',
       _type: type,
     };
 
@@ -48,7 +47,7 @@ const CustomerForm: FC<ContactFormProps> = ({ type }) => {
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        subject: request.subject,
+        subject: 'Customer enquiry from website',
         name: request.name,
         email: request.email,
         message: request.message,
@@ -182,7 +181,6 @@ const WholesalerForm: FC<ContactFormProps> = ({ type }) => {
   const onSubmit = (values) => {
     const request = {
       ...values,
-      subject: 'Wholesale enquiry from website',
       _type: type,
     };
 
@@ -193,7 +191,7 @@ const WholesalerForm: FC<ContactFormProps> = ({ type }) => {
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        subject: request.subject,
+        subject: 'Wholesale enquiry from website',
         name: request.name,
         company: request.company,
         email: request.email,
