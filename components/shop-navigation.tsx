@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Select from 'react-select';
 
 interface Collection {
   title: string;
@@ -18,9 +19,19 @@ const ShopNavigation: FC<ShopNavigationProps> = ({
 }) => {
   const router = useRouter();
   const shopUrl = '/shop';
+
   if (!collections || collections.length === 0) {
     return null;
   }
+  const options = [{ value: '', label: shopPageTitle }].concat(
+    collections.map((item) => ({
+      value: item.slug,
+      label: item.title,
+    }))
+  );
+  const defaultValue =
+    options.find((item) => item.value === router.query.slug) || options[0];
+
   return (
     <nav className="shop-navigation">
       <ul>
@@ -41,6 +52,16 @@ const ShopNavigation: FC<ShopNavigationProps> = ({
           </li>
         ))}
       </ul>
+
+      <Select
+        className="shop-navigation__mobile-select"
+        options={options}
+        defaultValue={defaultValue}
+        onChange={({ value }) => {
+          const url = `${shopUrl}/${value}`;
+          router.push(url);
+        }}
+      />
     </nav>
   );
 };
