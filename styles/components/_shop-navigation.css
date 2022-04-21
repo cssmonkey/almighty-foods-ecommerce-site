@@ -1,6 +1,6 @@
 .shop-navigation {
   &__mobile-select {
-    @apply block sm:hidden pt-12 mx-6 z-20 relative;
+    @apply block pt-12 mx-6 z-20 relative;
   }
   ul {
     @apply pt-12 pb-6 px-6 sm:px-0 mx-auto items-center justify-center hidden sm:flex;
@@ -37,6 +37,50 @@
       &::after {
         @apply w-full border-lightGrey;
       }
+    }
+  }
+}
+
+.shop-navigation__mobile-select {
+  @apply text-xl;
+  .shop-navigation-select {
+    &__control {
+      @apply rounded-none border-darkBrown;
+      min-height: 42px;
+    }
+    &__control--is-focused:hover,
+    &__control--menu-is-open:hover {
+      @apply border-darkBrown shadow-none;
+    }
+    &__value-container {
+      @apply order-1;
+    }
+    &__single-value {
+      @apply text-center;
+    }
+    &__indicator-separator {
+      display: none;
+    }
+    &__menu {
+      @apply rounded-none text-center;
+    }
+    &__menu-list {
+      @apply text-center;
+    }
+    &__option {
+      @apply border-b border-darkBrown mx-3;
+      width: auto;
+      &:last-child {
+        border-bottom-color: transparent;
+      }
+    }
+    &__option--is-focused {
+      background-color: transparent;
+      color: inherit;
+    }
+    &__option--is-selected {
+      background-color: transparent;
+      @apply text-highlight;
     }
   }
 }

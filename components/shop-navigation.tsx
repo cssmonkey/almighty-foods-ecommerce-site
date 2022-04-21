@@ -61,6 +61,8 @@ const ShopNavigation: FC<ShopNavigationProps> = ({
           const url = `${shopUrl}/${value}`;
           router.push(url);
         }}
+        classNamePrefix="shop-navigation-select"
+        isSearchable={false}
       />
     </nav>
   );
