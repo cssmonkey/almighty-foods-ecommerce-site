@@ -1,6 +1,6 @@
 .shop-navigation {
   &__mobile-select {
-    @apply block pt-12 mx-6 z-20 relative;
+    @apply block sm:hidden pt-12 mx-6 z-20 relative;
   }
   ul {
     @apply pt-12 pb-6 px-6 sm:px-0 mx-auto items-center justify-center hidden sm:flex;
@@ -53,10 +53,19 @@
       @apply border-darkBrown shadow-none;
     }
     &__value-container {
-      @apply order-1;
+      @apply order-1 px-9;
     }
     &__single-value {
       @apply text-center;
+    }
+    &__indicators {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+    }
+    &__indicator svg {
+      fill: var(--darkBrown);
     }
     &__indicator-separator {
       display: none;
